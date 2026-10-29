@@ -148,7 +148,11 @@ export async function openBrowser(options = {}) {
     async render(url, renderOptions = {}) {
       const timeoutMs = renderOptions.timeoutMs ?? 12000
       const ready = renderOptions.readyExpression || 'false'
-      const navigated = await send('Page.navigate', { url })
+      let navigated = await send('Page.navigate', { url })
+      if (navigated.result?.errorText) {
+        await delay(1500)
+        navigated = await send('Page.navigate', { url })
+      }
       if (navigated.result?.errorText) {
         const error = new Error(`頁面沒有打開：${navigated.result.errorText}`)
         error.code = 'NAVIGATION'
@@ -164,6 +168,15 @@ export async function openBrowser(options = {}) {
         if (probe.result?.result?.value) return html
       }
       return html || pageHtml()
+    },
+    async evaluate(expression) {
+      const evaluated = await send('Runtime.evaluate', { expression, returnByValue: true })
+      if (evaluated.result?.exceptionDetails) {
+        const error = new Error('頁面腳本沒有完成。')
+        error.code = 'STRUCTURE'
+        throw error
+      }
+      return evaluated.result?.result?.value
     },
     close() {
       try {

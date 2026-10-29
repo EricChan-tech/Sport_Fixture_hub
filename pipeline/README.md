@@ -22,10 +22,10 @@ node pipeline/run-job.mjs --trigger manual --sources betexplorer --base-date 202
 | 來源 | 公開頁 | 怎麼拿 |
 | --- | --- | --- |
 | 澳彩 | `macauslot.com` 足球／籃球賽程，`lang=cn` 是繁體 | 頁面要瀏覽器才畫得出來。`google-chrome`、`chromium` 或 `MACAU_CHROME` |
-| BetExplorer | `betexplorer.com` 當日足球，`/basketball/next/` 籃球 | 純 HTTP。匿名頁的鐘點是 Europe/Prague；有 `data-ts` 時用那個絕對時間，再寫成 Asia/Macau |
+| BetExplorer | `betexplorer.com/?year=&month=&day=` 足球日期頁；籃球未來用 `/basketball/next/?year=`，已過用 `/basketball/results/?year=` | 跟網站日期鍵走，並帶 `my_timezone=+8`。列表若還有下一頁，再讀網站自己的 `homepage-data.php`。有 `data-ts` 時用絕對時間，再寫成 Asia/Macau |
 | Scoresway | `scoresway.com/en_GB/soccer` 與 `/en_GB/basketball` | 先取 HTML。賽程若要等 Opta 元件畫出，才開一般 headless Chrome |
 | AiScore | `aiscore.com` 與 `/basketball` | 頁面自帶的 `__NUXT__` 賽程。驗證頁就停，不解驗證 |
-| 雷速 | `leisu.com` 首頁賽程卡，以及 `m.leisu.com/live/saicheng-YYYYMMDD`（籃球加 `/lanqiu`） | 首頁是 HTTP。完整賽程頁要瀏覽器；畫不出場次就用首頁卡 |
+| 雷速 | `m.leisu.com/live/saicheng-YYYYMMDD`，籃球是 `/live/lanqiu/saicheng-YYYYMMDD` | 手機賽程頁。整日名單在頁面資料裡，畫面上只先畫出一部分 |
 
 澳彩開賽鐘點按頁面原文，時區視為 Asia/Macau。其餘來源先還原成絕對時間，再寫成 `+08:00`。名稱用該頁顯示的聯賽與主客隊，不翻譯。手動更新只寫 `--base-date` 那天，日更才寫今天 ±3 日。高信心對齊仍寫進 `.schedule-store/mapping/`，不進 Git。
 

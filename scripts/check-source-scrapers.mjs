@@ -178,11 +178,13 @@ const leisuScraped = await scrapeLeisu({
   sports: ['football', 'basketball'],
   dates: ['2026-10-30'],
   gapMs: 0,
-  renderPage: false,
-  fetchText: async () => ({ text: leisuHome }),
+  readMatches: async (page) => (page.sport === 'football'
+    ? [{ id: 4553730, match_time: 1793296800, status: 1, comp: '丹麦超', home: '哥本哈根', away: '中日德兰' }]
+    : [{ id: 88, match_time: 1793320200, status: 1, comp: 'NBA', home: '湖人', away: '塞爾特人' }]),
 })
-assert(leisuScraped.ok && leisuScraped.fixtures.length === 2, 'leisu homepage fallback')
-assert(leisuScraped.sports.football.ok && leisuScraped.sports.basketball.ok, 'leisu both sports')
+assert(leisuScraped.ok && leisuScraped.fixtures.length === 2, 'leisu schedule list')
+assert(leisuScraped.sports.football.count === 1 && leisuScraped.sports.basketball.count === 1, 'leisu both sports')
+assert(leisuScraped.fixtures.some((fixture) => fixture.external_id === '4553730' && fixture.league_name === '丹麦超'), 'leisu schedule names')
 
 const denied = await scrapeScoresway({
   sports: ['football'],

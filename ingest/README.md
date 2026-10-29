@@ -1,6 +1,6 @@
-# 日後的擷取
+# 擷取
 
-這個目錄預留給之後的真實頁面抓取。Phase 2 的發佈入口在 `pipeline/run-job.mjs`，尚未從這裡連線任何來源。
+`macau_lottery/` 會抓澳門彩票公開賽程頁，並由 `pipeline/run-job.mjs` 寫進當日 JSON。其餘四個來源還沒有接上。
 
 預期邊界：
 

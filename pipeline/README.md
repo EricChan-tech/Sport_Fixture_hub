@@ -1,12 +1,19 @@
 # 賽程管線
 
-日更與手動更新共用 `run-job.mjs`。它把示範目錄發佈到儲存層，並寫下 `manifest.json` 與 `source_health`。五個來源都還沒有真實頁面抓取；未抓取的來源標成降級，單源失敗不會讓整次工作失敗。
+日更與手動更新共用 `run-job.mjs`。它把賽程發佈到儲存層，並寫下 `manifest.json` 與 `source_health`。澳彩會打開公開賽程頁；其餘四個來源仍未抓取，標成降級。單源失敗不會讓整次工作失敗。
 
 ## 本機
 
 ```bash
 node pipeline/run-job.mjs --trigger manual --base-date 2026-10-30
+node pipeline/run-job.mjs --trigger manual --sources macau_lottery --base-date 2026-10-30
 ```
+
+只跑澳彩時，足球讀 `https://www.macauslot.com/cn/soccer/fixture.html?lang=cn`，籃球讀 `https://www.macauslot.com/cn/basketball/fixture.html?lang=cn`。這兩頁的 `lang=cn` 是繁體（zh-HK）。頁面由瀏覽器畫出賽程，純 HTTP 客戶端多半只收到驗證頁。抓取器在找到 `google-chrome`、`chromium` 或 `MACAU_CHROME` 時，用一般 headless Chrome 打開這兩個公開網址，再解析畫面上的日期、時間、聯賽與主客隊。沒有自訂指紋、沒有代理密鑰。兩頁之間相隔 2 秒。
+
+開賽時間按頁面上的鐘點，時區是 Asia/Macau（GMT+8）。賽程頁一次列出多日；手動更新只寫 `--base-date` 那天，日更才寫今天 ±3 日。賽事簡稱會對上 `data/mapping/seeds/macau_lottery/` 的種子；對不上的聯賽用穩定 id，仍然因為 `has_macau` 而鎖定白名單。其餘四源的格子維持缺。
+
+抓不到、沒有 Chrome，或頁面結構對不上時，`source_health.macau_lottery` 為 `down` 或 `degraded`，澳彩格改為缺，工作本身仍成功。賽程頁通常由今天往後列，更早的已完場日期可能是空陣列，不是示範資料。機房 IP 若被驗證頁擋住，把 `RUNNER_EGRESS` 改成 self-hosted；不要在程式裡解驗證腳本。
 
 預設 `SCHEDULE_STORE=local`，目錄是 `.schedule-store/`。物件鍵為 `manifest.json` 與 `{sport}/days/{YYYY-MM-DD}.json`。這個目錄已在 `.gitignore`。
 
@@ -14,7 +21,7 @@ node pipeline/run-job.mjs --trigger manual --base-date 2026-10-30
 
 ## 環境變數
 
-伺服器端：`SCHEDULE_STORE`、`SCHEDULE_STORE_DIR`、`SCHEDULE_JOB_TOKEN`、`RUNNER_EGRESS`。
+伺服器端：`SCHEDULE_STORE`、`SCHEDULE_STORE_DIR`、`SCHEDULE_JOB_TOKEN`、`RUNNER_EGRESS`、`MACAU_CHROME`。
 
 物件儲存預留：`S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`、`NETLIFY_BLOBS_SITE_ID`、`NETLIFY_AUTH_TOKEN`。未填時不要把 `SCHEDULE_STORE` 改離 `local`。
 

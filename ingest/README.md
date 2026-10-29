@@ -1,6 +1,6 @@
 # 擷取
 
-`macau_lottery/` 會抓澳門彩票公開賽程頁，並由 `pipeline/run-job.mjs` 寫進當日 JSON。其餘四個來源還沒有接上。
+`macau_lottery/`、`betexplorer/`、`scoresway/`、`aiscore/`、`leisu/` 各抓自己的公開賽程頁，由 `pipeline/run-job.mjs` 對齊後寫進當日 JSON。頁面被拒或沒有 Chrome 時，只降級該來源。
 
 預期邊界：
 

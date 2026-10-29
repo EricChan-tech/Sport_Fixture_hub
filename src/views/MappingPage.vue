@@ -99,7 +99,7 @@ function previewItems(): ParsedImportItem[] {
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl px-3 py-4 pb-12 sm:px-6">
+  <div class="mx-auto max-w-[1800px] px-3 py-4 pb-12 sm:px-4">
     <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
       <div>
         <p class="text-xs uppercase tracking-[0.22em] text-gold">Mapping</p>

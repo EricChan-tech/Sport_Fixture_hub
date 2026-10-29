@@ -41,6 +41,8 @@ node pipeline/run-job.mjs --trigger manual --sources betexplorer --base-date 202
 
 瀏覽器：澳彩讀 `MACAU_CHROME`。其餘需要瀏覽器的來源先讀 `SCHEDULE_CHROME`，沒有再讀 `MACAU_CHROME`，最後才找 `google-chrome`、`chromium` 或 `msedge`。本機只有 Edge 時，把 `MACAU_CHROME` 設成 `msedge.exe` 的完整路徑，五個來源都能用。
 
+Scoresway 與 AiScore 會用一般 headless Chrome 等頁面畫完。連除錯埠的用戶端是依賴 `ws`，Node 20 沒有全域 `WebSocket` 也能跑。裝依賴時 `npm i` 會帶上它，沒有另外的環境變數。
+
 網址覆寫（可空）：`BETEXPLORER_BASE`、`SCOREWAY_BASE`、`AISCORE_BASE`、`LEISU_BASE`、`LEISU_MOBILE_BASE`。
 
 物件儲存預留：`S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`、`NETLIFY_BLOBS_SITE_ID`、`NETLIFY_AUTH_TOKEN`。未填時不要把 `SCHEDULE_STORE` 改離 `local`。

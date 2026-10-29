@@ -4,6 +4,15 @@ import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
 import { setTimeout as delay } from 'node:timers/promises'
+import WebSocket from 'ws'
+
+/**
+ * Chrome's debugging port speaks WebSockets. Node 22 has a global WebSocket;
+ * Node 20 does not, so this client always uses the `ws` package.
+ */
+export function chromeWebSocket() {
+  return WebSocket
+}
 
 const execFileAsync = promisify(execFile)
 
@@ -96,13 +105,14 @@ export async function openBrowser(options = {}) {
     const pages = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()
     const page = pages.find((entry) => entry.type === 'page' && entry.webSocketDebuggerUrl)
     if (!page) fail(Object.assign(new Error('Chrome 沒有頁面目標。'), { code: 'NO_BROWSER' }))
-    pageSocket = new WebSocket(page.webSocketDebuggerUrl)
+    const Socket = chromeWebSocket()
+    pageSocket = new Socket(page.webSocketDebuggerUrl)
     await new Promise((resolve, reject) => {
-      pageSocket.addEventListener('open', resolve)
-      pageSocket.addEventListener('error', () => reject(Object.assign(new Error('無法連上 Chrome。'), { code: 'NO_BROWSER' })))
+      pageSocket.once('open', resolve)
+      pageSocket.once('error', (error) => reject(error instanceof Error ? error : Object.assign(new Error('無法連上 Chrome。'), { code: 'NO_BROWSER' })))
     })
-    pageSocket.addEventListener('message', (event) => {
-      const message = JSON.parse(event.data)
+    pageSocket.on('message', (data) => {
+      const message = JSON.parse(String(data))
       if (message.id && pending.has(message.id)) {
         pending.get(message.id)(message)
         pending.delete(message.id)
@@ -118,12 +128,11 @@ export async function openBrowser(options = {}) {
     const id = ++seq
     return new Promise((resolve, reject) => {
       pending.set(id, resolve)
-      try {
-        pageSocket.send(JSON.stringify({ id, method, params }))
-      } catch (error) {
+      pageSocket.send(JSON.stringify({ id, method, params }), (error) => {
+        if (!error) return
         pending.delete(id)
         reject(error)
-      }
+      })
     })
   }
 

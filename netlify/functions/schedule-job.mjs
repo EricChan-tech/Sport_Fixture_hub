@@ -7,9 +7,6 @@ function notFound() {
   })
 }
 
-// Default export selects the Netlify Functions v2 runtime, which bundles .mjs
-// as ESM. A named `handler` export is bundled as CommonJS and rejects the
-// top-level await in pipeline/run-job.mjs.
 export default async (request) => {
   const url = new URL(request.url)
   const jobId = url.searchParams.get('job_id')

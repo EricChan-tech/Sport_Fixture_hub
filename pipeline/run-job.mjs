@@ -1,6 +1,5 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, MANUAL_WINDOW_DAYS, SOURCE_IDS, SPORTS } from './constants.mjs'
 import { pipelineFile, repoRoot } from './paths.mjs'
 import { createStore, objectKey } from './storage.mjs'
@@ -287,6 +286,15 @@ async function main() {
   if (result.job.state === 'fail' && !result.accepted) process.exitCode = 2
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main()
+function invokedAsCli() {
+  const entry = process.argv[1]
+  if (!entry) return false
+  return /^run-job\.(mjs|cjs|js)$/.test(path.basename(entry))
+}
+
+if (invokedAsCli()) {
+  void main().catch((error) => {
+    console.error(error)
+    process.exitCode = 1
+  })
 }

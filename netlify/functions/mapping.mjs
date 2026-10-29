@@ -17,8 +17,6 @@ function mappingSuffix(pathname) {
   return '/workspace'
 }
 
-// Default export selects the Netlify Functions v2 runtime so this .mjs file
-// is bundled as ESM instead of CommonJS.
 export default async (request) => {
   const url = new URL(request.url)
   const query = url.searchParams.toString()

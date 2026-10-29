@@ -41,7 +41,8 @@ const visible = computed(() => {
     if (sportFilter.value !== 'all' && item.sport !== sportFilter.value) return false
     if (!needle) return true
     const id = item.entity === 'competition' ? item.competition_id : item.team_id
-    return [item.name_zh, item.name_en, id].join(' ').toLowerCase().includes(needle)
+    const shortName = item.entity === 'competition' ? item.short_zh : ''
+    return [item.name_zh, shortName, item.name_en, id].join(' ').toLowerCase().includes(needle)
   })
 })
 
@@ -158,7 +159,7 @@ function previewItems(): ParsedImportItem[] {
         <input
           v-model="search"
           type="search"
-          placeholder="搜尋名稱或 id"
+          placeholder="搜尋名稱、簡稱或 id"
           class="w-full rounded-md border border-line bg-panel px-3 py-2 text-sm sm:max-w-xs"
         />
       </div>

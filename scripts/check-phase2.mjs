@@ -76,6 +76,24 @@ const page = await queryCatalog({ sport: 'football', kind: 'team', q: 'Test FC',
 assert(page.total === 1 && page.items[0].entity_id === 'macau-football-team-1', 'catalog search sees override')
 const full = await queryCatalog({ sport: 'football', kind: 'team', q: '', page: 1, pageSize: 40 })
 assert(full.total === 7745 && full.items.length === 40, 'team catalog is paged')
+assert(page.items[0].short_name_zh === '', 'team catalog short name is blank')
+
+const byShort = await queryCatalog({ sport: 'football', kind: 'competition', q: '英亞盃', page: 1, pageSize: 40 })
+assert(byShort.total === 1 && byShort.items[0].entity_id === 'macau-football-competition-1', 'catalog search matches short name')
+assert(byShort.items[0].short_name_zh === '英亞盃', 'catalog row exposes short name')
+const emptyShort = await queryCatalog({ sport: 'football', kind: 'competition', q: '西亚冠军杯', page: 1, pageSize: 40 })
+assert(emptyShort.total === 1 && emptyShort.items[0].short_name_zh === '', 'empty short name stays blank')
+const basketball = await queryCatalog({ sport: 'basketball', kind: 'competition', q: '', page: 1, pageSize: 40 })
+assert(basketball.total === 162 && basketball.items[0].short_name_zh === '阿籃錦', 'basketball catalog count and short name')
+const editedComp = await putSeedOverride({
+  entity_id: 'macau-football-competition-1',
+  canonical_name_zh: '英超亞洲盃',
+  canonical_name_en: 'Premier League Asia Trophy',
+  short_name_zh: '亞盃簡',
+})
+assert(editedComp.short_name_zh === '亞盃簡', 'short name override stored')
+const renamed = await queryCatalog({ sport: 'football', kind: 'competition', q: '亞盃簡', page: 1, pageSize: 40 })
+assert(renamed.total === 1 && renamed.items[0].short_name_zh === '亞盃簡', 'catalog search sees short override')
 
 const limited = await runScheduleJob({ trigger: 'manual', baseDate: '2026-10-30', now, paceMs: 0 })
 assert(limited.accepted === false && limited.job.reason.includes('5 分鐘'), 'rate limit')

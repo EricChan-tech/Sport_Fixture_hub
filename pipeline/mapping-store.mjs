@@ -27,6 +27,8 @@ export async function putSeedOverride(input) {
   const entityId = String(input?.entity_id || '')
   const nameZh = String(input?.canonical_name_zh || '').trim()
   const nameEn = String(input?.canonical_name_en || '').trim()
+  const hasShort = Boolean(input) && Object.prototype.hasOwnProperty.call(input, 'short_name_zh')
+  const shortName = hasShort ? String(input.short_name_zh || '').trim() : ''
   if (!/^macau-(football|basketball)-(team|competition)-\d+$/.test(entityId)) {
     const error = new Error('對照 id 不在澳彩種子範圍。')
     error.code = 'BAD_REQUEST'
@@ -45,6 +47,7 @@ export async function putSeedOverride(input) {
     source: 'manual',
     updated_at: new Date().toISOString(),
   }
+  if (hasShort) item.short_name_zh = shortName
   current.items[entityId] = item
   await createStore().put(OVERRIDES_KEY, `${JSON.stringify(current)}\n`)
   return item

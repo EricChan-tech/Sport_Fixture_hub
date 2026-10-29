@@ -1,12 +1,13 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+import { pathToFileURL } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, MANUAL_WINDOW_DAYS, SOURCE_IDS, SPORTS } from './constants.mjs'
+import { pipelineFile, repoRoot } from './paths.mjs'
 import { createStore, objectKey } from './storage.mjs'
 import { addCalendarDays, todayInMacau } from './time.mjs'
 import { withinManualWindow } from '../src/lib/productRules.mjs'
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const root = repoRoot()
 const fixtureRoot = path.join(root, 'public/fixtures')
 const mappingSeedPath = path.join(root, 'src/config/mapping.seed.json')
 
@@ -29,7 +30,7 @@ async function readJson(file) {
 }
 
 async function loadSourceConfig() {
-  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), 'sources.config.json')
+  const file = pipelineFile('sources.config.json')
   return JSON.parse(await readFile(file, 'utf8'))
 }
 

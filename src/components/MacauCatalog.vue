@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onUnmounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useMapping } from '../composables/useMapping'
 import { SOURCE_IDS, SOURCE_META } from '../lib/sources.mjs'
 import type { SourceId, Sport } from '../types/schema'
@@ -35,8 +35,16 @@ const draftEn = ref('')
 const draftShort = ref('')
 const saveMessage = ref('')
 const { revision } = useMapping()
+const scroller = ref<HTMLElement | null>(null)
+const overflowing = ref(false)
 let timer = 0
 let requestId = 0
+let resizeObserver: ResizeObserver | undefined
+
+function syncOverflow(): void {
+  const el = scroller.value
+  overflowing.value = !!el && el.scrollWidth > el.clientWidth + 1
+}
 
 const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)))
 const rangeLabel = computed(() => {
@@ -70,7 +78,10 @@ async function load(): Promise<void> {
     total.value = 0
     error.value = cause instanceof Error ? cause.message : '對照表讀取失敗。'
   } finally {
-    if (id === requestId) loading.value = false
+    if (id === requestId) {
+      loading.value = false
+      void nextTick(syncOverflow)
+    }
   }
 }
 
@@ -91,7 +102,20 @@ watch(page, () => void load())
 watch(revision, () => void load())
 
 void load()
-onUnmounted(() => window.clearTimeout(timer))
+
+onMounted(() => {
+  syncOverflow()
+  resizeObserver = new ResizeObserver(() => syncOverflow())
+  if (scroller.value) {
+    resizeObserver.observe(scroller.value)
+    if (scroller.value.firstElementChild) resizeObserver.observe(scroller.value.firstElementChild)
+  }
+})
+
+onUnmounted(() => {
+  window.clearTimeout(timer)
+  resizeObserver?.disconnect()
+})
 
 function sourceName(row: CatalogRow, sourceId: SourceId): string {
   return row.source_names?.[sourceId]?.trim() || ''
@@ -171,54 +195,76 @@ function sourceLabel(source: CatalogRow['source']): string {
     <p v-if="loading" class="mt-2 text-xs text-muted">正在讀取這一頁…</p>
     <p v-if="error" class="mt-2 text-xs text-miss">{{ error }}</p>
     <p v-if="saveMessage" class="mt-2 text-xs text-gold">{{ saveMessage }}</p>
-    <div class="mt-2 overflow-x-auto">
-      <table data-testid="catalog-table" class="w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
-        <thead class="text-[11px] uppercase tracking-wider text-muted">
+    <div ref="scroller" class="catalog-scroll mt-2 overflow-x-auto" :class="{ 'is-overflowing': overflowing }">
+      <table data-testid="catalog-table" class="catalog-table w-full border-separate border-spacing-0 text-left text-[13px] leading-tight">
+        <colgroup>
+          <col style="width: var(--col-id)" />
+          <col />
+          <col v-if="kind === 'competition'" style="width: var(--col-short)" />
+          <col />
+          <col v-for="sourceId in catalogSources" :key="`col-${sourceId}`" />
+          <col style="width: var(--col-sport)" />
+          <col style="width: var(--col-kind)" />
+          <col style="width: var(--col-status)" />
+          <col style="width: var(--col-action)" />
+        </colgroup>
+        <thead class="text-[11px] tracking-normal text-muted">
           <tr>
-            <th class="px-2 py-1.5">id</th>
-            <th class="px-2 py-1.5">中文</th>
-            <th v-if="kind === 'competition'" class="px-2 py-1.5">簡稱</th>
-            <th class="px-2 py-1.5">英文</th>
-            <th v-for="sourceId in catalogSources" :key="sourceId" class="px-2 py-1.5 normal-case" :data-testid="`catalog-head-${sourceId}`">
+            <th class="px-1.5 py-1.5 font-medium">id</th>
+            <th class="px-1.5 py-1.5 font-medium">中文</th>
+            <th v-if="kind === 'competition'" class="px-1.5 py-1.5 font-medium">簡稱</th>
+            <th class="px-1.5 py-1.5 font-medium">英文</th>
+            <th
+              v-for="sourceId in catalogSources"
+              :key="sourceId"
+              class="px-1.5 py-1.5 font-medium normal-case"
+              :data-testid="`catalog-head-${sourceId}`"
+            >
               {{ SOURCE_META[sourceId].zh }}
             </th>
-            <th class="px-2 py-1.5">運動</th>
-            <th class="px-2 py-1.5">類型</th>
-            <th class="px-2 py-1.5">狀態</th>
-            <th class="px-2 py-1.5"></th>
+            <th class="catalog-pin catalog-pin-sport px-1 py-1.5 font-medium">運動</th>
+            <th class="catalog-pin catalog-pin-kind px-1 py-1.5 font-medium">類型</th>
+            <th class="catalog-pin catalog-pin-status px-1.5 py-1.5 font-medium">狀態</th>
+            <th class="catalog-pin catalog-pin-action px-1 py-1.5 text-right font-medium">修改</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="row in rows" :key="row.entity_id" class="border-t border-line" data-testid="catalog-row">
-            <td class="border-t border-line px-2 py-1 font-mono text-[11px] text-muted">{{ row.entity_id }}</td>
-            <td class="border-t border-line px-2 py-1">
-              <input v-if="editingId === row.entity_id" v-model="draftZh" data-testid="catalog-zh" class="w-full rounded border border-line bg-ink px-2 py-1" />
-              <span v-else>{{ row.canonical_name_zh }}</span>
+          <tr v-for="row in rows" :key="row.entity_id" data-testid="catalog-row">
+            <td class="overflow-hidden border-t border-line px-1.5 py-1 font-mono text-[11px] text-muted" :title="row.entity_id">
+              <span class="block truncate">{{ row.entity_id }}</span>
             </td>
-            <td v-if="kind === 'competition'" class="border-t border-line px-2 py-1">
-              <input v-if="editingId === row.entity_id" v-model="draftShort" data-testid="catalog-short" class="w-full rounded border border-line bg-ink px-2 py-1" />
-              <span v-else data-testid="catalog-short-text">{{ row.short_name_zh || '—' }}</span>
+            <td class="overflow-hidden border-t border-line px-1.5 py-1">
+              <input v-if="editingId === row.entity_id" v-model="draftZh" data-testid="catalog-zh" class="catalog-input" />
+              <span v-else class="block truncate" :title="row.canonical_name_zh">{{ row.canonical_name_zh }}</span>
             </td>
-            <td class="border-t border-line px-2 py-1">
-              <input v-if="editingId === row.entity_id" v-model="draftEn" data-testid="catalog-en" class="w-full rounded border border-line bg-ink px-2 py-1" />
-              <span v-else>{{ row.canonical_name_en }}</span>
+            <td v-if="kind === 'competition'" class="overflow-hidden border-t border-line px-1.5 py-1">
+              <input v-if="editingId === row.entity_id" v-model="draftShort" data-testid="catalog-short" class="catalog-input" />
+              <span v-else class="block truncate" data-testid="catalog-short-text" :title="row.short_name_zh || undefined">{{ row.short_name_zh || '—' }}</span>
+            </td>
+            <td class="overflow-hidden border-t border-line px-1.5 py-1">
+              <input v-if="editingId === row.entity_id" v-model="draftEn" data-testid="catalog-en" class="catalog-input" />
+              <span v-else class="block truncate" :title="row.canonical_name_en">{{ row.canonical_name_en }}</span>
             </td>
             <td
               v-for="sourceId in catalogSources"
               :key="sourceId"
-              class="whitespace-nowrap border-t border-line px-2 py-1"
+              class="overflow-hidden border-t border-line px-1.5 py-1"
               :data-testid="`catalog-source-${sourceId}`"
             >
-              <span :class="sourceName(row, sourceId) ? '' : 'text-muted'">{{ sourceName(row, sourceId) || '—' }}</span>
+              <span
+                class="block truncate"
+                :class="sourceName(row, sourceId) ? '' : 'text-muted'"
+                :title="sourceName(row, sourceId) || undefined"
+              >{{ sourceName(row, sourceId) || '—' }}</span>
             </td>
-            <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
-            <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>
-            <td class="whitespace-nowrap border-t border-line px-2 py-1 text-xs text-muted">
+            <td class="catalog-pin catalog-pin-sport whitespace-nowrap border-t border-line px-1 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
+            <td class="catalog-pin catalog-pin-kind whitespace-nowrap border-t border-line px-1 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>
+            <td class="catalog-pin catalog-pin-status whitespace-nowrap border-t border-line px-1.5 py-1 text-xs text-muted">
               {{ row.status === 'confirmed' ? '已確認' : '待確認' }} · {{ sourceLabel(row.source) }}
             </td>
-            <td class="whitespace-nowrap border-t border-line px-2 py-1 text-right">
-              <button v-if="editingId !== row.entity_id" type="button" class="rounded border border-line px-2 py-1 text-xs" @click="beginEdit(row)">修改</button>
-              <button v-else type="button" data-testid="catalog-save" class="rounded bg-gold px-2 py-1 text-xs font-semibold text-ink" @click="save(row)">儲存</button>
+            <td class="catalog-pin catalog-pin-action whitespace-nowrap border-t border-line px-1 py-1 text-right">
+              <button v-if="editingId !== row.entity_id" type="button" data-testid="catalog-edit" class="rounded border border-line px-1.5 py-1 text-xs" @click="beginEdit(row)">修改</button>
+              <button v-else type="button" data-testid="catalog-save" class="rounded bg-gold px-1.5 py-1 text-xs font-semibold text-ink" @click="save(row)">儲存</button>
             </td>
           </tr>
         </tbody>
@@ -231,3 +277,53 @@ function sourceLabel(source: CatalogRow['source']): string {
     </div>
   </section>
 </template>
+
+<style scoped>
+.catalog-table {
+  --col-id: 14rem;
+  --col-short: 8.5rem;
+  --col-sport: 2.75rem;
+  --col-kind: 2.75rem;
+  --col-status: 6.75rem;
+  --col-action: 3.25rem;
+  table-layout: fixed;
+  min-width: 68rem;
+}
+
+.catalog-input {
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-ink);
+  padding: 0.125rem 0.375rem;
+}
+
+.catalog-pin {
+  position: sticky;
+  z-index: 1;
+  background-color: var(--color-panel);
+}
+
+.catalog-pin-sport {
+  right: calc(var(--col-kind) + var(--col-status) + var(--col-action));
+}
+
+.is-overflowing .catalog-pin-sport {
+  border-left: 1px solid var(--color-line);
+  box-shadow: -8px 0 8px -8px rgb(0 0 0 / 0.55);
+}
+
+.catalog-pin-kind {
+  right: calc(var(--col-status) + var(--col-action));
+}
+
+.catalog-pin-status {
+  right: var(--col-action);
+}
+
+.catalog-pin-action {
+  right: 0;
+  z-index: 2;
+}
+</style>

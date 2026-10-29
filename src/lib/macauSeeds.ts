@@ -6,6 +6,7 @@ export interface MacauSeedItem {
   kind: 'team' | 'competition'
   canonical_name_zh: string
   canonical_name_en: string
+  short_name_zh?: string
   aliases: Array<{ source_id: string; name: string; normalized: string }>
   meta: { serial: number; continent?: string; category?: string }
   status: 'confirmed'
@@ -47,6 +48,7 @@ export async function searchMacauSeeds(query: string, limit = 20): Promise<Macau
       const blob = [
         item.entity_id,
         item.canonical_name_zh,
+        item.short_name_zh ?? '',
         item.canonical_name_en,
         item.meta.continent ?? '',
         item.meta.category ?? '',

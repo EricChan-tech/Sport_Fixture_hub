@@ -8,6 +8,7 @@ interface CatalogRow {
   kind: 'team' | 'competition'
   canonical_name_zh: string
   canonical_name_en: string
+  short_name_zh: string
   status: 'confirmed' | 'pending'
   source: 'auto' | 'manual' | 'import'
   continent: string
@@ -26,6 +27,7 @@ const error = ref('')
 const editingId = ref('')
 const draftZh = ref('')
 const draftEn = ref('')
+const draftShort = ref('')
 const saveMessage = ref('')
 let timer = 0
 
@@ -84,19 +86,27 @@ function beginEdit(row: CatalogRow): void {
   editingId.value = row.entity_id
   draftZh.value = row.canonical_name_zh
   draftEn.value = row.canonical_name_en
+  draftShort.value = row.short_name_zh
   saveMessage.value = ''
 }
 
 async function save(row: CatalogRow): Promise<void> {
   saveMessage.value = ''
+  const payload: {
+    entity_id: string
+    canonical_name_zh: string
+    canonical_name_en: string
+    short_name_zh?: string
+  } = {
+    entity_id: row.entity_id,
+    canonical_name_zh: draftZh.value,
+    canonical_name_en: draftEn.value,
+  }
+  if (row.kind === 'competition') payload.short_name_zh = draftShort.value
   const response = await fetch('/api/mapping/overrides', {
     method: 'PUT',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      entity_id: row.entity_id,
-      canonical_name_zh: draftZh.value,
-      canonical_name_en: draftEn.value,
-    }),
+    body: JSON.stringify(payload),
   })
   const body = await response.json()
   if (!response.ok) {
@@ -121,7 +131,7 @@ function sourceLabel(source: CatalogRow['source']): string {
       <div>
         <h2 class="font-serif text-xl">完整對照表</h2>
         <p class="mt-1 max-w-2xl text-xs leading-relaxed text-muted">
-          澳彩種子全量可查。每次只畫一頁。修改中英文後寫入本機儲存，重新整理仍會讀回，不必提交 Git。
+          澳彩種子全量可查。每次只畫一頁。賽事列有繁體簡稱。修改中文、簡稱或英文後寫入本機儲存，重新整理仍會讀回，不必提交 Git。
         </p>
       </div>
       <p class="font-mono text-xs text-muted" data-testid="catalog-range">{{ rangeLabel }}</p>
@@ -139,7 +149,7 @@ function sourceLabel(source: CatalogRow['source']): string {
         v-model="query"
         data-testid="catalog-search"
         type="search"
-        placeholder="搜尋中文、英文或 id"
+        placeholder="搜尋中文、簡稱、英文或 id"
         class="w-full rounded-md border border-line bg-ink px-3 py-1.5 text-sm sm:max-w-xs"
       />
     </div>
@@ -147,11 +157,12 @@ function sourceLabel(source: CatalogRow['source']): string {
     <p v-if="error" class="mt-2 text-xs text-miss">{{ error }}</p>
     <p v-if="saveMessage" class="mt-2 text-xs text-gold">{{ saveMessage }}</p>
     <div class="mt-2 overflow-x-auto">
-      <table data-testid="catalog-table" class="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
+      <table data-testid="catalog-table" class="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
         <thead class="text-[11px] uppercase tracking-wider text-muted">
           <tr>
             <th class="px-2 py-1.5">id</th>
             <th class="px-2 py-1.5">中文</th>
+            <th v-if="kind === 'competition'" class="px-2 py-1.5">簡稱</th>
             <th class="px-2 py-1.5">英文</th>
             <th class="px-2 py-1.5">運動</th>
             <th class="px-2 py-1.5">類型</th>
@@ -166,16 +177,20 @@ function sourceLabel(source: CatalogRow['source']): string {
               <input v-if="editingId === row.entity_id" v-model="draftZh" data-testid="catalog-zh" class="w-full rounded border border-line bg-ink px-2 py-1" />
               <span v-else>{{ row.canonical_name_zh }}</span>
             </td>
+            <td v-if="kind === 'competition'" class="border-t border-line px-2 py-1">
+              <input v-if="editingId === row.entity_id" v-model="draftShort" data-testid="catalog-short" class="w-full rounded border border-line bg-ink px-2 py-1" />
+              <span v-else data-testid="catalog-short-text">{{ row.short_name_zh || '—' }}</span>
+            </td>
             <td class="border-t border-line px-2 py-1">
               <input v-if="editingId === row.entity_id" v-model="draftEn" data-testid="catalog-en" class="w-full rounded border border-line bg-ink px-2 py-1" />
               <span v-else>{{ row.canonical_name_en }}</span>
             </td>
-            <td class="border-t border-line px-2 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
-            <td class="border-t border-line px-2 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>
-            <td class="border-t border-line px-2 py-1 text-xs text-muted">
+            <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
+            <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>
+            <td class="whitespace-nowrap border-t border-line px-2 py-1 text-xs text-muted">
               {{ row.status === 'confirmed' ? '已確認' : '待確認' }} · {{ sourceLabel(row.source) }}
             </td>
-            <td class="border-t border-line px-2 py-1 text-right">
+            <td class="whitespace-nowrap border-t border-line px-2 py-1 text-right">
               <button v-if="editingId !== row.entity_id" type="button" class="rounded border border-line px-2 py-1 text-xs" @click="beginEdit(row)">修改</button>
               <button v-else type="button" data-testid="catalog-save" class="rounded bg-gold px-2 py-1 text-xs font-semibold text-ink" @click="save(row)">儲存</button>
             </td>

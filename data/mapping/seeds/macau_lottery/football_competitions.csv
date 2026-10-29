@@ -1,351 +1,351 @@
-﻿entity_id,sport,kind,canonical_name_zh,canonical_name_en,continent,category,status,source
-macau-football-competition-1,football,competition,英超亞洲盃,Premier League Asia Trophy,,,confirmed,import
-macau-football-competition-2,football,competition,英格蘭聯賽盃,England EFL Cup,,,confirmed,import
-macau-football-competition-3,football,competition,英格蘭社區盾,England FA Community Shield,,,confirmed,import
-macau-football-competition-4,football,competition,英格蘭足總盃,England FA Cup,,,confirmed,import
-macau-football-competition-5,football,competition,英格蘭女子超級聯賽,England Women's Super League,,,confirmed,import
-macau-football-competition-6,football,competition,英格蘭非聯賽盃,National League Cup,,,confirmed,import
-macau-football-competition-7,football,competition,英格蘭聯賽錦標賽,England EFL Trophy,,,confirmed,import
-macau-football-competition-8,football,competition,英格蘭超級聯賽,England Premier League,,,confirmed,import
-macau-football-competition-9,football,competition,英格蘭超級聯賽二級賽,England Premier League 2,,,confirmed,import
-macau-football-competition-10,football,competition,英格蘭冠軍聯賽,England EFL Championship,,,confirmed,import
-macau-football-competition-11,football,competition,英格蘭甲組聯賽,England EFL League One,,,confirmed,import
-macau-football-competition-12,football,competition,英格蘭乙組聯賽,England EFL League Two,,,confirmed,import
-macau-football-competition-13,football,competition,女子英格蘭聯賽盃,England Women's League Cup,,,confirmed,import
-macau-football-competition-14,football,competition,女子英格蘭足總盃,England Women's FA Cup,,,confirmed,import
-macau-football-competition-15,football,competition,沙地阿拉伯國王盃,Saudi Arabia King's Cup,,,confirmed,import
-macau-football-competition-16,football,competition,沙地阿拉伯職業聯賽,Saudi Arabia Saudi Pro League,,,confirmed,import
-macau-football-competition-17,football,competition,沙地阿拉伯超級盃,Saudi Arabia Super Cup,,,confirmed,import
-macau-football-competition-18,football,competition,阿根廷超級盃-Internacional,Argentina Supercopa Argentina-Internacional,,,confirmed,import
-macau-football-competition-19,football,competition,阿根廷盃,Argentina Copa Argentina,,,confirmed,import
-macau-football-competition-20,football,competition,阿根廷女子甲組聯賽,Argentina Torneo Femenino Primera Division A,,,confirmed,import
-macau-football-competition-21,football,competition,阿根廷乙組聯賽,Argentina Primera B Nacional,,,confirmed,import
-macau-football-competition-22,football,competition,阿根廷超級盃,Argentina Supercopa Argentina,,,confirmed,import
-macau-football-competition-23,football,competition,阿根廷甲組聯賽,Argentina Primera Division,,,confirmed,import
-macau-football-competition-24,football,competition,阿根廷冠軍盃,Argentina Trofeo de Campeones,,,confirmed,import
-macau-football-competition-25,football,competition,澳洲錦標賽,Australia Championship,,,confirmed,import
-macau-football-competition-26,football,competition,澳洲盃,Australia Cup,,,confirmed,import
-macau-football-competition-27,football,competition,澳洲職業聯賽,Australia A League Men,,,confirmed,import
-macau-football-competition-28,football,competition,澳洲國家聯賽-首都,Australia National Premier Leagues-Capital Football,,,confirmed,import
-macau-football-competition-29,football,competition,澳洲國家聯賽-新南威,Australia National Premier Leagues-New South Wales,,,confirmed,import
-macau-football-competition-30,football,competition,澳洲國家聯賽-昆士蘭,Australia National Premier Leagues-Queensland,,,confirmed,import
-macau-football-competition-31,football,competition,澳洲國家聯賽-南澳,Australia National Premier Leagues-South Australia,,,confirmed,import
-macau-football-competition-32,football,competition,澳洲國家聯賽-塔斯,Australia National Premier Leagues-Tasmania,,,confirmed,import
-macau-football-competition-33,football,competition,澳洲國家聯賽-維多利亞,Australia National Premier Leagues-Victoria,,,confirmed,import
-macau-football-competition-34,football,competition,澳洲國家聯賽-西部,Australia National Premier Leagues-Western Australia,,,confirmed,import
-macau-football-competition-35,football,competition,澳洲國家聯賽-北新南,Australia National Premier Leagues-Northern New South,,,confirmed,import
-macau-football-competition-36,football,competition,澳洲女子聯賽,Australia A League Women,,,confirmed,import
-macau-football-competition-37,football,competition,奧地利甲組聯賽,Austria Bundesliga,,,confirmed,import
-macau-football-competition-38,football,competition,奧地利盃,Austria OFB Cup,,,confirmed,import
-macau-football-competition-39,football,competition,比利時盃,Belgium Cup,,,confirmed,import
-macau-football-competition-40,football,competition,比利時甲組聯賽,Belgium Pro League,,,confirmed,import
-macau-football-competition-41,football,competition,比利時超級盃,Belgium Super Cup,,,confirmed,import
-macau-football-competition-42,football,competition,巴西甲組聯賽,Brazil Brasileiro Serie A,,,confirmed,import
-macau-football-competition-43,football,competition,巴西乙組聯賽,Brazil Brasileiro Serie B,,,confirmed,import
-macau-football-competition-44,football,competition,巴西盃,Brazil Copa do Brasil,,,confirmed,import
-macau-football-competition-45,football,competition,巴西聖保羅省聯賽,Brazil Paulista Serie,,,confirmed,import
-macau-football-competition-46,football,competition,巴西超級盃,Brazil Supercopa do Brasil,,,confirmed,import
-macau-football-competition-47,football,competition,保加利亞甲組聯賽,Bulgaria First Professional League,,,confirmed,import
-macau-football-competition-48,football,competition,智利聯賽盃,Chile Copa de La Liga,,,confirmed,import
-macau-football-competition-49,football,competition,智利盃,Chile Copa Chile,,,confirmed,import
-macau-football-competition-50,football,competition,智利甲組聯賽,Chile Liga de Primera,,,confirmed,import
-macau-football-competition-51,football,competition,智利超級盃,Chile Super Cup,,,confirmed,import
-macau-football-competition-52,football,competition,中國全運會男子足球,China National Games of China Men's Football,,,confirmed,import
-macau-football-competition-53,football,competition,中國全運會女子足球,China National Games of China Women's Football,,,confirmed,import
-macau-football-competition-54,football,competition,中國女子超級聯賽,China Women's Super League,,,confirmed,import
-macau-football-competition-55,football,competition,中國足協盃,China CFA Cup,,,confirmed,import
-macau-football-competition-56,football,competition,中國甲組聯賽,China League One,,,confirmed,import
-macau-football-competition-57,football,competition,中國乙組聯賽,China League Two,,,confirmed,import
-macau-football-competition-58,football,competition,中國超級盃,China CFA Super Cup,,,confirmed,import
-macau-football-competition-59,football,competition,中國超級聯賽,China Super League,,,confirmed,import
-macau-football-competition-60,football,competition,丹麥超級聯賽,Denmark Superliga,,,confirmed,import
-macau-football-competition-61,football,competition,丹麥盃,Denmark DBU Pokalen,,,confirmed,import
-macau-football-competition-62,football,competition,厄瓜多爾甲組聯賽,Ecuador Serie A,,,confirmed,import
-macau-football-competition-63,football,competition,芬蘭聯賽盃,Finland Liigacup,,,confirmed,import
-macau-football-competition-64,football,competition,芬蘭盃,Finland Suomen Cup,,,confirmed,import
-macau-football-competition-65,football,competition,芬蘭超級聯賽,Finland Veikkausliiga,,,confirmed,import
-macau-football-competition-66,football,competition,芬蘭甲組聯賽,Finland Ykkosliiga,,,confirmed,import
-macau-football-competition-67,football,competition,法國盃,France Coupe de France,,,confirmed,import
-macau-football-competition-68,football,competition,女子法國盃,France Coupe de France Feminine,,,confirmed,import
-macau-football-competition-69,football,competition,法國聯賽盃,France Coupe de la Ligue,,,confirmed,import
-macau-football-competition-70,football,competition,法國女子甲組聯賽,France Premiere Ligue,,,confirmed,import
-macau-football-competition-71,football,competition,法國甲組聯賽,France Ligue 1,,,confirmed,import
-macau-football-competition-72,football,competition,法國乙組聯賽,France Ligue 2,,,confirmed,import
-macau-football-competition-73,football,competition,法國超級盃,France Trophee des Champions,,,confirmed,import
-macau-football-competition-74,football,competition,希臘盃,Greece Cup,,,confirmed,import
-macau-football-competition-75,football,competition,希臘超級聯賽,Greece Super League,,,confirmed,import
-macau-football-competition-76,football,competition,西班牙盃,Spain Copa del Rey,,,confirmed,import
-macau-football-competition-77,football,competition,西班牙甲組聯賽,Spain LALIGA,,,confirmed,import
-macau-football-competition-78,football,competition,西班牙乙組聯賽,Spain Segunda Division,,,confirmed,import
-macau-football-competition-79,football,competition,西班牙女子甲組聯賽,Spain Liga F,,,confirmed,import
-macau-football-competition-80,football,competition,西班牙超級盃,Spain Supercopa de Espana,,,confirmed,import
-macau-football-competition-81,football,competition,女子西班牙超級盃,Spain Supercopa Femenina,,,confirmed,import
-macau-football-competition-82,football,competition,荷蘭乙組聯賽,Netherlands Eerste Divisie,,,confirmed,import
-macau-football-competition-83,football,competition,荷蘭甲組聯賽,Netherlands Eredivisie,,,confirmed,import
-macau-football-competition-84,football,competition,荷蘭女子甲組聯賽,Netherlands Vrouwen Eredivisie,,,confirmed,import
-macau-football-competition-85,football,competition,荷蘭盃,Netherlands KNVB Beker,,,confirmed,import
-macau-football-competition-86,football,competition,荷蘭告魯夫盾,Netherlands Johan Cruijff Schaal,,,confirmed,import
-macau-football-competition-87,football,competition,印度城邦超級聯賽,India State Premier League,,,confirmed,import
-macau-football-competition-88,football,competition,印度超級聯賽,India Super League,,,confirmed,import
-macau-football-competition-89,football,competition,印尼超級聯賽,Indonesia Super League,,,confirmed,import
-macau-football-competition-90,football,competition,冰島超級聯賽,Iceland Besta deild karla,,,confirmed,import
-macau-football-competition-91,football,competition,女子日本職業聯賽盃,Japan WE League Cup,,,confirmed,import
-macau-football-competition-92,football,competition,日本足球聯賽,Japan Football League,,,confirmed,import
-macau-football-competition-93,football,competition,日本天皇盃,Japan Emperor's Cup,,,confirmed,import
-macau-football-competition-94,football,competition,日本皇后盃,Japan Empress's Cup,,,confirmed,import
-macau-football-competition-95,football,competition,日本職業聯賽,Japan J1 League,,,confirmed,import
-macau-football-competition-96,football,competition,日本乙組聯賽,Japan J2 League,,,confirmed,import
-macau-football-competition-97,football,competition,日本J2/J3百年構想聯賽,Japan J2/J3 100 Year Vision League,,,confirmed,import
-macau-football-competition-98,football,competition,日本丙組聯賽,Japan J3 League,,,confirmed,import
-macau-football-competition-99,football,competition,日本女子甲組聯賽,Japan Women's Football League Division 1,,,confirmed,import
-macau-football-competition-100,football,competition,日本超級盃,Japan Super Cup,,,confirmed,import
-macau-football-competition-101,football,competition,日本女子職業聯賽,Japan WE League,,,confirmed,import
-macau-football-competition-102,football,competition,日本職業聯賽盃,Japan J.League Cup,,,confirmed,import
-macau-football-competition-103,football,competition,加拿大錦標賽,Canada Championship,,,confirmed,import
-macau-football-competition-104,football,competition,阿聯酋卡塔爾挑戰盾,UAE Qatar Challenge Shield,,,confirmed,import
-macau-football-competition-105,football,competition,卡塔爾王子盃,Qatar Amir Cup,,,confirmed,import
-macau-football-competition-106,football,competition,卡塔爾星盃,Qatar QSL Cup,,,confirmed,import
-macau-football-competition-107,football,competition,卡塔爾盃,Qatar Cup,,,confirmed,import
-macau-football-competition-108,football,competition,卡塔爾超級聯賽,Qatar Stars League,,,confirmed,import
-macau-football-competition-109,football,competition,哥倫比亞甲組聯賽,Colombia Liga Dimayor,,,confirmed,import
-macau-football-competition-110,football,competition,哥倫比亞超級盃,Colombia Superliga,,,confirmed,import
-macau-football-competition-111,football,competition,南韓盃,South Korea Cup,,,confirmed,import
-macau-football-competition-112,football,competition,南韓職業聯賽,South Korea K League 1,,,confirmed,import
-macau-football-competition-113,football,competition,南韓乙組聯賽,South Korea K League 2,,,confirmed,import
-macau-football-competition-114,football,competition,南韓丙組聯賽,South Korea K3 League,,,confirmed,import
-macau-football-competition-115,football,competition,南韓女子職業聯賽,South Korea WK League,,,confirmed,import
-macau-football-competition-116,football,competition,馬來西亞超級聯賽,Malaysia Liga Super,,,confirmed,import
-macau-football-competition-117,football,competition,墨西哥冠軍盃,Mexico Campeon de Campeones,,,confirmed,import
-macau-football-competition-118,football,competition,墨西哥盃,Mexico Copa MX,,,confirmed,import
-macau-football-competition-119,football,competition,墨西哥超級聯賽-春季,Mexico Liga MX-Apertura,,,confirmed,import
-macau-football-competition-120,football,competition,墨西哥甲組聯賽,Mexico Liga Expansion MX,,,confirmed,import
-macau-football-competition-121,football,competition,墨西哥女子超級聯賽,Mexico LIGA MX Femenil,,,confirmed,import
-macau-football-competition-122,football,competition,墨西哥超級盃,Mexico Supercopa MX,,,confirmed,import
-macau-football-competition-123,football,competition,德國乙組聯賽,Germany 2. Bundesliga,,,confirmed,import
-macau-football-competition-124,football,competition,德國甲組聯賽,Germany Bundesliga,,,confirmed,import
-macau-football-competition-125,football,competition,德國女子甲組聯賽,Germany Frauen Bundesliga,,,confirmed,import
-macau-football-competition-126,football,competition,女子德國盃,Germany DFB Pokal Frauen,,,confirmed,import
-macau-football-competition-127,football,competition,德國盃,Germany DFB Pokal,,,confirmed,import
-macau-football-competition-128,football,competition,德國超級盃,Germany Supercup,,,confirmed,import
-macau-football-competition-129,football,competition,挪威超級聯賽,Norway Eliteserien,,,confirmed,import
-macau-football-competition-130,football,competition,女子挪威盃,Norway NM Kvinner,,,confirmed,import
-macau-football-competition-131,football,competition,挪威盃,Norway NM Cupen,,,confirmed,import
-macau-football-competition-132,football,competition,挪威甲組聯賽,Norway First Division,,,confirmed,import
-macau-football-competition-133,football,competition,挪威乙組聯賽,Norway Second Division,,,confirmed,import
-macau-football-competition-134,football,competition,挪威乙組聯賽-分組2,Norway Second Division-Group 2,,,confirmed,import
-macau-football-competition-135,football,competition,挪威超級盃,Norway Mesterfinalen,,,confirmed,import
-macau-football-competition-136,football,competition,挪威女子超級聯賽,Norway Toppserien,,,confirmed,import
-macau-football-competition-137,football,competition,紐西蘭盃,New Zealand Cup,,,confirmed,import
-macau-football-competition-138,football,competition,紐西蘭女子國家聯賽,New Zealand Women's National League,,,confirmed,import
-macau-football-competition-139,football,competition,紐西蘭國家聯賽,New Zealand National League,,,confirmed,import
-macau-football-competition-140,football,competition,紐西蘭女子國家聯賽,New Zealand Women's National League,,,confirmed,import
-macau-football-competition-141,football,competition,波蘭超級聯賽,Poland Ekstraklasa,,,confirmed,import
-macau-football-competition-142,football,competition,葡萄牙超級聯賽,Portugal Primeira Liga,,,confirmed,import
-macau-football-competition-143,football,competition,葡萄牙超級盃,Portugal Supertaca Candido de Oliveira,,,confirmed,import
-macau-football-competition-144,football,competition,葡萄牙聯賽盃,Portugal Taca da Liga,,,confirmed,import
-macau-football-competition-145,football,competition,葡萄牙盃,Portugal Taca de Portugal,,,confirmed,import
-macau-football-competition-146,football,competition,南非超級聯賽,South Africa Premier League,,,confirmed,import
-macau-football-competition-147,football,competition,俄羅斯甲組聯賽,Russia First League,,,confirmed,import
-macau-football-competition-148,football,competition,俄羅斯超級聯賽,Russia Premier League,,,confirmed,import
-macau-football-competition-149,football,competition,俄羅斯盃,Russia Cup,,,confirmed,import
-macau-football-competition-150,football,competition,俄羅斯超級盃,Russia Super Cup,,,confirmed,import
-macau-football-competition-151,football,competition,塞爾維亞超級聯賽,Serbia Super Liga,,,confirmed,import
-macau-football-competition-152,football,competition,新加坡超級聯賽,Singapore Premier League,,,confirmed,import
-macau-football-competition-153,football,competition,瑞典超級聯賽,Sweden Allsvenskan,,,confirmed,import
-macau-football-competition-154,football,competition,瑞典女子超級聯賽,Sweden Damallsvenskan,,,confirmed,import
-macau-football-competition-155,football,competition,瑞典甲組聯賽,Sweden Superettan,,,confirmed,import
-macau-football-competition-156,football,competition,瑞典盃,Sweden Svenska Cupen,,,confirmed,import
-macau-football-competition-157,football,competition,瑞士超級聯賽,Switzerland Super League,,,confirmed,import
-macau-football-competition-158,football,competition,瑞士盃,Switzerland Schweizer Cup,,,confirmed,import
-macau-football-competition-159,football,competition,女子蘇格蘭聯賽盃,Scotland Women's Premier League Cup,,,confirmed,import
-macau-football-competition-160,football,competition,蘇格蘭冠軍聯賽,Scotland Championship,,,confirmed,import
-macau-football-competition-161,football,competition,蘇格蘭超級聯賽,Scotland Premiership,,,confirmed,import
-macau-football-competition-162,football,competition,蘇格蘭聯賽盃,Scotland League Cup,,,confirmed,import
-macau-football-competition-163,football,competition,蘇格蘭足總盃,Scotland Scottish Cup,,,confirmed,import
-macau-football-competition-164,football,competition,蘇格蘭女子超級聯賽,Scotland Women's Premier League,,,confirmed,import
-macau-football-competition-165,football,competition,土耳其超級聯賽,Turkiye Super Lig,,,confirmed,import
-macau-football-competition-166,football,competition,土耳其超級盃,Turkiye TFF Super Kupa,,,confirmed,import
-macau-football-competition-167,football,competition,土耳其甲組聯賽,Turkiye TFF 1. Lig,,,confirmed,import
-macau-football-competition-168,football,competition,土耳其盃,Turkiye Turkiye Kupasi,,,confirmed,import
-macau-football-competition-169,football,competition,台灣甲組聯賽,Taiwan Premier League,,,confirmed,import
-macau-football-competition-170,football,competition,泰國聯賽盃,Thailand League Cup,,,confirmed,import
-macau-football-competition-171,football,competition,泰國足總盃,Thailand FA Cup,,,confirmed,import
-macau-football-competition-172,football,competition,泰國超級聯賽,Thailand Thai League 1,,,confirmed,import
-macau-football-competition-173,football,competition,烏克蘭超級聯賽,Ukraine Premier League,,,confirmed,import
-macau-football-competition-174,football,competition,烏拉圭甲組聯賽,Uruguay Liga AUF Uruguaya,,,confirmed,import
-macau-football-competition-175,football,competition,烏拉圭超級盃,Uruguay Supercopa Uruguaya,,,confirmed,import
-macau-football-competition-176,football,competition,美國職業大聯盟聯賽,USA Major League Soccer,,,confirmed,import
-macau-football-competition-177,football,competition,美國國家女子聯賽,USA National Women's Soccer League,,,confirmed,import
-macau-football-competition-178,football,competition,美國冠軍聯賽,USA USL Championship,,,confirmed,import
-macau-football-competition-179,football,competition,美國公開盃,USA US Open Cup,,,confirmed,import
-macau-football-competition-180,football,competition,美國足球聯賽盃,USA USL Cup,,,confirmed,import
-macau-football-competition-181,football,competition,烏茲別克超級聯賽,Uzbekistan Super League,,,confirmed,import
-macau-football-competition-182,football,competition,越南職業聯賽,Vietnam V.League 1,,,confirmed,import
-macau-football-competition-183,football,competition,越南盃,Vietnam Cup,,,confirmed,import
-macau-football-competition-184,football,competition,意大利盃,Italy Coppa Italia,,,confirmed,import
-macau-football-competition-185,football,competition,女子意大利盃,Italy Coppa Italia Women,,,confirmed,import
-macau-football-competition-186,football,competition,意大利女子甲組聯賽,Italy Serie A Women,,,confirmed,import
-macau-football-competition-187,football,competition,女子意大利甲組聯賽盃,Italy Serie A Women's Cup,,,confirmed,import
-macau-football-competition-188,football,competition,意大利甲組聯賽,Italy Serie A,,,confirmed,import
-macau-football-competition-189,football,competition,意大利乙組聯賽,Italy Serie B,,,confirmed,import
-macau-football-competition-190,football,competition,意大利超級盃,Italy Super Cup,,,confirmed,import
-macau-football-competition-191,football,competition,阿聯酋聯賽盃,UAE League Cup,,,confirmed,import
-macau-football-competition-192,football,competition,阿聯酋總統盃,UAE President Cup,,,confirmed,import
-macau-football-competition-193,football,competition,阿聯酋職業聯賽,UAE Pro League,,,confirmed,import
-macau-football-competition-194,football,competition,洲際超級盃,Finalissima,,,confirmed,import
-macau-football-competition-195,football,competition,女子洲際超級盃,Women's Finalissima,,,confirmed,import
-macau-football-competition-196,football,competition,歐美球會挑戰盃,UEFA CONMEBOL Club Challenge,,,confirmed,import
-macau-football-competition-197,football,competition,青年國際友誼賽,Youth International Friendly Matches,,,confirmed,import
-macau-football-competition-198,football,competition,酋長盃,Emirates Cup,,,confirmed,import
-macau-football-competition-199,football,competition,U20阿拉伯海灣盃,AGCFF U20 Gulf Cup,,,confirmed,import
-macau-football-competition-200,football,competition,女子國際友誼賽-女子阿爾及利亞盃,Women's International Friendly Matches-Algarve Cup Women,,,confirmed,import
-macau-football-competition-201,football,competition,阿拉伯球會冠軍盃,Arab Club Champions Cup,,,confirmed,import
-macau-football-competition-202,football,competition,女子國際友誼賽-Arnold Clark Cup,Women's International Friendly Matches-Arnold Clark Cup,,,confirmed,import
-macau-football-competition-203,football,competition,球會友誼賽-奧迪盃,Club Friendly Matches-Audi Cup,,,confirmed,import
-macau-football-competition-204,football,competition,球會友誼賽,Club Friendly Matches,,,confirmed,import
-macau-football-competition-205,football,competition,球會友誼賽-女子,Club Friendly Matches-Women,,,confirmed,import
-macau-football-competition-206,football,competition,洲際國家盃,FIFA Confederations Cup,,,confirmed,import
-macau-football-competition-207,football,competition,女子國際友誼賽-塞浦路斯女子盃,Women's International Friendly Matches-Cyprus Women Cup,,,confirmed,import
-macau-football-competition-208,football,competition,阿拉伯國家盃,FIFA Arab Cup,,,confirmed,import
-macau-football-competition-209,football,competition,世界冠軍球會盃,FIFA Club World Cup,,,confirmed,import
-macau-football-competition-210,football,competition,FIFA洲際球會盃,FIFA Intercontinental Cup,,,confirmed,import
-macau-football-competition-211,football,competition,國際友誼賽-FIFA系列賽,International Friendly Matches-FIFA Series,,,confirmed,import
-macau-football-competition-212,football,competition,FIFA女子球會冠軍盃,FIFA Women's Champions Cup,,,confirmed,import
-macau-football-competition-213,football,competition,洲際盃,FIFA Confederations Cup,,,confirmed,import
-macau-football-competition-214,football,competition,女子國際友誼賽-CONMEBOL UEFA Cup of Champions,Women's International Friendly Matches-CONMEBOL UEFA Cup of Champions,,,confirmed,import
-macau-football-competition-215,football,competition,球會友誼賽-佛羅里達盃,Club Friendly Matches-Florida Cup,,,confirmed,import
-macau-football-competition-216,football,competition,國際友誼賽,International Friendly Matches,,,confirmed,import
-macau-football-competition-217,football,competition,女子國際友誼賽,Women's International Friendly Matches,,,confirmed,import
-macau-football-competition-218,football,competition,國際友誼賽-洲際盃,International Friendly Matches-Intercontinental Cup,,,confirmed,import
-macau-football-competition-219,football,competition,國際友誼賽-King?s Cup,International Friendly Matches-King?s Cup,,,confirmed,import
-macau-football-competition-220,football,competition,國際友誼賽-麒麟盃,International Friendly Matches-Kirin Cup,,,confirmed,import
-macau-football-competition-221,football,competition,國際友誼賽-土倫國際足球錦標賽,International Friendly Matches-Toulon Tournament,,,confirmed,import
-macau-football-competition-222,football,competition,奧運男子足球,Olympic Games Men's Football,,,confirmed,import
-macau-football-competition-223,football,competition,奧運女子足球,Olympic Games Women's Football,,,confirmed,import
-macau-football-competition-224,football,competition,奧運男子足球外圍賽,Olympic Games Men's Football Qualification,,,confirmed,import
-macau-football-competition-225,football,competition,女子其他賽事,Other Competition Matches (Women),,,confirmed,import
-macau-football-competition-226,football,competition,球會友誼賽-英超亞洲盃,Club Friendly Matches-Premier League Asia Trophy,,,confirmed,import
-macau-football-competition-227,football,competition,英超夏季系列賽,Premier League Summer Series,,,confirmed,import
-macau-football-competition-228,football,competition,女子國際友誼賽-SheBelieves杯,Women's International Friendly Matches-SheBelieves Cup,,,confirmed,import
-macau-football-competition-229,football,competition,女子國際友誼賽-法?西???,Women's International Friendly Matches-Tournoi de France,,,confirmed,import
-macau-football-competition-230,football,competition,世界盃,FIFA World Cup,,,confirmed,import
-macau-football-competition-231,football,competition,女子世界盃,FIFA Women's World Cup,,,confirmed,import
-macau-football-competition-232,football,competition,國際友誼賽-World Cup Friendlies,International Friendly Matches-World Cup Friendlies,,,confirmed,import
-macau-football-competition-233,football,competition,世界盃外圍賽附加賽,FIFA World Cup Qualification Playoff,,,confirmed,import
-macau-football-competition-234,football,competition,女子世界盃外圍賽-跨洲附加賽,FIFA Women's World Cup Qualification-Inter Confederation Playoffs,,,confirmed,import
-macau-football-competition-235,football,competition,U20世界盃,FIFA U20 World Cup,,,confirmed,import
-macau-football-competition-236,football,competition,女子U20世界盃,FIFA U20 Women's World Cup,,,confirmed,import
-macau-football-competition-237,football,competition,國際冠軍盃,International Champions Cup,,,confirmed,import
-macau-football-competition-238,football,competition,球會友誼賽-大西洋盃,Club Friendly Matches-Atlantic Cup,,,confirmed,import
-macau-football-competition-239,football,competition,國際友誼賽-波羅的海盃,International Friendly Matches-Baltic Cup,,,confirmed,import
-macau-football-competition-240,football,competition,國際友誼賽-U20 Elite,International Friendly Matches-U20 Elite,,,confirmed,import
-macau-football-competition-241,football,competition,球會友誼賽-酋長盃,Club Friendly Matches-Emirates Cup,,,confirmed,import
-macau-football-competition-242,football,competition,歐洲國家盃外圍賽,UEFA EURO Qualification,,,confirmed,import
-macau-football-competition-243,football,competition,女子歐洲國家盃,UEFA Women's EURO,,,confirmed,import
-macau-football-competition-244,football,competition,女子歐洲國家盃-外圍賽,UEFA Women's EURO-Qualification,,,confirmed,import
-macau-football-competition-245,football,competition,女子U19歐洲國家盃,UEFA U19 Women's EURO,,,confirmed,import
-macau-football-competition-246,football,competition,女子U19歐洲國家盃-外圍賽,UEFA U19 Women's EURO-Qualifiers,,,confirmed,import
-macau-football-competition-247,football,competition,歐洲國家盃,UEFA EURO,,,confirmed,import
-macau-football-competition-248,football,competition,歐洲冠軍聯賽,UEFA Champions League,,,confirmed,import
-macau-football-competition-249,football,competition,女子歐洲冠軍聯賽,UEFA Women's Champions League,,,confirmed,import
-macau-football-competition-250,football,competition,歐洲冠軍聯賽-外圍賽,UEFA Champions League-Qualification,,,confirmed,import
-macau-football-competition-251,football,competition,女子歐洲冠軍聯賽-外圍賽,UEFA Women's Champions League-Qualification,,,confirmed,import
-macau-football-competition-252,football,competition,歐洲協會聯賽,UEFA Conference League,,,confirmed,import
-macau-football-competition-253,football,competition,歐洲協會聯賽-外圍賽,UEFA Conference League-Qualification,,,confirmed,import
-macau-football-competition-254,football,competition,歐洲聯賽,UEFA Europa League,,,confirmed,import
-macau-football-competition-255,football,competition,歐洲聯賽-外圍賽,UEFA Europa League-Qualification,,,confirmed,import
-macau-football-competition-256,football,competition,歐洲國家聯賽,UEFA Nations League,,,confirmed,import
-macau-football-competition-257,football,competition,女子歐洲國家聯賽,UEFA Women's Nations League,,,confirmed,import
-macau-football-competition-258,football,competition,歐洲超級盃,UEFA Super Cup,,,confirmed,import
-macau-football-competition-259,football,competition,U19歐洲國家盃,UEFA U19 EURO,,,confirmed,import
-macau-football-competition-260,football,competition,U19歐洲國家盃-外圍賽,UEFA U19 EURO-Qualification,,,confirmed,import
-macau-football-competition-261,football,competition,U21歐洲國家盃,UEFA U21 EURO,,,confirmed,import
-macau-football-competition-262,football,competition,U21歐洲國家盃外圍賽,UEFA U21 EURO Qualification,,,confirmed,import
-macau-football-competition-263,football,competition,女子歐洲聯賽,UEFA Women's Europa Cup,,,confirmed,import
-macau-football-competition-264,football,competition,女子歐洲聯賽-外圍賽,UEFA Women's Europa Cup-Qualification,,,confirmed,import
-macau-football-competition-265,football,competition,歐洲青年聯賽,UEFA Youth League,,,confirmed,import
-macau-football-competition-266,football,competition,球會友誼賽-Uhren Cup,Club Friendly Matches-Uhren Cup,,,confirmed,import
-macau-football-competition-267,football,competition,世界盃歐洲區外圍賽,FIFA World Cup UEFA Qualification,,,confirmed,import
-macau-football-competition-268,football,competition,女子世界盃外圍賽-歐洲區,FIFA Women's World Cup Qualification-Europe,,,confirmed,import
-macau-football-competition-269,football,competition,女子亞洲盃-外圍賽,AFC Women's Asian Cup-Qualification,,,confirmed,import
-macau-football-competition-270,football,competition,U23亞洲盃-外圍賽,AFC U23 Asian Cup-Qualifying,,,confirmed,import
-macau-football-competition-271,football,competition,亞洲挑戰聯賽,AFC Challenge League,,,confirmed,import
-macau-football-competition-272,football,competition,亞洲挑戰聯賽-外圍賽,AFC Challenge League-Qualification,,,confirmed,import
-macau-football-competition-273,football,competition,亞洲冠軍精英聯賽,AFC Champions League Elite,,,confirmed,import
-macau-football-competition-274,football,competition,亞洲冠軍精英聯賽-外圍賽,AFC Champions League Elite-Qualification,,,confirmed,import
-macau-football-competition-275,football,competition,亞洲冠軍二級聯賽,AFC Champions League Two,,,confirmed,import
-macau-football-competition-276,football,competition,亞洲冠軍二級聯賽-外圍賽,AFC Champions League Two-Qualification,,,confirmed,import
-macau-football-competition-277,football,competition,U19?洲???,AFC U19 Championship,,,confirmed,import
-macau-football-competition-278,football,competition,U19亞洲盃-外圍賽,AFC U19 Championship-Preliminaries,,,confirmed,import
-macau-football-competition-279,football,competition,U20亞洲盃,AFC U20 Asian Cup,,,confirmed,import
-macau-football-competition-280,football,competition,U20亞洲盃-外圍賽,AFC U20 Asian Cup-Qualification,,,confirmed,import
-macau-football-competition-281,football,competition,女子U20亞洲盃,AFC U20 Women's Asian Cup,,,confirmed,import
-macau-football-competition-282,football,competition,U23亞洲盃,AFC U23 Asian Cup,,,confirmed,import
-macau-football-competition-283,football,competition,女子亞洲冠軍聯賽,AFC Women's Champions League,,,confirmed,import
-macau-football-competition-284,football,competition,女子東南亞錦標賽-舊,ASEAN Women's Championship-Old,,,confirmed,import
-macau-football-competition-285,football,competition,U19東南亞錦標賽,ASEAN U19 Championship,,,confirmed,import
-macau-football-competition-286,football,competition,U23東南亞錦標賽,ASEAN U23 Championship,,,confirmed,import
-macau-football-competition-287,football,competition,東南亞錦標賽-鈴木盃,ASEAN Championship,,,confirmed,import
-macau-football-competition-288,football,competition,東南亞錦標賽,ASEAN Championship,,,confirmed,import
-macau-football-competition-289,football,competition,阿拉伯海灣冠軍聯賽,Gulf Club Champions League,,,confirmed,import
-macau-football-competition-290,football,competition,阿拉伯海灣盃,Arabian Gulf Cup,,,confirmed,import
-macau-football-competition-291,football,competition,海灣奧盃,Arabian Gulf Cup U23,,,confirmed,import
-macau-football-competition-292,football,competition,女子東南亞錦標賽,ASEAN Women's Championship,,,confirmed,import
-macau-football-competition-293,football,competition,東南亞球會錦標賽,ASEAN Club Championship,,,confirmed,import
-macau-football-competition-294,football,competition,亞洲盃,AFC Asian Cup,,,confirmed,import
-macau-football-competition-295,football,competition,女子亞洲盃,AFC Women's Asian Cup,,,confirmed,import
-macau-football-competition-296,football,competition,亞洲盃外圍賽,AFC Asian Cup Qualification,,,confirmed,import
-macau-football-competition-297,football,competition,亞運男子足球賽,Asian Games Men's Football,,,confirmed,import
-macau-football-competition-298,football,competition,亞運女子足球賽,Asian Games Women's Football,,,confirmed,import
-macau-football-competition-299,football,competition,中亞國家盃,CAFA Nations Cup,,,confirmed,import
-macau-football-competition-300,football,competition,東亞錦標賽,EAFF E1 Championship,,,confirmed,import
-macau-football-competition-301,football,competition,女子東亞錦標賽,EAFF Women's E1 Championship,,,confirmed,import
-macau-football-competition-302,football,competition,東亞錦標賽外圍賽,EAFF E1 Championship Qualification,,,confirmed,import
-macau-football-competition-303,football,competition,奧運女子足球外圍賽-亞洲區,Olympic Games Women's Football Qualification-AFC,,,confirmed,import
-macau-football-competition-304,football,competition,東南亞運動會男子足球,Southeast Asian Games Men's Football,,,confirmed,import
-macau-football-competition-305,football,competition,東南亞運動會女子足球,Southeast Asian Games Women's Football,,,confirmed,import
-macau-football-competition-306,football,competition,U23西亞錦標賽,WAFF U23 Championship,,,confirmed,import
-macau-football-competition-307,football,competition,西?冠?杯,West Asian Federation Championship,,,confirmed,import
-macau-football-competition-308,football,competition,世界盃亞洲區外圍賽,FIFA World Cup AFC Qualification,,,confirmed,import
-macau-football-competition-309,football,competition,U20非洲國家盃-東中非外圍賽,CAF U20 Africa Cup of Nations-CECAFA,,,confirmed,import
-macau-football-competition-310,football,competition,U20非洲國家盃-北非外圍賽,CAF U20 Africa Cup of Nations-UNAF,,,confirmed,import
-macau-football-competition-311,football,competition,非洲國家盃,CAF Africa Cup of Nations,,,confirmed,import
-macau-football-competition-312,football,competition,女子非洲國家盃,CAF Women's Africa Cup of Nations,,,confirmed,import
-macau-football-competition-313,football,competition,女子非洲國家盃-外圍賽,CAF Women's Africa Cup of Nations-Qualification,,,confirmed,import
-macau-football-competition-314,football,competition,非洲國家盃外圍賽,CAF Africa Cup of Nations Qualification,,,confirmed,import
-macau-football-competition-315,football,competition,U20非洲國家盃,CAF U20 Africa Cup of Nations,,,confirmed,import
-macau-football-competition-316,football,competition,U23非洲國家盃,CAF U23 Africa Cup of Nations,,,confirmed,import
-macau-football-competition-317,football,competition,U23非洲國家盃-外圍賽,CAF U23 Africa Cup of Nations-Qualification,,,confirmed,import
-macau-football-competition-318,football,competition,非洲國家錦標賽,CAF African Nations Championship,,,confirmed,import
-macau-football-competition-319,football,competition,東中非洲球會盃,CECAFA Club Cup,,,confirmed,import
-macau-football-competition-320,football,competition,南非洲足協盃,COSAFA Cup,,,confirmed,import
-macau-football-competition-321,football,competition,女子南非洲足協盃,COSAFA Cup (Women),,,confirmed,import
-macau-football-competition-322,football,competition,U20非洲國家盃-南非洲外,CAF U20 Africa Cup of Nations-COSAFA,,,confirmed,import
-macau-football-competition-323,football,competition,奧運女子足球外圍賽-非洲區,Olympic Games Women's Football Qualification-CAF,,,confirmed,import
-macau-football-competition-324,football,competition,世界盃非洲區外圍賽,FIFA World Cup CAF Qualification,,,confirmed,import
-macau-football-competition-325,football,competition,美墨冠軍盃,Campeones Cup,,,confirmed,import
-macau-football-competition-326,football,competition,中北美洲冠軍盃,CONCACAF Champions Cup,,,confirmed,import
-macau-football-competition-327,football,competition,中北美洲國家聯賽,CONCACAF Nations League,,,confirmed,import
-macau-football-competition-328,football,competition,國際友誼賽-Concacaf系列,International Friendly Matches-CONCACAF Series,,,confirmed,import
-macau-football-competition-329,football,competition,U20中北美洲錦標賽,CONCACAF U20 Championship,,,confirmed,import
-macau-football-competition-330,football,competition,U20中北美洲錦標賽-外圍賽,CONCACAF U20 Championship-Qualification,,,confirmed,import
-macau-football-competition-331,football,competition,女子中北美洲冠軍盃,CONCACAF W Champions Cup,,,confirmed,import
-macau-football-competition-332,football,competition,美洲金盃,CONCACAF Gold Cup,,,confirmed,import
-macau-football-competition-333,football,competition,女子美洲金盃,CONCACAF W Gold Cup,,,confirmed,import
-macau-football-competition-334,football,competition,美洲金盃-外圍賽,CONCACAF Gold Cup-Qualification,,,confirmed,import
-macau-football-competition-335,football,competition,北美洲聯賽盃,North America Leagues Cup,,,confirmed,import
-macau-football-competition-336,football,competition,奧運男子足球外圍賽-中北美及南美洲,Olympic Games Men's Football Qualification-CONCACAF/CONMEBOL,,,confirmed,import
-macau-football-competition-337,football,competition,世界盃中北美洲區外圍賽,FIFA World Cup CONCACAF Qualification,,,confirmed,import
-macau-football-competition-338,football,competition,美洲國家盃,CONMEBOL Copa America,,,confirmed,import
-macau-football-competition-339,football,competition,女子美洲國家盃,CONMEBOL Copa America Femenina,,,confirmed,import
-macau-football-competition-340,football,competition,南美自由盃,CONMEBOL Copa Libertadores,,,confirmed,import
-macau-football-competition-341,football,competition,南美女足自由盃,Copa Libertadores (Women),,,confirmed,import
-macau-football-competition-342,football,competition,南美球會盃,CONMEBOL Copa Sudamericana,,,confirmed,import
-macau-football-competition-343,football,competition,南美球會盃-外圍賽,CONMEBOL Copa Sudamericana-Qualification,,,confirmed,import
-macau-football-competition-344,football,competition,奧運男子足球外圍賽-南美洲,Olympic Games Men's Football Qualification-CONMEBOL,,,confirmed,import
-macau-football-competition-345,football,competition,南美超級盃,CONMEBOL Recopa,,,confirmed,import
-macau-football-competition-346,football,competition,U20南美錦標賽,CONMEBOL Sub 20,,,confirmed,import
-macau-football-competition-347,football,competition,女子U20南美錦標賽,CONMEBOL Sub 20 Femenina,,,confirmed,import
-macau-football-competition-348,football,competition,世界盃南美洲區外圍賽,FIFA World Cup CONMEBOL Qualification,,,confirmed,import
-macau-football-competition-349,football,competition,女子世界盃外圍賽-澳洲大洋洲,FIFA Women's World Cup Qualification - Australia&Oceania,,,confirmed,import
-macau-football-competition-350,football,competition,世界盃大洋洲區外圍賽,FIFA World Cup OFC Qualification,,,confirmed,import
+﻿entity_id,sport,kind,canonical_name_zh,canonical_name_en,short_name_zh,continent,category,status,source
+macau-football-competition-1,football,competition,英超亞洲盃,Premier League Asia Trophy,英亞盃,,,confirmed,import
+macau-football-competition-2,football,competition,英格蘭聯賽盃,England EFL Cup,英聯盃,,,confirmed,import
+macau-football-competition-3,football,competition,英格蘭社區盾,England FA Community Shield,英社盾,,,confirmed,import
+macau-football-competition-4,football,competition,英格蘭足總盃,England FA Cup,英足盃,,,confirmed,import
+macau-football-competition-5,football,competition,英格蘭女子超級聯賽,England Women's Super League,英超女子,,,confirmed,import
+macau-football-competition-6,football,competition,英格蘭非聯賽盃,National League Cup,英非聯盃,,,confirmed,import
+macau-football-competition-7,football,competition,英格蘭聯賽錦標賽,England EFL Trophy,英錦賽,,,confirmed,import
+macau-football-competition-8,football,competition,英格蘭超級聯賽,England Premier League,英超,,,confirmed,import
+macau-football-competition-9,football,competition,英格蘭超級聯賽二級賽,England Premier League 2,英超二級,,,confirmed,import
+macau-football-competition-10,football,competition,英格蘭冠軍聯賽,England EFL Championship,英冠,,,confirmed,import
+macau-football-competition-11,football,competition,英格蘭甲組聯賽,England EFL League One,英甲,,,confirmed,import
+macau-football-competition-12,football,competition,英格蘭乙組聯賽,England EFL League Two,英乙,,,confirmed,import
+macau-football-competition-13,football,competition,女子英格蘭聯賽盃,England Women's League Cup,女子英聯盃,,,confirmed,import
+macau-football-competition-14,football,competition,女子英格蘭足總盃,England Women's FA Cup,女子英足盃,,,confirmed,import
+macau-football-competition-15,football,competition,沙地阿拉伯國王盃,Saudi Arabia King's Cup,沙地國王盃,,,confirmed,import
+macau-football-competition-16,football,competition,沙地阿拉伯職業聯賽,Saudi Arabia Saudi Pro League,沙地職,,,confirmed,import
+macau-football-competition-17,football,competition,沙地阿拉伯超級盃,Saudi Arabia Super Cup,沙地超級盃,,,confirmed,import
+macau-football-competition-18,football,competition,阿根廷超級盃-Internacional,Argentina Supercopa Argentina-Internacional,阿超盃,,,confirmed,import
+macau-football-competition-19,football,competition,阿根廷盃,Argentina Copa Argentina,阿盃,,,confirmed,import
+macau-football-competition-20,football,competition,阿根廷女子甲組聯賽,Argentina Torneo Femenino Primera Division A,阿甲女子,,,confirmed,import
+macau-football-competition-21,football,competition,阿根廷乙組聯賽,Argentina Primera B Nacional,阿乙,,,confirmed,import
+macau-football-competition-22,football,competition,阿根廷超級盃,Argentina Supercopa Argentina,阿超盃,,,confirmed,import
+macau-football-competition-23,football,competition,阿根廷甲組聯賽,Argentina Primera Division,阿甲,,,confirmed,import
+macau-football-competition-24,football,competition,阿根廷冠軍盃,Argentina Trofeo de Campeones,阿根廷冠盃,,,confirmed,import
+macau-football-competition-25,football,competition,澳洲錦標賽,Australia Championship,澳洲錦,,,confirmed,import
+macau-football-competition-26,football,competition,澳洲盃,Australia Cup,澳洲盃,,,confirmed,import
+macau-football-competition-27,football,competition,澳洲職業聯賽,Australia A League Men,澳職,,,confirmed,import
+macau-football-competition-28,football,competition,澳洲國家聯賽-首都,Australia National Premier Leagues-Capital Football,澳國聯,,,confirmed,import
+macau-football-competition-29,football,competition,澳洲國家聯賽-新南威,Australia National Premier Leagues-New South Wales,澳國聯,,,confirmed,import
+macau-football-competition-30,football,competition,澳洲國家聯賽-昆士蘭,Australia National Premier Leagues-Queensland,澳國聯,,,confirmed,import
+macau-football-competition-31,football,competition,澳洲國家聯賽-南澳,Australia National Premier Leagues-South Australia,澳國聯,,,confirmed,import
+macau-football-competition-32,football,competition,澳洲國家聯賽-塔斯,Australia National Premier Leagues-Tasmania,澳國聯,,,confirmed,import
+macau-football-competition-33,football,competition,澳洲國家聯賽-維多利亞,Australia National Premier Leagues-Victoria,澳國聯,,,confirmed,import
+macau-football-competition-34,football,competition,澳洲國家聯賽-西部,Australia National Premier Leagues-Western Australia,澳國聯,,,confirmed,import
+macau-football-competition-35,football,competition,澳洲國家聯賽-北新南,Australia National Premier Leagues-Northern New South,澳國聯,,,confirmed,import
+macau-football-competition-36,football,competition,澳洲女子聯賽,Australia A League Women,澳女聯,,,confirmed,import
+macau-football-competition-37,football,competition,奧地利甲組聯賽,Austria Bundesliga,奧甲,,,confirmed,import
+macau-football-competition-38,football,competition,奧地利盃,Austria OFB Cup,奧盃,,,confirmed,import
+macau-football-competition-39,football,competition,比利時盃,Belgium Cup,比盃,,,confirmed,import
+macau-football-competition-40,football,competition,比利時甲組聯賽,Belgium Pro League,比甲,,,confirmed,import
+macau-football-competition-41,football,competition,比利時超級盃,Belgium Super Cup,比超盃,,,confirmed,import
+macau-football-competition-42,football,competition,巴西甲組聯賽,Brazil Brasileiro Serie A,巴甲,,,confirmed,import
+macau-football-competition-43,football,competition,巴西乙組聯賽,Brazil Brasileiro Serie B,巴乙,,,confirmed,import
+macau-football-competition-44,football,competition,巴西盃,Brazil Copa do Brasil,巴盃,,,confirmed,import
+macau-football-competition-45,football,competition,巴西聖保羅省聯賽,Brazil Paulista Serie,巴聖聯,,,confirmed,import
+macau-football-competition-46,football,competition,巴西超級盃,Brazil Supercopa do Brasil,巴超盃,,,confirmed,import
+macau-football-competition-47,football,competition,保加利亞甲組聯賽,Bulgaria First Professional League,保甲,,,confirmed,import
+macau-football-competition-48,football,competition,智利聯賽盃,Chile Copa de La Liga,智利聯盃,,,confirmed,import
+macau-football-competition-49,football,competition,智利盃,Chile Copa Chile,智利盃,,,confirmed,import
+macau-football-competition-50,football,competition,智利甲組聯賽,Chile Liga de Primera,智甲,,,confirmed,import
+macau-football-competition-51,football,competition,智利超級盃,Chile Super Cup,智超盃,,,confirmed,import
+macau-football-competition-52,football,competition,中國全運會男子足球,China National Games of China Men's Football,全運男足,,,confirmed,import
+macau-football-competition-53,football,competition,中國全運會女子足球,China National Games of China Women's Football,全運女足,,,confirmed,import
+macau-football-competition-54,football,competition,中國女子超級聯賽,China Women's Super League,中超女子,,,confirmed,import
+macau-football-competition-55,football,competition,中國足協盃,China CFA Cup,中協盃,,,confirmed,import
+macau-football-competition-56,football,competition,中國甲組聯賽,China League One,中甲,,,confirmed,import
+macau-football-competition-57,football,competition,中國乙組聯賽,China League Two,中乙,,,confirmed,import
+macau-football-competition-58,football,competition,中國超級盃,China CFA Super Cup,中超盃,,,confirmed,import
+macau-football-competition-59,football,competition,中國超級聯賽,China Super League,中超,,,confirmed,import
+macau-football-competition-60,football,competition,丹麥超級聯賽,Denmark Superliga,丹超,,,confirmed,import
+macau-football-competition-61,football,competition,丹麥盃,Denmark DBU Pokalen,丹盃,,,confirmed,import
+macau-football-competition-62,football,competition,厄瓜多爾甲組聯賽,Ecuador Serie A,厄甲,,,confirmed,import
+macau-football-competition-63,football,competition,芬蘭聯賽盃,Finland Liigacup,芬聯盃,,,confirmed,import
+macau-football-competition-64,football,competition,芬蘭盃,Finland Suomen Cup,芬盃,,,confirmed,import
+macau-football-competition-65,football,competition,芬蘭超級聯賽,Finland Veikkausliiga,芬超,,,confirmed,import
+macau-football-competition-66,football,competition,芬蘭甲組聯賽,Finland Ykkosliiga,芬甲,,,confirmed,import
+macau-football-competition-67,football,competition,法國盃,France Coupe de France,法盃,,,confirmed,import
+macau-football-competition-68,football,competition,女子法國盃,France Coupe de France Feminine,女子法國盃,,,confirmed,import
+macau-football-competition-69,football,competition,法國聯賽盃,France Coupe de la Ligue,法聯盃,,,confirmed,import
+macau-football-competition-70,football,competition,法國女子甲組聯賽,France Premiere Ligue,法甲女子,,,confirmed,import
+macau-football-competition-71,football,competition,法國甲組聯賽,France Ligue 1,法甲,,,confirmed,import
+macau-football-competition-72,football,competition,法國乙組聯賽,France Ligue 2,法乙,,,confirmed,import
+macau-football-competition-73,football,competition,法國超級盃,France Trophee des Champions,法超盃,,,confirmed,import
+macau-football-competition-74,football,competition,希臘盃,Greece Cup,希盃,,,confirmed,import
+macau-football-competition-75,football,competition,希臘超級聯賽,Greece Super League,希超,,,confirmed,import
+macau-football-competition-76,football,competition,西班牙盃,Spain Copa del Rey,西盃,,,confirmed,import
+macau-football-competition-77,football,competition,西班牙甲組聯賽,Spain LALIGA,西甲,,,confirmed,import
+macau-football-competition-78,football,competition,西班牙乙組聯賽,Spain Segunda Division,西乙,,,confirmed,import
+macau-football-competition-79,football,competition,西班牙女子甲組聯賽,Spain Liga F,西甲女子,,,confirmed,import
+macau-football-competition-80,football,competition,西班牙超級盃,Spain Supercopa de Espana,西超盃,,,confirmed,import
+macau-football-competition-81,football,competition,女子西班牙超級盃,Spain Supercopa Femenina,女子西超盃,,,confirmed,import
+macau-football-competition-82,football,competition,荷蘭乙組聯賽,Netherlands Eerste Divisie,荷乙,,,confirmed,import
+macau-football-competition-83,football,competition,荷蘭甲組聯賽,Netherlands Eredivisie,荷甲,,,confirmed,import
+macau-football-competition-84,football,competition,荷蘭女子甲組聯賽,Netherlands Vrouwen Eredivisie,荷甲女子,,,confirmed,import
+macau-football-competition-85,football,competition,荷蘭盃,Netherlands KNVB Beker,荷盃,,,confirmed,import
+macau-football-competition-86,football,competition,荷蘭告魯夫盾,Netherlands Johan Cruijff Schaal,荷告魯夫盾,,,confirmed,import
+macau-football-competition-87,football,competition,印度城邦超級聯賽,India State Premier League,印度城邦超,,,confirmed,import
+macau-football-competition-88,football,competition,印度超級聯賽,India Super League,印度超,,,confirmed,import
+macau-football-competition-89,football,competition,印尼超級聯賽,Indonesia Super League,印尼超,,,confirmed,import
+macau-football-competition-90,football,competition,冰島超級聯賽,Iceland Besta deild karla,冰島超,,,confirmed,import
+macau-football-competition-91,football,competition,女子日本職業聯賽盃,Japan WE League Cup,女日聯盃,,,confirmed,import
+macau-football-competition-92,football,competition,日本足球聯賽,Japan Football League,日足聯,,,confirmed,import
+macau-football-competition-93,football,competition,日本天皇盃,Japan Emperor's Cup,日皇盃,,,confirmed,import
+macau-football-competition-94,football,competition,日本皇后盃,Japan Empress's Cup,日皇后盃,,,confirmed,import
+macau-football-competition-95,football,competition,日本職業聯賽,Japan J1 League,日職,,,confirmed,import
+macau-football-competition-96,football,competition,日本乙組聯賽,Japan J2 League,日乙,,,confirmed,import
+macau-football-competition-97,football,competition,日本J2/J3百年構想聯賽,Japan J2/J3 100 Year Vision League,日乙日丙聯,,,confirmed,import
+macau-football-competition-98,football,competition,日本丙組聯賽,Japan J3 League,日丙,,,confirmed,import
+macau-football-competition-99,football,competition,日本女子甲組聯賽,Japan Women's Football League Division 1,日甲女子,,,confirmed,import
+macau-football-competition-100,football,competition,日本超級盃,Japan Super Cup,日超盃,,,confirmed,import
+macau-football-competition-101,football,competition,日本女子職業聯賽,Japan WE League,日女職,,,confirmed,import
+macau-football-competition-102,football,competition,日本職業聯賽盃,Japan J.League Cup,日聯盃,,,confirmed,import
+macau-football-competition-103,football,competition,加拿大錦標賽,Canada Championship,加錦賽,,,confirmed,import
+macau-football-competition-104,football,competition,阿聯酋卡塔爾挑戰盾,UAE Qatar Challenge Shield,阿聯卡塔盾,,,confirmed,import
+macau-football-competition-105,football,competition,卡塔爾王子盃,Qatar Amir Cup,卡塔王子盃,,,confirmed,import
+macau-football-competition-106,football,competition,卡塔爾星盃,Qatar QSL Cup,卡塔爾星盃,,,confirmed,import
+macau-football-competition-107,football,competition,卡塔爾盃,Qatar Cup,卡塔爾盃,,,confirmed,import
+macau-football-competition-108,football,competition,卡塔爾超級聯賽,Qatar Stars League,卡塔爾超,,,confirmed,import
+macau-football-competition-109,football,competition,哥倫比亞甲組聯賽,Colombia Liga Dimayor,哥甲,,,confirmed,import
+macau-football-competition-110,football,competition,哥倫比亞超級盃,Colombia Superliga,哥超盃,,,confirmed,import
+macau-football-competition-111,football,competition,南韓盃,South Korea Cup,南韓盃,,,confirmed,import
+macau-football-competition-112,football,competition,南韓職業聯賽,South Korea K League 1,韓職,,,confirmed,import
+macau-football-competition-113,football,competition,南韓乙組聯賽,South Korea K League 2,韓乙,,,confirmed,import
+macau-football-competition-114,football,competition,南韓丙組聯賽,South Korea K3 League,韓丙,,,confirmed,import
+macau-football-competition-115,football,competition,南韓女子職業聯賽,South Korea WK League,韓女職,,,confirmed,import
+macau-football-competition-116,football,competition,馬來西亞超級聯賽,Malaysia Liga Super,馬來超,,,confirmed,import
+macau-football-competition-117,football,competition,墨西哥冠軍盃,Mexico Campeon de Campeones,墨冠盃,,,confirmed,import
+macau-football-competition-118,football,competition,墨西哥盃,Mexico Copa MX,墨盃,,,confirmed,import
+macau-football-competition-119,football,competition,墨西哥超級聯賽-春季,Mexico Liga MX-Apertura,墨超,,,confirmed,import
+macau-football-competition-120,football,competition,墨西哥甲組聯賽,Mexico Liga Expansion MX,墨甲,,,confirmed,import
+macau-football-competition-121,football,competition,墨西哥女子超級聯賽,Mexico LIGA MX Femenil,墨超女子,,,confirmed,import
+macau-football-competition-122,football,competition,墨西哥超級盃,Mexico Supercopa MX,墨超盃,,,confirmed,import
+macau-football-competition-123,football,competition,德國乙組聯賽,Germany 2. Bundesliga,德乙,,,confirmed,import
+macau-football-competition-124,football,competition,德國甲組聯賽,Germany Bundesliga,德甲,,,confirmed,import
+macau-football-competition-125,football,competition,德國女子甲組聯賽,Germany Frauen Bundesliga,德甲女子,,,confirmed,import
+macau-football-competition-126,football,competition,女子德國盃,Germany DFB Pokal Frauen,女子德國盃,,,confirmed,import
+macau-football-competition-127,football,competition,德國盃,Germany DFB Pokal,德盃,,,confirmed,import
+macau-football-competition-128,football,competition,德國超級盃,Germany Supercup,德超盃,,,confirmed,import
+macau-football-competition-129,football,competition,挪威超級聯賽,Norway Eliteserien,挪超,,,confirmed,import
+macau-football-competition-130,football,competition,女子挪威盃,Norway NM Kvinner,女子挪盃,,,confirmed,import
+macau-football-competition-131,football,competition,挪威盃,Norway NM Cupen,挪盃,,,confirmed,import
+macau-football-competition-132,football,competition,挪威甲組聯賽,Norway First Division,挪甲,,,confirmed,import
+macau-football-competition-133,football,competition,挪威乙組聯賽,Norway Second Division,挪乙,,,confirmed,import
+macau-football-competition-134,football,competition,挪威乙組聯賽-分組2,Norway Second Division-Group 2,挪乙,,,confirmed,import
+macau-football-competition-135,football,competition,挪威超級盃,Norway Mesterfinalen,挪超盃,,,confirmed,import
+macau-football-competition-136,football,competition,挪威女子超級聯賽,Norway Toppserien,挪超女子,,,confirmed,import
+macau-football-competition-137,football,competition,紐西蘭盃,New Zealand Cup,紐西蘭盃,,,confirmed,import
+macau-football-competition-138,football,competition,紐西蘭女子國家聯賽,New Zealand Women's National League,紐國聯女子,,,confirmed,import
+macau-football-competition-139,football,competition,紐西蘭國家聯賽,New Zealand National League,紐國聯,,,confirmed,import
+macau-football-competition-140,football,competition,紐西蘭女子國家聯賽,New Zealand Women's National League,紐西蘭女子國家聯賽,,,confirmed,import
+macau-football-competition-141,football,competition,波蘭超級聯賽,Poland Ekstraklasa,波蘭超,,,confirmed,import
+macau-football-competition-142,football,competition,葡萄牙超級聯賽,Portugal Primeira Liga,葡超,,,confirmed,import
+macau-football-competition-143,football,competition,葡萄牙超級盃,Portugal Supertaca Candido de Oliveira,葡超盃,,,confirmed,import
+macau-football-competition-144,football,competition,葡萄牙聯賽盃,Portugal Taca da Liga,葡聯盃,,,confirmed,import
+macau-football-competition-145,football,competition,葡萄牙盃,Portugal Taca de Portugal,葡盃,,,confirmed,import
+macau-football-competition-146,football,competition,南非超級聯賽,South Africa Premier League,南非超,,,confirmed,import
+macau-football-competition-147,football,competition,俄羅斯甲組聯賽,Russia First League,俄甲,,,confirmed,import
+macau-football-competition-148,football,competition,俄羅斯超級聯賽,Russia Premier League,俄超,,,confirmed,import
+macau-football-competition-149,football,competition,俄羅斯盃,Russia Cup,俄盃,,,confirmed,import
+macau-football-competition-150,football,competition,俄羅斯超級盃,Russia Super Cup,俄超盃,,,confirmed,import
+macau-football-competition-151,football,competition,塞爾維亞超級聯賽,Serbia Super Liga,塞超,,,confirmed,import
+macau-football-competition-152,football,competition,新加坡超級聯賽,Singapore Premier League,新加坡超,,,confirmed,import
+macau-football-competition-153,football,competition,瑞典超級聯賽,Sweden Allsvenskan,瑞典超,,,confirmed,import
+macau-football-competition-154,football,competition,瑞典女子超級聯賽,Sweden Damallsvenskan,瑞典超女子,,,confirmed,import
+macau-football-competition-155,football,competition,瑞典甲組聯賽,Sweden Superettan,瑞典甲,,,confirmed,import
+macau-football-competition-156,football,competition,瑞典盃,Sweden Svenska Cupen,瑞典盃,,,confirmed,import
+macau-football-competition-157,football,competition,瑞士超級聯賽,Switzerland Super League,瑞士超,,,confirmed,import
+macau-football-competition-158,football,competition,瑞士盃,Switzerland Schweizer Cup,瑞士盃,,,confirmed,import
+macau-football-competition-159,football,competition,女子蘇格蘭聯賽盃,Scotland Women's Premier League Cup,女子蘇聯盃,,,confirmed,import
+macau-football-competition-160,football,competition,蘇格蘭冠軍聯賽,Scotland Championship,蘇冠,,,confirmed,import
+macau-football-competition-161,football,competition,蘇格蘭超級聯賽,Scotland Premiership,蘇超,,,confirmed,import
+macau-football-competition-162,football,competition,蘇格蘭聯賽盃,Scotland League Cup,蘇聯盃,,,confirmed,import
+macau-football-competition-163,football,competition,蘇格蘭足總盃,Scotland Scottish Cup,蘇足盃,,,confirmed,import
+macau-football-competition-164,football,competition,蘇格蘭女子超級聯賽,Scotland Women's Premier League,蘇超女子,,,confirmed,import
+macau-football-competition-165,football,competition,土耳其超級聯賽,Turkiye Super Lig,土超,,,confirmed,import
+macau-football-competition-166,football,competition,土耳其超級盃,Turkiye TFF Super Kupa,土超盃,,,confirmed,import
+macau-football-competition-167,football,competition,土耳其甲組聯賽,Turkiye TFF 1. Lig,土甲,,,confirmed,import
+macau-football-competition-168,football,competition,土耳其盃,Turkiye Turkiye Kupasi,土盃,,,confirmed,import
+macau-football-competition-169,football,competition,台灣甲組聯賽,Taiwan Premier League,台甲聯,,,confirmed,import
+macau-football-competition-170,football,competition,泰國聯賽盃,Thailand League Cup,泰聯盃,,,confirmed,import
+macau-football-competition-171,football,competition,泰國足總盃,Thailand FA Cup,泰足盃,,,confirmed,import
+macau-football-competition-172,football,competition,泰國超級聯賽,Thailand Thai League 1,泰超,,,confirmed,import
+macau-football-competition-173,football,competition,烏克蘭超級聯賽,Ukraine Premier League,烏克蘭超,,,confirmed,import
+macau-football-competition-174,football,competition,烏拉圭甲組聯賽,Uruguay Liga AUF Uruguaya,烏甲,,,confirmed,import
+macau-football-competition-175,football,competition,烏拉圭超級盃,Uruguay Supercopa Uruguaya,烏超盃,,,confirmed,import
+macau-football-competition-176,football,competition,美國職業大聯盟聯賽,USA Major League Soccer,美職聯,,,confirmed,import
+macau-football-competition-177,football,competition,美國國家女子聯賽,USA National Women's Soccer League,美國女聯,,,confirmed,import
+macau-football-competition-178,football,competition,美國冠軍聯賽,USA USL Championship,美冠,,,confirmed,import
+macau-football-competition-179,football,competition,美國公開盃,USA US Open Cup,美公開盃,,,confirmed,import
+macau-football-competition-180,football,competition,美國足球聯賽盃,USA USL Cup,美聯盃,,,confirmed,import
+macau-football-competition-181,football,competition,烏茲別克超級聯賽,Uzbekistan Super League,烏茲別克超,,,confirmed,import
+macau-football-competition-182,football,competition,越南職業聯賽,Vietnam V.League 1,越南職,,,confirmed,import
+macau-football-competition-183,football,competition,越南盃,Vietnam Cup,越南盃,,,confirmed,import
+macau-football-competition-184,football,competition,意大利盃,Italy Coppa Italia,意盃,,,confirmed,import
+macau-football-competition-185,football,competition,女子意大利盃,Italy Coppa Italia Women,女子意盃,,,confirmed,import
+macau-football-competition-186,football,competition,意大利女子甲組聯賽,Italy Serie A Women,意甲女子,,,confirmed,import
+macau-football-competition-187,football,competition,女子意大利甲組聯賽盃,Italy Serie A Women's Cup,女子意聯盃,,,confirmed,import
+macau-football-competition-188,football,competition,意大利甲組聯賽,Italy Serie A,意甲,,,confirmed,import
+macau-football-competition-189,football,competition,意大利乙組聯賽,Italy Serie B,意乙,,,confirmed,import
+macau-football-competition-190,football,competition,意大利超級盃,Italy Super Cup,意超盃,,,confirmed,import
+macau-football-competition-191,football,competition,阿聯酋聯賽盃,UAE League Cup,阿聯酋聯盃,,,confirmed,import
+macau-football-competition-192,football,competition,阿聯酋總統盃,UAE President Cup,阿聯總統盃,,,confirmed,import
+macau-football-competition-193,football,competition,阿聯酋職業聯賽,UAE Pro League,阿聯酋職,,,confirmed,import
+macau-football-competition-194,football,competition,洲際超級盃,Finalissima,洲際超盃,,,confirmed,import
+macau-football-competition-195,football,competition,女子洲際超級盃,Women's Finalissima,女洲際超盃,,,confirmed,import
+macau-football-competition-196,football,competition,歐美球會挑戰盃,UEFA CONMEBOL Club Challenge,歐美挑戰盃,,,confirmed,import
+macau-football-competition-197,football,competition,青年國際友誼賽,Youth International Friendly Matches,青國友賽,,,confirmed,import
+macau-football-competition-198,football,competition,酋長盃,Emirates Cup,酋長盃,,,confirmed,import
+macau-football-competition-199,football,competition,U20阿拉伯海灣盃,AGCFF U20 Gulf Cup,20海灣盃,,,confirmed,import
+macau-football-competition-200,football,competition,女子國際友誼賽-女子阿爾及利亞盃,Women's International Friendly Matches-Algarve Cup Women,女國友賽,,,confirmed,import
+macau-football-competition-201,football,competition,阿拉伯球會冠軍盃,Arab Club Champions Cup,阿拉伯冠盃,,,confirmed,import
+macau-football-competition-202,football,competition,女子國際友誼賽-Arnold Clark Cup,Women's International Friendly Matches-Arnold Clark Cup,女國友賽,,,confirmed,import
+macau-football-competition-203,football,competition,球會友誼賽-奧迪盃,Club Friendly Matches-Audi Cup,會友賽,,,confirmed,import
+macau-football-competition-204,football,competition,球會友誼賽,Club Friendly Matches,會友賽,,,confirmed,import
+macau-football-competition-205,football,competition,球會友誼賽-女子,Club Friendly Matches-Women,會友賽,,,confirmed,import
+macau-football-competition-206,football,competition,洲際國家盃,FIFA Confederations Cup,洲國盃,,,confirmed,import
+macau-football-competition-207,football,competition,女子國際友誼賽-塞浦路斯女子盃,Women's International Friendly Matches-Cyprus Women Cup,女國友賽,,,confirmed,import
+macau-football-competition-208,football,competition,阿拉伯國家盃,FIFA Arab Cup,阿拉伯國盃,,,confirmed,import
+macau-football-competition-209,football,competition,世界冠軍球會盃,FIFA Club World Cup,世冠盃,,,confirmed,import
+macau-football-competition-210,football,competition,FIFA洲際球會盃,FIFA Intercontinental Cup,洲際球會盃,,,confirmed,import
+macau-football-competition-211,football,competition,國際友誼賽-FIFA系列賽,International Friendly Matches-FIFA Series,國友賽,,,confirmed,import
+macau-football-competition-212,football,competition,FIFA女子球會冠軍盃,FIFA Women's Champions Cup,女子冠軍盃,,,confirmed,import
+macau-football-competition-213,football,competition,洲際盃,FIFA Confederations Cup,洲際盃,,,confirmed,import
+macau-football-competition-214,football,competition,女子國際友誼賽-CONMEBOL UEFA Cup of Champions,Women's International Friendly Matches-CONMEBOL UEFA Cup of Champions,女國友賽,,,confirmed,import
+macau-football-competition-215,football,competition,球會友誼賽-佛羅里達盃,Club Friendly Matches-Florida Cup,會友賽,,,confirmed,import
+macau-football-competition-216,football,competition,國際友誼賽,International Friendly Matches,國友賽,,,confirmed,import
+macau-football-competition-217,football,competition,女子國際友誼賽,Women's International Friendly Matches,女國友賽,,,confirmed,import
+macau-football-competition-218,football,competition,國際友誼賽-洲際盃,International Friendly Matches-Intercontinental Cup,國友賽,,,confirmed,import
+macau-football-competition-219,football,competition,國際友誼賽-King´s Cup,International Friendly Matches-King´s Cup,國友賽,,,confirmed,import
+macau-football-competition-220,football,competition,國際友誼賽-麒麟盃,International Friendly Matches-Kirin Cup,國友賽,,,confirmed,import
+macau-football-competition-221,football,competition,國際友誼賽-土倫國際足球錦標賽,International Friendly Matches-Toulon Tournament,國友賽,,,confirmed,import
+macau-football-competition-222,football,competition,奧運男子足球,Olympic Games Men's Football,奧男足,,,confirmed,import
+macau-football-competition-223,football,competition,奧運女子足球,Olympic Games Women's Football,奧女足,,,confirmed,import
+macau-football-competition-224,football,competition,奧運男子足球外圍賽,Olympic Games Men's Football Qualification,奧男足外,,,confirmed,import
+macau-football-competition-225,football,competition,女子其他賽事,Other Competition Matches (Women),女子其他賽事,,,confirmed,import
+macau-football-competition-226,football,competition,球會友誼賽-英超亞洲盃,Club Friendly Matches-Premier League Asia Trophy,會友賽,,,confirmed,import
+macau-football-competition-227,football,competition,英超夏季系列賽,Premier League Summer Series,英超夏季系列賽,,,confirmed,import
+macau-football-competition-228,football,competition,女子國際友誼賽-SheBelieves杯,Women's International Friendly Matches-SheBelieves Cup,女國友賽,,,confirmed,import
+macau-football-competition-229,football,competition,女子國際友誼賽-法兰西锦标赛,Women's International Friendly Matches-Tournoi de France,女國友賽,,,confirmed,import
+macau-football-competition-230,football,competition,世界盃,FIFA World Cup,世界盃,,,confirmed,import
+macau-football-competition-231,football,competition,女子世界盃,FIFA Women's World Cup,女子世盃,,,confirmed,import
+macau-football-competition-232,football,competition,國際友誼賽-World Cup Friendlies,International Friendly Matches-World Cup Friendlies,國友賽,,,confirmed,import
+macau-football-competition-233,football,competition,世界盃外圍賽附加賽,FIFA World Cup Qualification Playoff,世盃附,,,confirmed,import
+macau-football-competition-234,football,competition,女子世界盃外圍賽-跨洲附加賽,FIFA Women's World Cup Qualification-Inter Confederation Playoffs,女子世盃外,,,confirmed,import
+macau-football-competition-235,football,competition,U20世界盃,FIFA U20 World Cup,U20世盃,,,confirmed,import
+macau-football-competition-236,football,competition,女子U20世界盃,FIFA U20 Women's World Cup,女20世盃,,,confirmed,import
+macau-football-competition-237,football,competition,國際冠軍盃,International Champions Cup,國冠盃,,,confirmed,import
+macau-football-competition-238,football,competition,球會友誼賽-大西洋盃,Club Friendly Matches-Atlantic Cup,會友賽,,,confirmed,import
+macau-football-competition-239,football,competition,國際友誼賽-波羅的海盃,International Friendly Matches-Baltic Cup,國友賽,,,confirmed,import
+macau-football-competition-240,football,competition,國際友誼賽-U20 Elite,International Friendly Matches-U20 Elite,國友賽,,,confirmed,import
+macau-football-competition-241,football,competition,球會友誼賽-酋長盃,Club Friendly Matches-Emirates Cup,會友賽,,,confirmed,import
+macau-football-competition-242,football,competition,歐洲國家盃外圍賽,UEFA EURO Qualification,歐國外,,,confirmed,import
+macau-football-competition-243,football,competition,女子歐洲國家盃,UEFA Women's EURO,女子歐國盃,,,confirmed,import
+macau-football-competition-244,football,competition,女子歐洲國家盃-外圍賽,UEFA Women's EURO-Qualification,女子歐國盃,,,confirmed,import
+macau-football-competition-245,football,competition,女子U19歐洲國家盃,UEFA U19 Women's EURO,女19歐國,,,confirmed,import
+macau-football-competition-246,football,competition,女子U19歐洲國家盃-外圍賽,UEFA U19 Women's EURO-Qualifiers,女19歐國,,,confirmed,import
+macau-football-competition-247,football,competition,歐洲國家盃,UEFA EURO,歐國盃,,,confirmed,import
+macau-football-competition-248,football,competition,歐洲冠軍聯賽,UEFA Champions League,歐冠聯,,,confirmed,import
+macau-football-competition-249,football,competition,女子歐洲冠軍聯賽,UEFA Women's Champions League,女子歐冠聯,,,confirmed,import
+macau-football-competition-250,football,competition,歐洲冠軍聯賽-外圍賽,UEFA Champions League-Qualification,歐冠聯,,,confirmed,import
+macau-football-competition-251,football,competition,女子歐洲冠軍聯賽-外圍賽,UEFA Women's Champions League-Qualification,女子歐冠聯,,,confirmed,import
+macau-football-competition-252,football,competition,歐洲協會聯賽,UEFA Conference League,歐協聯,,,confirmed,import
+macau-football-competition-253,football,competition,歐洲協會聯賽-外圍賽,UEFA Conference League-Qualification,歐協聯,,,confirmed,import
+macau-football-competition-254,football,competition,歐洲聯賽,UEFA Europa League,歐洲聯,,,confirmed,import
+macau-football-competition-255,football,competition,歐洲聯賽-外圍賽,UEFA Europa League-Qualification,歐洲聯,,,confirmed,import
+macau-football-competition-256,football,competition,歐洲國家聯賽,UEFA Nations League,歐國聯,,,confirmed,import
+macau-football-competition-257,football,competition,女子歐洲國家聯賽,UEFA Women's Nations League,女子歐國聯,,,confirmed,import
+macau-football-competition-258,football,competition,歐洲超級盃,UEFA Super Cup,歐超盃,,,confirmed,import
+macau-football-competition-259,football,competition,U19歐洲國家盃,UEFA U19 EURO,U19歐國,,,confirmed,import
+macau-football-competition-260,football,competition,U19歐洲國家盃-外圍賽,UEFA U19 EURO-Qualification,U19歐國,,,confirmed,import
+macau-football-competition-261,football,competition,U21歐洲國家盃,UEFA U21 EURO,U21歐國,,,confirmed,import
+macau-football-competition-262,football,competition,U21歐洲國家盃外圍賽,UEFA U21 EURO Qualification,21歐國外,,,confirmed,import
+macau-football-competition-263,football,competition,女子歐洲聯賽,UEFA Women's Europa Cup,女子歐洲聯,,,confirmed,import
+macau-football-competition-264,football,competition,女子歐洲聯賽-外圍賽,UEFA Women's Europa Cup-Qualification,女子歐洲聯,,,confirmed,import
+macau-football-competition-265,football,competition,歐洲青年聯賽,UEFA Youth League,歐青聯,,,confirmed,import
+macau-football-competition-266,football,competition,球會友誼賽-Uhren Cup,Club Friendly Matches-Uhren Cup,會友賽,,,confirmed,import
+macau-football-competition-267,football,competition,世界盃歐洲區外圍賽,FIFA World Cup UEFA Qualification,世盃歐洲,,,confirmed,import
+macau-football-competition-268,football,competition,女子世界盃外圍賽-歐洲區,FIFA Women's World Cup Qualification-Europe,女子世盃外,,,confirmed,import
+macau-football-competition-269,football,competition,女子亞洲盃-外圍賽,AFC Women's Asian Cup-Qualification,女亞盃,,,confirmed,import
+macau-football-competition-270,football,competition,U23亞洲盃-外圍賽,AFC U23 Asian Cup-Qualifying,U23亞盃,,,confirmed,import
+macau-football-competition-271,football,competition,亞洲挑戰聯賽,AFC Challenge League,亞洲挑戰聯,,,confirmed,import
+macau-football-competition-272,football,competition,亞洲挑戰聯賽-外圍賽,AFC Challenge League-Qualification,亞洲挑戰聯,,,confirmed,import
+macau-football-competition-273,football,competition,亞洲冠軍精英聯賽,AFC Champions League Elite,亞冠精英聯,,,confirmed,import
+macau-football-competition-274,football,competition,亞洲冠軍精英聯賽-外圍賽,AFC Champions League Elite-Qualification,亞冠精英聯,,,confirmed,import
+macau-football-competition-275,football,competition,亞洲冠軍二級聯賽,AFC Champions League Two,亞冠二級聯,,,confirmed,import
+macau-football-competition-276,football,competition,亞洲冠軍二級聯賽-外圍賽,AFC Champions League Two-Qualification,亞冠二級聯,,,confirmed,import
+macau-football-competition-277,football,competition,U19亚洲锦标赛,AFC U19 Championship,,,,confirmed,import
+macau-football-competition-278,football,competition,U19亞洲盃-外圍賽,AFC U19 Championship-Preliminaries,19亞盃,,,confirmed,import
+macau-football-competition-279,football,competition,U20亞洲盃,AFC U20 Asian Cup,U20亞盃,,,confirmed,import
+macau-football-competition-280,football,competition,U20亞洲盃-外圍賽,AFC U20 Asian Cup-Qualification,U20亞盃,,,confirmed,import
+macau-football-competition-281,football,competition,女子U20亞洲盃,AFC U20 Women's Asian Cup,女20亞盃,,,confirmed,import
+macau-football-competition-282,football,competition,U23亞洲盃,AFC U23 Asian Cup,U23亞盃,,,confirmed,import
+macau-football-competition-283,football,competition,女子亞洲冠軍聯賽,AFC Women's Champions League,女子亞冠聯,,,confirmed,import
+macau-football-competition-284,football,competition,女子東南亞錦標賽-舊,ASEAN Women's Championship-Old,女東南亞錦,,,confirmed,import
+macau-football-competition-285,football,competition,U19東南亞錦標賽,ASEAN U19 Championship,19東南錦,,,confirmed,import
+macau-football-competition-286,football,competition,U23東南亞錦標賽,ASEAN U23 Championship,23東南錦,,,confirmed,import
+macau-football-competition-287,football,competition,東南亞錦標賽-鈴木盃,ASEAN Championship,東南亞錦,,,confirmed,import
+macau-football-competition-288,football,competition,東南亞錦標賽,ASEAN Championship,東南亞錦,,,confirmed,import
+macau-football-competition-289,football,competition,阿拉伯海灣冠軍聯賽,Gulf Club Champions League,海灣冠軍聯,,,confirmed,import
+macau-football-competition-290,football,competition,阿拉伯海灣盃,Arabian Gulf Cup,海灣盃,,,confirmed,import
+macau-football-competition-291,football,competition,海灣奧盃,Arabian Gulf Cup U23,海灣奧盃,,,confirmed,import
+macau-football-competition-292,football,competition,女子東南亞錦標賽,ASEAN Women's Championship,女東南亞錦,,,confirmed,import
+macau-football-competition-293,football,competition,東南亞球會錦標賽,ASEAN Club Championship,東南球會錦,,,confirmed,import
+macau-football-competition-294,football,competition,亞洲盃,AFC Asian Cup,亞洲盃,,,confirmed,import
+macau-football-competition-295,football,competition,女子亞洲盃,AFC Women's Asian Cup,女亞盃,,,confirmed,import
+macau-football-competition-296,football,competition,亞洲盃外圍賽,AFC Asian Cup Qualification,亞盃外,,,confirmed,import
+macau-football-competition-297,football,competition,亞運男子足球賽,Asian Games Men's Football,亞運男足,,,confirmed,import
+macau-football-competition-298,football,competition,亞運女子足球賽,Asian Games Women's Football,亞運女足,,,confirmed,import
+macau-football-competition-299,football,competition,中亞國家盃,CAFA Nations Cup,中亞國家盃,,,confirmed,import
+macau-football-competition-300,football,competition,東亞錦標賽,EAFF E1 Championship,東亞錦,,,confirmed,import
+macau-football-competition-301,football,competition,女子東亞錦標賽,EAFF Women's E1 Championship,女東亞錦,,,confirmed,import
+macau-football-competition-302,football,competition,東亞錦標賽外圍賽,EAFF E1 Championship Qualification,東亞錦外,,,confirmed,import
+macau-football-competition-303,football,competition,奧運女子足球外圍賽-亞洲區,Olympic Games Women's Football Qualification-AFC,奧女足外,,,confirmed,import
+macau-football-competition-304,football,competition,東南亞運動會男子足球,Southeast Asian Games Men's Football,東南運男足,,,confirmed,import
+macau-football-competition-305,football,competition,東南亞運動會女子足球,Southeast Asian Games Women's Football,東南運女足,,,confirmed,import
+macau-football-competition-306,football,competition,U23西亞錦標賽,WAFF U23 Championship,23西亞錦,,,confirmed,import
+macau-football-competition-307,football,competition,西亚冠军杯,West Asian Federation Championship,,,,confirmed,import
+macau-football-competition-308,football,competition,世界盃亞洲區外圍賽,FIFA World Cup AFC Qualification,世盃亞洲,,,confirmed,import
+macau-football-competition-309,football,competition,U20非洲國家盃-東中非外圍賽,CAF U20 Africa Cup of Nations-CECAFA,20非國盃,,,confirmed,import
+macau-football-competition-310,football,competition,U20非洲國家盃-北非外圍賽,CAF U20 Africa Cup of Nations-UNAF,20非國盃,,,confirmed,import
+macau-football-competition-311,football,competition,非洲國家盃,CAF Africa Cup of Nations,非國盃,,,confirmed,import
+macau-football-competition-312,football,competition,女子非洲國家盃,CAF Women's Africa Cup of Nations,女子非國盃,,,confirmed,import
+macau-football-competition-313,football,competition,女子非洲國家盃-外圍賽,CAF Women's Africa Cup of Nations-Qualification,女子非國盃,,,confirmed,import
+macau-football-competition-314,football,competition,非洲國家盃外圍賽,CAF Africa Cup of Nations Qualification,非國盃外,,,confirmed,import
+macau-football-competition-315,football,competition,U20非洲國家盃,CAF U20 Africa Cup of Nations,20非國盃,,,confirmed,import
+macau-football-competition-316,football,competition,U23非洲國家盃,CAF U23 Africa Cup of Nations,23非國盃,,,confirmed,import
+macau-football-competition-317,football,competition,U23非洲國家盃-外圍賽,CAF U23 Africa Cup of Nations-Qualification,23非國盃,,,confirmed,import
+macau-football-competition-318,football,competition,非洲國家錦標賽,CAF African Nations Championship,非國錦,,,confirmed,import
+macau-football-competition-319,football,competition,東中非洲球會盃,CECAFA Club Cup,東中非洲盃,,,confirmed,import
+macau-football-competition-320,football,competition,南非洲足協盃,COSAFA Cup,南非洲盃,,,confirmed,import
+macau-football-competition-321,football,competition,女子南非洲足協盃,COSAFA Cup (Women),女南非盃,,,confirmed,import
+macau-football-competition-322,football,competition,U20非洲國家盃-南非洲外,CAF U20 Africa Cup of Nations-COSAFA,20非國盃,,,confirmed,import
+macau-football-competition-323,football,competition,奧運女子足球外圍賽-非洲區,Olympic Games Women's Football Qualification-CAF,奧女足外,,,confirmed,import
+macau-football-competition-324,football,competition,世界盃非洲區外圍賽,FIFA World Cup CAF Qualification,世盃非洲,,,confirmed,import
+macau-football-competition-325,football,competition,美墨冠軍盃,Campeones Cup,美墨冠軍盃,,,confirmed,import
+macau-football-competition-326,football,competition,中北美洲冠軍盃,CONCACAF Champions Cup,中北美冠盃,,,confirmed,import
+macau-football-competition-327,football,competition,中北美洲國家聯賽,CONCACAF Nations League,中北美國聯,,,confirmed,import
+macau-football-competition-328,football,competition,國際友誼賽-Concacaf系列,International Friendly Matches-CONCACAF Series,國友賽,,,confirmed,import
+macau-football-competition-329,football,competition,U20中北美洲錦標賽,CONCACAF U20 Championship,20中北美,,,confirmed,import
+macau-football-competition-330,football,competition,U20中北美洲錦標賽-外圍賽,CONCACAF U20 Championship-Qualification,20中北美,,,confirmed,import
+macau-football-competition-331,football,competition,女子中北美洲冠軍盃,CONCACAF W Champions Cup,女中北美盃,,,confirmed,import
+macau-football-competition-332,football,competition,美洲金盃,CONCACAF Gold Cup,美金盃,,,confirmed,import
+macau-football-competition-333,football,competition,女子美洲金盃,CONCACAF W Gold Cup,女子美金盃,,,confirmed,import
+macau-football-competition-334,football,competition,美洲金盃-外圍賽,CONCACAF Gold Cup-Qualification,美金盃,,,confirmed,import
+macau-football-competition-335,football,competition,北美洲聯賽盃,North America Leagues Cup,北美洲聯盃,,,confirmed,import
+macau-football-competition-336,football,competition,奧運男子足球外圍賽-中北美及南美洲,Olympic Games Men's Football Qualification-CONCACAF/CONMEBOL,奧男足外,,,confirmed,import
+macau-football-competition-337,football,competition,世界盃中北美洲區外圍賽,FIFA World Cup CONCACAF Qualification,世盃中北美,,,confirmed,import
+macau-football-competition-338,football,competition,美洲國家盃,CONMEBOL Copa America,美洲盃,,,confirmed,import
+macau-football-competition-339,football,competition,女子美洲國家盃,CONMEBOL Copa America Femenina,女子美洲盃,,,confirmed,import
+macau-football-competition-340,football,competition,南美自由盃,CONMEBOL Copa Libertadores,自由盃,,,confirmed,import
+macau-football-competition-341,football,competition,南美女足自由盃,Copa Libertadores (Women),女自由盃,,,confirmed,import
+macau-football-competition-342,football,competition,南美球會盃,CONMEBOL Copa Sudamericana,南會盃,,,confirmed,import
+macau-football-competition-343,football,competition,南美球會盃-外圍賽,CONMEBOL Copa Sudamericana-Qualification,南會盃,,,confirmed,import
+macau-football-competition-344,football,competition,奧運男子足球外圍賽-南美洲,Olympic Games Men's Football Qualification-CONMEBOL,奧男足外,,,confirmed,import
+macau-football-competition-345,football,competition,南美超級盃,CONMEBOL Recopa,南超盃,,,confirmed,import
+macau-football-competition-346,football,competition,U20南美錦標賽,CONMEBOL Sub 20,20南美錦,,,confirmed,import
+macau-football-competition-347,football,competition,女子U20南美錦標賽,CONMEBOL Sub 20 Femenina,女20南美,,,confirmed,import
+macau-football-competition-348,football,competition,世界盃南美洲區外圍賽,FIFA World Cup CONMEBOL Qualification,世盃南美,,,confirmed,import
+macau-football-competition-349,football,competition,女子世界盃外圍賽-澳洲大洋洲,FIFA Women's World Cup Qualification - Australia&Oceania,女子世盃外,,,confirmed,import
+macau-football-competition-350,football,competition,世界盃大洋洲區外圍賽,FIFA World Cup OFC Qualification,世盃大洋洲,,,confirmed,import

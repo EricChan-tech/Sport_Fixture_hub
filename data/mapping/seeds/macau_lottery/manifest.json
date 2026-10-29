@@ -3,7 +3,7 @@
   "source_id": "macau_lottery",
   "status": "confirmed",
   "source": "import",
-  "note": "Git 種子。日常確認與拒絕不經 Git commit，運行時儲存留待物件儲存。",
+  "note": "Git 種子。日常確認與拒絕不經 Git commit，運行時儲存留待物件儲存。賽事列含 short_name_zh（繁體簡稱，可空）。",
   "files": [
     {
       "file": "football_teams.json",
@@ -31,7 +31,7 @@
       "csv": "basketball_competitions.csv",
       "sport": "basketball",
       "kind": "competition",
-      "count": 163
+      "count": 162
     }
   ]
 }

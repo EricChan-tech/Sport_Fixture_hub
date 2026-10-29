@@ -21,6 +21,11 @@ async function loadItems(sport, kind) {
   return parsed.items
 }
 
+function shortNameOf(item, override) {
+  if (override && Object.prototype.hasOwnProperty.call(override, 'short_name_zh')) return override.short_name_zh || ''
+  return item.short_name_zh || ''
+}
+
 function viewOf(item, override) {
   return {
     entity_id: item.entity_id,
@@ -28,6 +33,7 @@ function viewOf(item, override) {
     kind: item.kind,
     canonical_name_zh: override?.canonical_name_zh || item.canonical_name_zh,
     canonical_name_en: override?.canonical_name_en || item.canonical_name_en,
+    short_name_zh: shortNameOf(item, override),
     status: override?.status || item.status,
     source: override?.source || item.source,
     continent: item.meta?.continent || '',
@@ -58,7 +64,14 @@ export async function queryCatalog({ sport, kind, q = '', page = 1, pageSize = 4
     const view = viewOf(item, overrides.items[item.entity_id])
     if (confirmedOnly && view.status !== 'confirmed') continue
     if (needle) {
-      const blob = [view.entity_id, view.canonical_name_zh, view.canonical_name_en, view.continent, view.category]
+      const blob = [
+        view.entity_id,
+        view.canonical_name_zh,
+        view.short_name_zh,
+        view.canonical_name_en,
+        view.continent,
+        view.category,
+      ]
         .join(' ')
         .toLowerCase()
       if (!blob.includes(needle)) continue

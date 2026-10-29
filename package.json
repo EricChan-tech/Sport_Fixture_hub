@@ -10,7 +10,8 @@
     "check:seeds": "node scripts/check-macau-seeds.mjs",
     "check:phase2": "node scripts/check-phase2.mjs",
     "check:align": "node scripts/check-align.mjs",
-    "build": "npm run check && npm run check:seeds && npm run check:phase2 && npm run check:align && vue-tsc -b && vite build",
+    "check:macau": "node scripts/check-macau-scrape.mjs",
+    "build": "npm run check && npm run check:seeds && npm run check:phase2 && npm run check:align && npm run check:macau && vue-tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

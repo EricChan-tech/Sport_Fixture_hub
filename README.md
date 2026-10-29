@@ -1,6 +1,6 @@
 # 賽程匯
 
-跨資訊公司賽程綜合系統。Phase 1 鎖介面與示範賽程；Phase 2 把日更和手動更新接到同一條管線，並把賽程 JSON 寫進儲存層。真實頁面抓取仍未接入。
+跨資訊公司賽程綜合系統。Phase 1 鎖介面與示範賽程；Phase 2 把日更和手動更新接到同一條管線，並把賽程 JSON 寫進儲存層。澳彩已接上公開賽程頁；其餘四個來源仍未抓取。
 
 示範賽程在 `public/fixtures/`，只為了讓白名單、排序、紅黃格和待對照可以操作。正式每日賽程 JSON 會放在物件儲存或 CDN，不提交進 Git。生產環境的 GitHub 倉庫名稱日後可能是 `Sport_Fixture_hub`。
 
@@ -36,7 +36,7 @@ npm run fixtures
 
 環境變數見 `.env.example`。本機預設把賽程寫進 `.schedule-store/`（不進 Git），開發伺服器用 `/schedule` 讀、用 `/api/schedule-jobs` 觸發。正式環境把 `VITE_SCHEDULE_BASE` 指到 CDN，並把 `SCHEDULE_STORE` 設成 `s3`、`r2` 或 `netlify-blobs`。手動入口要設伺服器環境變數 `SCHEDULE_JOB_TOKEN`，瀏覽器不要內嵌正式密鑰。
 
-每日 06:00（`CRON_TZ=Asia/Macau`）與手動更新都執行 `node pipeline/run-job.mjs`。若託管 runner 的 IP 被來源封鎖，把 `RUNNER_EGRESS` 改成 self-hosted，或改走常駐 runner／Workers；住宅代理只留設定位，沒有接上現成密鑰。細節在 `pipeline/README.md`。
+每日 06:00（`CRON_TZ=Asia/Macau`）與手動更新都執行 `node pipeline/run-job.mjs`。澳彩會渲染公開賽程頁；機器上要有 Chrome。若託管 runner 的 IP 被來源封鎖，把 `RUNNER_EGRESS` 改成 self-hosted，或改走常駐 runner／Workers；住宅代理只留設定位，沒有接上現成密鑰。細節在 `pipeline/README.md`。
 
 ## 產品規則
 
@@ -64,7 +64,7 @@ public/fixtures/             Phase 1 示範賽程（不是正式資料庫）
 src/views/SchedulePage.vue   賽程表
 src/views/MappingPage.vue    對照與匯入殼
 docs/mapping-import.md       日後澳彩中英 CSV／JSON 格式
-ingest/                      日後 Python 擷取
+ingest/macau_lottery/        澳彩公開賽程頁抓取
 netlify/functions/           日後函數
 ```
 

@@ -1,11 +1,12 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { fixturesToDay, scrapeMacauLottery } from '../ingest/macau_lottery/scrape.mjs'
+import { withinManualWindow } from '../src/lib/productRules.mjs'
 import { MANUAL_RATE_LIMIT_MS, MANUAL_WINDOW_DAYS, SOURCE_IDS, SPORTS } from './constants.mjs'
 import { syncScheduleMappings } from './mapping-sync.mjs'
 import { pipelineFile, repoRoot } from './paths.mjs'
 import { createStore, objectKey } from './storage.mjs'
 import { addCalendarDays, todayInMacau } from './time.mjs'
-import { withinManualWindow } from '../src/lib/productRules.mjs'
 
 const root = repoRoot()
 const fixtureRoot = path.join(root, 'public/fixtures')
@@ -52,13 +53,39 @@ function normalizeList(value, allowed) {
   return unique
 }
 
-function blankHealth(sourceId, status, message, successRate) {
+function blankHealth(sourceId, status, message, successRate, lastSuccessAt = null) {
   return {
     status,
-    last_success_at: null,
+    last_success_at: lastSuccessAt,
     success_rate: successRate,
     message,
   }
+}
+
+async function loadMacau(options, sports, dates) {
+  const scraper = options.scrapers?.macau_lottery || scrapeMacauLottery
+  try {
+    return await scraper({ sports, dates })
+  } catch (error) {
+    return {
+      ok: false,
+      partial: false,
+      fixtures: [],
+      sports: {},
+      message: error instanceof Error ? error.message : '澳彩抓取失敗。',
+    }
+  }
+}
+
+function macauHealth(result, previous) {
+  const prior = previous?.source_health?.macau_lottery?.last_success_at || null
+  if (!result?.ok) {
+    return blankHealth('macau_lottery', 'down', `澳彩公開賽程頁抓取失敗，已降級為缺格。${result?.message || ''}`.trim(), 0, prior)
+  }
+  if (result.partial) {
+    return blankHealth('macau_lottery', 'degraded', result.message, 0.5, new Date().toISOString())
+  }
+  return blankHealth('macau_lottery', 'ok', result.message, 1, new Date().toISOString())
 }
 
 function rewriteSources(day, selected, failed) {
@@ -197,6 +224,20 @@ export async function runScheduleJob(options = {}) {
       const dates = trigger === 'cron'
         ? Array.from({ length: MANUAL_WINDOW_DAYS * 2 + 1 }, (_, index) => addCalendarDays(today, index - MANUAL_WINDOW_DAYS))
         : [baseDate]
+      const previousRaw = await store.get('manifest.json')
+      const previous = previousRaw ? JSON.parse(previousRaw) : null
+      const wantMacau = selected.includes('macau_lottery') && !failSources.has('macau_lottery') && options.scrape !== false
+      const macauResult = wantMacau ? await loadMacau(options, sports, dates) : null
+      const reportedSports = macauResult?.sports || {}
+      const liveSports = new Set(
+        macauResult?.ok
+          ? sports.filter((sport) => {
+            const entry = reportedSports[sport]
+            if (!entry) return Object.keys(reportedSports).length === 0
+            return entry.ok === true
+          })
+          : [],
+      )
       const published = []
       const scheduleDays = []
       const health = {}
@@ -209,24 +250,47 @@ export async function runScheduleJob(options = {}) {
           health[sourceId] = blankHealth(sourceId, 'down', '來源未納入本次更新。', 0)
           continue
         }
+        if (sourceId === 'macau_lottery' && wantMacau) {
+          health[sourceId] = macauHealth(macauResult, previous)
+          continue
+        }
         health[sourceId] = blankHealth(sourceId, 'degraded', '尚未接入真實抓取，本次沿用示範賽程。', null)
       }
+      const updatedAt = new Date().toISOString()
       for (const sport of sports) {
+        const sportFailed = new Set(failSources)
+        if (wantMacau && !liveSports.has(sport)) sportFailed.add('macau_lottery')
         for (const date of dates) {
-          const day = rewriteSources(await loadCatalogDay(sport, date), new Set(selected), failSources)
+          const day = liveSports.has(sport)
+            ? fixturesToDay({ sport, date, fixtures: macauResult.fixtures, updatedAt })
+            : rewriteSources(await loadCatalogDay(sport, date), new Set(selected), sportFailed)
           await store.put(objectKey(sport, date), `${JSON.stringify(day, null, 2)}\n`)
           scheduleDays.push(day)
           published.push({ sport, date, match_count: day.matches.length })
         }
       }
       const mappingStore = await syncScheduleMappings(scheduleDays)
-      const previousRaw = await store.get('manifest.json')
-      const previous = previousRaw ? JSON.parse(previousRaw) : null
       const finishedAt = new Date().toISOString()
+      const windowFixtures = (macauResult?.fixtures || []).filter((fixture) => sports.includes(fixture.sport) && dates.includes(fixture.date))
+      const macauPartial = Boolean(macauResult?.partial) || (wantMacau && liveSports.size > 0 && liveSports.size < sports.length)
+      let demo = true
+      let demoNotice = '由管線發佈的示範賽程。真實抓取尚未接入。'
+      let reason = '已寫入物件儲存。來源尚未真實抓取，賽程沿用示範目錄。'
+      if (wantMacau && liveSports.size === sports.length && !macauPartial) {
+        demo = false
+        demoNotice = '澳彩場次來自公開賽程頁。其餘來源尚未抓取，格子為缺。'
+        reason = `已寫入物件儲存。澳彩公開賽程 ${windowFixtures.length} 場。`
+      } else if (wantMacau && liveSports.size > 0) {
+        demoNotice = `澳彩部分運動已抓取。失敗的運動沿用示範賽程，澳彩格為缺。${macauResult?.message || ''}`
+        reason = '已寫入物件儲存。澳彩部分抓取失敗，已降級。'
+      } else if (wantMacau) {
+        demoNotice = '澳彩公開賽程頁抓取失敗，已降級。本次沿用示範賽程，澳彩格為缺。'
+        reason = '已寫入物件儲存。澳彩抓取失敗，已降級為缺格。'
+      }
       const manifest = {
         schema_version: '1.0.0',
-        demo: true,
-        demo_notice: '由管線發佈的示範賽程。真實抓取尚未接入。',
+        demo,
+        demo_notice: demoNotice,
         timezone: 'Asia/Macau',
         generated_at: finishedAt,
         last_success_at: finishedAt,
@@ -246,7 +310,7 @@ export async function runScheduleJob(options = {}) {
       }
       await store.put('manifest.json', `${JSON.stringify(manifest, null, 2)}\n`)
       job.state = 'success'
-      job.reason = '已寫入物件儲存。來源尚未真實抓取，賽程沿用示範目錄。'
+      job.reason = reason
       job.finished_at = finishedAt
     } catch (error) {
       job.state = 'fail'

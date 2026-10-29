@@ -36,7 +36,7 @@ process.env.SCHEDULE_STORE = 'local'
 process.env.SCHEDULE_STORE_DIR = dir
 const now = '2026-10-30T08:00:00+08:00'
 
-const outside = await runScheduleJob({ trigger: 'manual', baseDate: '2020-01-01', now, paceMs: 0 })
+const outside = await runScheduleJob({ trigger: 'manual', baseDate: '2020-01-01', now, paceMs: 0, scrape: false })
 assert(outside.accepted === false && outside.job.state === 'fail', 'outside window fails')
 
 function catalogRow(page, id) {
@@ -104,6 +104,7 @@ const published = await runScheduleJob({
   now,
   paceMs: 0,
   failSources: ['aiscore'],
+  scrape: false,
 })
 assert(published.accepted && published.job.state === 'success', 'job succeeds when one source fails')
 const manifest = JSON.parse(await readFile(path.join(dir, 'manifest.json'), 'utf8'))
@@ -259,7 +260,7 @@ const parikrma = catalogRow(await queryCatalog({ sport: 'football', kind: 'team'
 assert(parikrma?.source_names?.leisu === '帕里克瑪雷速' && parikrma?.canonical_name_zh === '帕里克瑪', 'filled dash is stored and macau name stays')
 assert(parikrma?.source_columns?.betexplorer?.editable === true && parikrma?.source_columns?.betexplorer?.name === '', 'other empty sources stay editable')
 
-const limited = await runScheduleJob({ trigger: 'manual', baseDate: '2026-10-30', now, paceMs: 0 })
+const limited = await runScheduleJob({ trigger: 'manual', baseDate: '2026-10-30', now, paceMs: 0, scrape: false })
 assert(limited.accepted === false && limited.job.reason.includes('5 分鐘'), 'rate limit')
 
 if (previousStore === undefined) delete process.env.SCHEDULE_STORE_DIR

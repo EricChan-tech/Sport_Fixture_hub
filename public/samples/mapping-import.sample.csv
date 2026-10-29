@@ -1,0 +1,3 @@
+entity,sport,id,name_zh,name_en,macau_zh,macau_en,leisu_zh,aiscore_zh,betexplorer_en,scoresway_en
+competition,football,fb-demo-import,示範聯賽,Demo League,示範聯,Demo L.,示範聯賽,,Demo League,
+team,football,fb-demo-united,示範聯,Demo United,示範聯,Demo Utd,示範聯,示範聯合,Demo United,Demo Utd

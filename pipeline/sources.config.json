@@ -1,0 +1,10 @@
+{
+  "version": "sources_config_v1",
+  "sources": {
+    "macau_lottery": { "enabled": true },
+    "betexplorer": { "enabled": true },
+    "scoresway": { "enabled": true },
+    "aiscore": { "enabled": true },
+    "leisu": { "enabled": true }
+  }
+}

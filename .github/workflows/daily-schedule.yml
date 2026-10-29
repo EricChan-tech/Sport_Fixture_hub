@@ -1,0 +1,40 @@
+name: daily-schedule
+
+on:
+  schedule:
+    # 06:00 in CRON_TZ. If a hosted runner ignores CRON_TZ, the UTC equivalent is 22:00 the previous day.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      base_date:
+        description: "Asia/Macau 日期 YYYY-MM-DD。留空表示今天。手動窗口為今日 ±3 日。"
+        required: false
+        type: string
+      sports:
+        description: "football,basketball。留空表示兩者。"
+        required: false
+        type: string
+      sources:
+        description: "macau_lottery,betexplorer,scoresway,aiscore,leisu。留空表示設定中已啟用的來源。"
+        required: false
+        type: string
+
+env:
+  CRON_TZ: Asia/Macau
+  SCHEDULE_STORE: local
+  RUNNER_EGRESS: github-hosted
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Publish schedule window
+        run: node pipeline/run-job.mjs --trigger ${{ github.event_name == 'workflow_dispatch' && 'manual' || 'cron' }} --base-date "${{ inputs.base_date }}" --sports "${{ inputs.sports }}" --sources "${{ inputs.sources }}"
+      - name: Runner note
+        run: |
+          echo "This job writes to the runner disk only. Set SCHEDULE_STORE to s3, r2, or netlify-blobs to persist."
+          echo "If the source network blocks hosted IP addresses, switch RUNNER_EGRESS to self-hosted or a residential egress path. Do not commit the store."

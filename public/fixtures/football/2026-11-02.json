@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-11-02",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261102-laliga-bar-gir",
+      "sport": "football",
+      "competition_id": "fb-laliga",
+      "league_name": "西甲",
+      "home_name": "巴塞隆拿",
+      "away_name": "赫羅納",
+      "home_team_id": "fb-barcelona",
+      "away_team_id": "fb-girona",
+      "kickoff_at": "2026-11-02T04:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T04:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "巴塞隆拿",
+          "away_name": "赫羅納"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T04:00:00+08:00",
+          "league_name": "La Liga",
+          "home_name": "Barcelona",
+          "away_name": "Girona"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T04:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "巴塞隆拿",
+          "away_name": "赫羅納"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T04:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "巴塞隆拿",
+          "away_name": "赫羅納"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.9,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

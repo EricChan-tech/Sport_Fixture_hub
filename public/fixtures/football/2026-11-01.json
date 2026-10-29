@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-11-01",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261101-seriea-int-juv",
+      "sport": "football",
+      "competition_id": "fb-seriea",
+      "league_name": "意甲",
+      "home_name": "國際米蘭",
+      "away_name": "祖雲達斯",
+      "home_team_id": "fb-inter",
+      "away_team_id": "fb-juve",
+      "kickoff_at": "2026-11-01T02:45:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "國際米蘭",
+          "away_name": "祖雲達斯"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T02:45:00+08:00",
+          "league_name": "Serie A",
+          "home_name": "Inter",
+          "away_name": "Juventus"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "國際米蘭",
+          "away_name": "祖雲達斯"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "國際米蘭",
+          "away_name": "祖雲達斯"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.94,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261101-epl-mci-bha",
+      "sport": "football",
+      "competition_id": "fb-epl",
+      "league_name": "英超",
+      "home_name": "曼城",
+      "away_name": "白禮頓",
+      "home_team_id": "fb-mancity",
+      "away_team_id": "fb-brighton",
+      "kickoff_at": "2026-11-01T21:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T21:00:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼城",
+          "away_name": "白禮頓"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T21:00:00+08:00",
+          "league_name": "Premier League",
+          "home_name": "Manchester City",
+          "away_name": "Brighton"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T21:00:00+08:00",
+          "league_name": "Premier League",
+          "home_name": "Manchester City",
+          "away_name": "Brighton"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T21:00:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼城",
+          "away_name": "白禮頓"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T21:00:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼城",
+          "away_name": "白禮頓"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.92,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

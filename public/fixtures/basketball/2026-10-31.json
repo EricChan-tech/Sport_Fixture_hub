@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-10-31",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261031-nba-mia-nyk",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "邁阿密熱火",
+      "away_name": "紐約尼克",
+      "home_team_id": "bb-heat",
+      "away_team_id": "bb-knicks",
+      "kickoff_at": "2026-10-31T08:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T08:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "邁阿密熱火",
+          "away_name": "紐約尼克"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T08:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Miami Heat",
+          "away_name": "New York Knicks"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T08:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "邁阿密熱火",
+          "away_name": "紐約尼克"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T08:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "邁阿密熱火",
+          "away_name": "紐約尼克"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.91,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261031-cba-bj-xj",
+      "sport": "basketball",
+      "competition_id": "bb-cba",
+      "league_name": "中職籃",
+      "home_name": "北京首鋼",
+      "away_name": "新疆",
+      "home_team_id": "bb-beijing",
+      "away_team_id": "bb-xinjiang",
+      "kickoff_at": "2026-10-31T19:35:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T19:35:00+08:00",
+          "league_name": "CBA",
+          "home_name": "Beijing",
+          "away_name": "Xinjiang"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "北京首鋼",
+          "away_name": "新疆"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "北京首鋼",
+          "away_name": "新疆"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.74,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

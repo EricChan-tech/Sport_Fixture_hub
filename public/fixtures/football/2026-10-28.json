@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-10-28",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261028-seriea-juv-rom",
+      "sport": "football",
+      "competition_id": "fb-seriea",
+      "league_name": "意甲",
+      "home_name": "祖雲達斯",
+      "away_name": "羅馬",
+      "home_team_id": "fb-juve",
+      "away_team_id": "fb-roma",
+      "kickoff_at": "2026-10-28T22:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T22:00:00+08:00",
+          "league_name": "意甲",
+          "home_name": "祖雲達斯",
+          "away_name": "羅馬"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T22:00:00+08:00",
+          "league_name": "Serie A",
+          "home_name": "Juventus",
+          "away_name": "Roma"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T22:00:00+08:00",
+          "league_name": "意甲",
+          "home_name": "祖雲達斯",
+          "away_name": "羅馬"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T22:00:00+08:00",
+          "league_name": "意甲",
+          "home_name": "祖雲達斯",
+          "away_name": "羅馬"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.94,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": "schedule_whitelist_v1",
+  "sports": {
+    "football": [
+      "fb-epl",
+      "fb-laliga",
+      "fb-ucl",
+      "fb-bundesliga",
+      "fb-seriea",
+      "fb-ligue1",
+      "fb-primeira",
+      "fb-j1"
+    ],
+    "basketball": [
+      "bb-nba",
+      "bb-cba",
+      "bb-euroleague"
+    ]
+  }
+}

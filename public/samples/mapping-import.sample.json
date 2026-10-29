@@ -1,0 +1,31 @@
+{
+  "version": "mapping_import_v1",
+  "items": [
+    {
+      "entity": "competition",
+      "sport": "football",
+      "competition_id": "fb-demo-import",
+      "name_zh": "示範聯賽",
+      "name_en": "Demo League",
+      "aliases": [
+        { "source_id": "macau_lottery", "name_zh": "示範聯", "name_en": "Demo L." },
+        { "source_id": "leisu", "name_zh": "示範聯賽" },
+        { "source_id": "betexplorer", "name_en": "Demo League" }
+      ]
+    },
+    {
+      "entity": "team",
+      "sport": "football",
+      "team_id": "fb-demo-united",
+      "name_zh": "示範聯",
+      "name_en": "Demo United",
+      "aliases": [
+        { "source_id": "macau_lottery", "name_zh": "示範聯", "name_en": "Demo Utd" },
+        { "source_id": "leisu", "name_zh": "示範聯" },
+        { "source_id": "aiscore", "name_zh": "示範聯合" },
+        { "source_id": "betexplorer", "name_en": "Demo United" },
+        { "source_id": "scoresway", "name_en": "Demo Utd" }
+      ]
+    }
+  ]
+}

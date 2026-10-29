@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-10-30",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261030-bbl-bay-alb",
+      "sport": "basketball",
+      "competition_id": "bb-bbl",
+      "league_name": "德籃甲",
+      "home_name": "拜仁慕尼黑籃球",
+      "away_name": "阿爾巴柏林",
+      "home_team_id": "bb-bayern",
+      "away_team_id": "bb-alba",
+      "kickoff_at": "2026-10-30T01:15:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:15:00+08:00",
+          "league_name": "BBL",
+          "home_name": "Bayern Munich",
+          "away_name": "ALBA Berlin"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:15:00+08:00",
+          "league_name": "德國甲級籃球聯賽",
+          "home_name": "拜仁慕尼黑籃球",
+          "away_name": "阿爾巴柏林"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:15:00+08:00",
+          "league_name": "德籃甲",
+          "home_name": "拜仁慕尼黑籃球",
+          "away_name": "阿爾巴柏林"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.57,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-euro-rma-pao",
+      "sport": "basketball",
+      "competition_id": "bb-euroleague",
+      "league_name": "歐籃",
+      "home_name": "皇家馬德里籃球",
+      "away_name": "帕納辛奈科斯",
+      "home_team_id": "bb-rm",
+      "away_team_id": "bb-pao",
+      "kickoff_at": "2026-10-30T03:15:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "EuroLeague",
+          "home_name": "Real Madrid",
+          "away_name": "Panathinaikos",
+          "delta_minutes": -30
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:15:00+08:00",
+          "league_name": "歐籃",
+          "home_name": "皇家馬德里籃球",
+          "away_name": "帕納辛奈科斯"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:15:00+08:00",
+          "league_name": "歐籃",
+          "home_name": "皇家馬德里籃球",
+          "away_name": "帕納辛奈科斯"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.69,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-acb-bar-bas",
+      "sport": "basketball",
+      "competition_id": "bb-acb",
+      "league_name": "西籃甲",
+      "home_name": "巴塞隆拿籃球",
+      "away_name": "巴斯干尼亞",
+      "home_team_id": "bb-barca",
+      "away_team_id": "bb-baskonia",
+      "kickoff_at": "2026-10-30T04:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:00:00+08:00",
+          "league_name": "Liga ACB",
+          "home_name": "Barcelona",
+          "away_name": "Baskonia"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:00:00+08:00",
+          "league_name": "Liga ACB",
+          "home_name": "Barcelona",
+          "away_name": "Baskonia"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:00:00+08:00",
+          "league_name": "西籃甲",
+          "home_name": "巴塞隆拿籃球",
+          "away_name": "巴斯干尼亞"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:00:00+08:00",
+          "league_name": "西籃甲",
+          "home_name": "巴塞隆拿籃球",
+          "away_name": "巴斯干尼亞"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.75,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-nba-lal-bos",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "洛杉磯湖人",
+      "away_name": "波士頓塞爾特人",
+      "home_team_id": "bb-lakers",
+      "away_team_id": "bb-celtics",
+      "kickoff_at": "2026-10-30T08:30:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T08:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T08:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Los Angeles Lakers",
+          "away_name": "Boston Celtics"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T08:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T08:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.92,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-nba-gsw-den",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "金州勇士",
+      "away_name": "丹佛金塊",
+      "home_team_id": "bb-warriors",
+      "away_team_id": "bb-nuggets",
+      "kickoff_at": "2026-10-30T11:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "丹佛金塊"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Golden State Warriors",
+          "away_name": "Denver Nuggets"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Golden State Warriors",
+          "away_name": "Denver Nuggets"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-30T10:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "丹佛金塊",
+          "delta_minutes": -30
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "丹佛金塊"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.71,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-nbl-syd-mel",
+      "sport": "basketball",
+      "competition_id": "bb-nbl",
+      "league_name": "澳職籃",
+      "home_name": "雪梨國王",
+      "away_name": "墨爾本聯隊",
+      "home_team_id": "bb-sydney",
+      "away_team_id": "bb-melbourne",
+      "kickoff_at": "2026-10-30T16:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T16:30:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T16:30:00+08:00",
+          "league_name": "NBL",
+          "home_name": "Sydney Kings",
+          "away_name": "Melbourne United"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T16:30:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T16:30:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.88,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-cba-ln-gd",
+      "sport": "basketball",
+      "competition_id": "bb-cba",
+      "league_name": "中職籃",
+      "home_name": "遼寧",
+      "away_name": "廣東",
+      "home_team_id": "bb-liaoning",
+      "away_team_id": "bb-guangdong",
+      "kickoff_at": "2026-10-30T19:35:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "CBA",
+          "home_name": "Liaoning",
+          "away_name": "Guangdong"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "遼寧",
+          "away_name": "廣東"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "遼寧",
+          "away_name": "廣東"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.76,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261030-nba-mil-phi",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "密爾沃基公鹿",
+      "away_name": "費城七六人",
+      "home_team_id": "bb-bucks",
+      "away_team_id": "bb-sixers",
+      "kickoff_at": "2026-10-30T20:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Milwaukee Bucks",
+          "away_name": "Philadelphia 76ers"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.9,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

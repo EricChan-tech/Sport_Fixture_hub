@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-10-31",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261031-bund-bay-b04",
+      "sport": "football",
+      "competition_id": "fb-bundesliga",
+      "league_name": "德甲",
+      "home_name": "拜仁慕尼黑",
+      "away_name": "利華古遜",
+      "home_team_id": "fb-bayern",
+      "away_team_id": "fb-leverkusen",
+      "kickoff_at": "2026-10-31T01:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "利華古遜"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T01:30:00+08:00",
+          "league_name": "Bundesliga",
+          "home_name": "Bayern Munich",
+          "away_name": "Bayer Leverkusen"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "利華古遜"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "利華古遜"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.93,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261031-ucl-rma-mci",
+      "sport": "football",
+      "competition_id": "fb-ucl",
+      "league_name": "歐冠",
+      "home_name": "皇家馬德里",
+      "away_name": "曼城",
+      "home_team_id": "fb-realmadrid",
+      "away_team_id": "fb-mancity",
+      "kickoff_at": "2026-10-31T03:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "皇家馬德里",
+          "away_name": "曼城"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-31T02:00:00+08:00",
+          "league_name": "UEFA Champions League",
+          "home_name": "Real Madrid",
+          "away_name": "Manchester City",
+          "delta_minutes": -60
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "皇家馬德里",
+          "away_name": "曼城"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "皇家馬德里",
+          "away_name": "曼城"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.67,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261031-primeira-scp-bra",
+      "sport": "football",
+      "competition_id": "fb-primeira",
+      "league_name": "Primeira Liga",
+      "home_name": "Sporting CP",
+      "away_name": "Braga",
+      "home_team_id": "fb-sporting",
+      "away_team_id": "fb-braga",
+      "kickoff_at": "2026-10-31T04:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T04:30:00+08:00",
+          "league_name": "Primeira Liga",
+          "home_name": "Sporting CP",
+          "away_name": "Braga"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T04:30:00+08:00",
+          "league_name": "Primeira Liga",
+          "home_name": "Sporting CP",
+          "away_name": "Braga"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "missing"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "missing"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.5,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261031-j1-ura-kas",
+      "sport": "football",
+      "competition_id": "fb-j1",
+      "league_name": "日職",
+      "home_name": "浦和紅鑽",
+      "away_name": "鹿島鹿角",
+      "home_team_id": "fb-urawa",
+      "away_team_id": "fb-kashima",
+      "kickoff_at": "2026-10-31T17:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T17:30:00+08:00",
+          "league_name": "J1 League",
+          "home_name": "Urawa Reds",
+          "away_name": "Kashima Antlers"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T17:30:00+08:00",
+          "league_name": "日職",
+          "home_name": "浦和紅鑽",
+          "away_name": "鹿島鹿角"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-31T17:30:00+08:00",
+          "league_name": "日職",
+          "home_name": "浦和紅鑽",
+          "away_name": "鹿島鹿角"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.8,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

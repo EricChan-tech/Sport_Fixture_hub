@@ -1,0 +1,2726 @@
+{
+  "version": "mapping_store_v1",
+  "competitions": [
+    {
+      "entity": "competition",
+      "competition_id": "fb-epl",
+      "sport": "football",
+      "name_zh": "英格蘭超級聯賽",
+      "name_en": "Premier League",
+      "short_zh": "英超",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "英格蘭超級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "英格蘭超級聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "英格蘭超級聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Premier League"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Premier League"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-laliga",
+      "sport": "football",
+      "name_zh": "西班牙甲組聯賽",
+      "name_en": "La Liga",
+      "short_zh": "西甲",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "西班牙甲組聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "西班牙甲組聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "西班牙甲組聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "La Liga"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "La Liga"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-ucl",
+      "sport": "football",
+      "name_zh": "歐洲冠軍聯賽",
+      "name_en": "UEFA Champions League",
+      "short_zh": "歐冠",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "歐洲冠軍聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "歐洲冠軍聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "歐洲冠軍聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "UEFA Champions League"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "UEFA Champions League"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-bundesliga",
+      "sport": "football",
+      "name_zh": "德國甲組聯賽",
+      "name_en": "Bundesliga",
+      "short_zh": "德甲",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "德國甲組聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "德國甲組聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "德國甲組聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Bundesliga"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Bundesliga"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-seriea",
+      "sport": "football",
+      "name_zh": "意大利甲組聯賽",
+      "name_en": "Serie A",
+      "short_zh": "意甲",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "意大利甲組聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "意大利甲組聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "意大利甲組聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Serie A"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Serie A"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-ligue1",
+      "sport": "football",
+      "name_zh": "法國甲組聯賽",
+      "name_en": "Ligue 1",
+      "short_zh": "法甲",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "法國甲組聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "法國甲組聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "法國甲組聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Ligue 1"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Ligue 1"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-primeira",
+      "sport": "football",
+      "name_zh": "葡萄牙超級聯賽",
+      "name_en": "Primeira Liga",
+      "short_zh": "葡超",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "葡萄牙超級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "葡萄牙超級聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "葡萄牙超級聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Primeira Liga"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Primeira Liga"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-j1",
+      "sport": "football",
+      "name_zh": "日本職業足球聯賽",
+      "name_en": "J1 League",
+      "short_zh": "日職",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "日本職業足球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "日本職業足球聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "日本職業足球聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "J1 League"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "J1 League"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-championship",
+      "sport": "football",
+      "name_zh": "英格蘭冠軍聯賽",
+      "name_en": "Championship",
+      "short_zh": "英冠",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "英格蘭冠軍聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "英格蘭冠軍聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "英格蘭冠軍聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Championship"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Championship"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-eredivisie",
+      "sport": "football",
+      "name_zh": "荷蘭甲組聯賽",
+      "name_en": "Eredivisie",
+      "short_zh": "荷甲",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "Eredivisie"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Dutch Eredivisie"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "荷蘭甲級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "荷甲"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-csl",
+      "sport": "football",
+      "name_zh": "中國超級聯賽",
+      "name_en": "Chinese Super League",
+      "short_zh": "中超",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "中國超級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "中國超級聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "中國超級聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Chinese Super League"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Chinese Super League"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "fb-facup",
+      "sport": "football",
+      "name_zh": "英格蘭足總盃",
+      "name_en": "FA Cup",
+      "short_zh": "足總盃",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "英格蘭足總盃"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "英格蘭足總盃"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "英格蘭足總盃"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "FA Cup"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "FA Cup"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-nba",
+      "sport": "basketball",
+      "name_zh": "美國職業籃球聯賽",
+      "name_en": "NBA",
+      "short_zh": "NBA",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "美國職業籃球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "美國職業籃球聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "美國職業籃球聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "NBA"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "NBA"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-cba",
+      "sport": "basketball",
+      "name_zh": "中國男子籃球職業聯賽",
+      "name_en": "CBA",
+      "short_zh": "中職籃",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "中國男子籃球職業聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "中國男子籃球職業聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "中國男子籃球職業聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "CBA"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "CBA"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-euroleague",
+      "sport": "basketball",
+      "name_zh": "歐洲籃球聯賽",
+      "name_en": "EuroLeague",
+      "short_zh": "歐籃",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "歐洲籃球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "歐洲籃球聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "歐洲籃球聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "EuroLeague"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "EuroLeague"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-acb",
+      "sport": "basketball",
+      "name_zh": "西班牙籃球甲級聯賽",
+      "name_en": "Liga ACB",
+      "short_zh": "西籃甲",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "西班牙籃球甲級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "西班牙籃球甲級聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "西班牙籃球甲級聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Liga ACB"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Liga ACB"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-bbl",
+      "sport": "basketball",
+      "name_zh": "德國籃球甲級聯賽",
+      "name_en": "Basketball Bundesliga",
+      "short_zh": "德籃甲",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "BBL"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "German BBL"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "德國甲級籃球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "德籃甲"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-nbl",
+      "sport": "basketball",
+      "name_zh": "澳洲國家籃球聯賽",
+      "name_en": "NBL",
+      "short_zh": "澳職籃",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "澳洲國家籃球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "澳洲國家籃球聯賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "澳洲國家籃球聯賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "NBL"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "NBL"
+        }
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "entity": "team",
+      "team_id": "fb-atletico",
+      "sport": "football",
+      "name_zh": "馬德里體育會",
+      "name_en": "Atletico Madrid",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "馬德里體育會"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "馬德里體育會"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "馬德里體育會"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Atletico Madrid"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Atletico Madrid"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-sevilla",
+      "sport": "football",
+      "name_zh": "西維爾",
+      "name_en": "Sevilla",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "西維爾"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "西維爾"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "西維爾"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Sevilla"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Sevilla"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-dortmund",
+      "sport": "football",
+      "name_zh": "多蒙特",
+      "name_en": "Borussia Dortmund",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "多蒙特"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "多蒙特"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "多蒙特"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Borussia Dortmund"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Borussia Dortmund"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-leipzig",
+      "sport": "football",
+      "name_zh": "萊比錫紅牛",
+      "name_en": "RB Leipzig",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "萊比錫紅牛"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "萊比錫紅牛"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "萊比錫紅牛"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "RB Leipzig"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "RB Leipzig"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-napoli",
+      "sport": "football",
+      "name_zh": "拿坡里",
+      "name_en": "Napoli",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "拿坡里"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "拿坡里"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "拿坡里"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Napoli"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Napoli"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-milan",
+      "sport": "football",
+      "name_zh": "AC米蘭",
+      "name_en": "AC Milan",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "AC米蘭"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "AC米蘭"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "AC米蘭"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "AC Milan"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "AC Milan"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-bayern",
+      "sport": "football",
+      "name_zh": "拜仁慕尼黑",
+      "name_en": "Bayern Munich",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "拜仁慕尼黑"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "拜仁慕尼黑"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "拜仁慕尼黑"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Bayern Munich"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Bayern Munich"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-inter",
+      "sport": "football",
+      "name_zh": "國際米蘭",
+      "name_en": "Inter",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "國際米蘭"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "國際米蘭"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "國際米蘭"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Inter"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Inter"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-psg",
+      "sport": "football",
+      "name_zh": "巴黎聖日耳曼",
+      "name_en": "Paris Saint-Germain",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "巴黎聖日耳曼"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "巴黎聖日耳曼"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "巴黎聖日耳曼"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Paris Saint-Germain"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Paris Saint-Germain"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-marseille",
+      "sport": "football",
+      "name_zh": "馬賽",
+      "name_en": "Marseille",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "馬賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "馬賽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "馬賽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Marseille"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Marseille"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-benfica",
+      "sport": "football",
+      "name_zh": "賓菲加",
+      "name_en": "Benfica",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "Benfica"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "SL Benfica"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-porto",
+      "sport": "football",
+      "name_zh": "波爾圖",
+      "name_en": "Porto",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "FC Porto"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Porto"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-kawasaki",
+      "sport": "football",
+      "name_zh": "川崎前鋒",
+      "name_en": "Kawasaki Frontale",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "川崎前鋒"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "川崎前鋒"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "川崎前鋒"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Kawasaki Frontale"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Kawasaki Frontale"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-marinos",
+      "sport": "football",
+      "name_zh": "橫濱水手",
+      "name_en": "Yokohama F. Marinos",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "橫濱水手"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "橫濱水手"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "橫濱水手"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Yokohama F. Marinos"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Yokohama F. Marinos"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-shport",
+      "sport": "football",
+      "name_zh": "上海海港",
+      "name_en": "Shanghai Port",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "上海海港"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "上海海港"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "上海海港"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Shanghai Port"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Shanghai Port"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-shandong",
+      "sport": "football",
+      "name_zh": "山東泰山",
+      "name_en": "Shandong Taishan",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "山東泰山"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "山東泰山"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "山東泰山"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Shandong Taishan"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Shandong Taishan"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-manutd",
+      "sport": "football",
+      "name_zh": "曼聯",
+      "name_en": "Manchester United",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "曼聯",
+          "name_en": "Man Utd"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Manchester United"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Man Utd"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "曼徹斯特聯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "曼聯"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-liverpool",
+      "sport": "football",
+      "name_zh": "利物浦",
+      "name_en": "Liverpool",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "利物浦"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "利物浦"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "利物浦"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Liverpool"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Liverpool"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-ajax",
+      "sport": "football",
+      "name_zh": "阿積士",
+      "name_en": "Ajax",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "阿積士"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "阿積士"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "阿積士"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Ajax"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Ajax"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-psv",
+      "sport": "football",
+      "name_zh": "燕豪芬",
+      "name_en": "PSV Eindhoven",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "燕豪芬"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "燕豪芬"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "燕豪芬"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "PSV Eindhoven"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "PSV Eindhoven"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-realmadrid",
+      "sport": "football",
+      "name_zh": "皇家馬德里",
+      "name_en": "Real Madrid",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "皇家馬德里"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "皇家馬德里"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "皇家馬德里"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Real Madrid"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Real Madrid"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-barcelona",
+      "sport": "football",
+      "name_zh": "巴塞隆拿",
+      "name_en": "Barcelona",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "巴塞隆拿"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "巴塞隆拿"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "巴塞隆拿"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Barcelona"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Barcelona"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-leeds",
+      "sport": "football",
+      "name_zh": "列斯聯",
+      "name_en": "Leeds United",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "列斯聯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "列斯聯"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "列斯聯"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Leeds United"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Leeds United"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-boro",
+      "sport": "football",
+      "name_zh": "米德爾斯堡",
+      "name_en": "Middlesbrough",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "米德爾斯堡"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "米德爾斯堡"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "米德爾斯堡"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Middlesbrough"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Middlesbrough"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-arsenal",
+      "sport": "football",
+      "name_zh": "阿仙奴",
+      "name_en": "Arsenal",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "阿仙奴"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "阿仙奴"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "阿仙奴"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Arsenal"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Arsenal"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-chelsea",
+      "sport": "football",
+      "name_zh": "車路士",
+      "name_en": "Chelsea",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "車路士"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "車路士"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "車路士"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Chelsea"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Chelsea"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-juve",
+      "sport": "football",
+      "name_zh": "祖雲達斯",
+      "name_en": "Juventus",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "祖雲達斯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "祖雲達斯"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "祖雲達斯"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Juventus"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Juventus"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-roma",
+      "sport": "football",
+      "name_zh": "羅馬",
+      "name_en": "Roma",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "羅馬"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "羅馬"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "羅馬"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Roma"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Roma"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-spurs",
+      "sport": "football",
+      "name_zh": "熱刺",
+      "name_en": "Tottenham Hotspur",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "熱刺"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "熱刺"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "熱刺"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Tottenham Hotspur"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Tottenham Hotspur"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-newcastle",
+      "sport": "football",
+      "name_zh": "紐卡素",
+      "name_en": "Newcastle United",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "紐卡素"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "紐卡素"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "紐卡素"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Newcastle United"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Newcastle United"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-villarreal",
+      "sport": "football",
+      "name_zh": "維拉利爾",
+      "name_en": "Villarreal",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "維拉利爾"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "維拉利爾"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "維拉利爾"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Villarreal"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Villarreal"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-sociedad",
+      "sport": "football",
+      "name_zh": "皇家社會",
+      "name_en": "Real Sociedad",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "皇家社會"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "皇家社會"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "皇家社會"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Real Sociedad"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Real Sociedad"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-lyon",
+      "sport": "football",
+      "name_zh": "里昂",
+      "name_en": "Lyon",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "里昂"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "里昂"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "里昂"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Lyon"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Lyon"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-lille",
+      "sport": "football",
+      "name_zh": "里爾",
+      "name_en": "Lille",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "里爾"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "里爾"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "里爾"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Lille"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Lille"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-leverkusen",
+      "sport": "football",
+      "name_zh": "利華古遜",
+      "name_en": "Bayer Leverkusen",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "利華古遜"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "利華古遜"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "利華古遜"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Bayer Leverkusen"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Bayer Leverkusen"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-mancity",
+      "sport": "football",
+      "name_zh": "曼城",
+      "name_en": "Manchester City",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "曼城"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "曼城"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "曼城"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Manchester City"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Manchester City"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-sporting",
+      "sport": "football",
+      "name_zh": "士砵亭",
+      "name_en": "Sporting CP",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "士砵亭"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "士砵亭"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "士砵亭"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Sporting CP"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Sporting CP"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-braga",
+      "sport": "football",
+      "name_zh": "布拉加",
+      "name_en": "Braga",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "布拉加"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "布拉加"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "布拉加"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Braga"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Braga"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-urawa",
+      "sport": "football",
+      "name_zh": "浦和紅鑽",
+      "name_en": "Urawa Reds",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "浦和紅鑽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "浦和紅鑽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "浦和紅鑽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Urawa Reds"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Urawa Reds"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-kashima",
+      "sport": "football",
+      "name_zh": "鹿島鹿角",
+      "name_en": "Kashima Antlers",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "鹿島鹿角"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "鹿島鹿角"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "鹿島鹿角"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Kashima Antlers"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Kashima Antlers"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-brighton",
+      "sport": "football",
+      "name_zh": "白禮頓",
+      "name_en": "Brighton",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "白禮頓"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "白禮頓"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "白禮頓"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Brighton"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Brighton"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-girona",
+      "sport": "football",
+      "name_zh": "赫羅納",
+      "name_en": "Girona",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "赫羅納"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "赫羅納"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "赫羅納"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Girona"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Girona"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-lakers",
+      "sport": "basketball",
+      "name_zh": "洛杉磯湖人",
+      "name_en": "Los Angeles Lakers",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "洛杉磯湖人"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "洛杉磯湖人"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "洛杉磯湖人"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Los Angeles Lakers"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Los Angeles Lakers"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-celtics",
+      "sport": "basketball",
+      "name_zh": "波士頓塞爾特人",
+      "name_en": "Boston Celtics",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Boston Celtics"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Boston Celtics"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-warriors",
+      "sport": "basketball",
+      "name_zh": "金州勇士",
+      "name_en": "Golden State Warriors",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "金州勇士"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "金州勇士"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "金州勇士"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Golden State Warriors"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Golden State Warriors"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-nuggets",
+      "sport": "basketball",
+      "name_zh": "丹佛金塊",
+      "name_en": "Denver Nuggets",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "丹佛金塊"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "丹佛金塊"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "丹佛金塊"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Denver Nuggets"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Denver Nuggets"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-bucks",
+      "sport": "basketball",
+      "name_zh": "密爾沃基公鹿",
+      "name_en": "Milwaukee Bucks",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "密爾沃基公鹿"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "密爾沃基公鹿"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "密爾沃基公鹿"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Milwaukee Bucks"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Milwaukee Bucks"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-sixers",
+      "sport": "basketball",
+      "name_zh": "費城七六人",
+      "name_en": "Philadelphia 76ers",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "費城七六人"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "費城七六人"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "費城七六人"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Philadelphia 76ers"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Philadelphia 76ers"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-mavs",
+      "sport": "basketball",
+      "name_zh": "達拉斯獨行俠",
+      "name_en": "Dallas Mavericks",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "達拉斯獨行俠"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "達拉斯獨行俠"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "達拉斯獨行俠"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Dallas Mavericks"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Dallas Mavericks"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-suns",
+      "sport": "basketball",
+      "name_zh": "鳳凰城太陽",
+      "name_en": "Phoenix Suns",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "鳳凰城太陽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "鳳凰城太陽"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "鳳凰城太陽"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Phoenix Suns"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Phoenix Suns"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-heat",
+      "sport": "basketball",
+      "name_zh": "邁阿密熱火",
+      "name_en": "Miami Heat",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "邁阿密熱火"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "邁阿密熱火"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "邁阿密熱火"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Miami Heat"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Miami Heat"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-knicks",
+      "sport": "basketball",
+      "name_zh": "紐約尼克",
+      "name_en": "New York Knicks",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "紐約尼克"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "紐約尼克"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "紐約尼克"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "New York Knicks"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "New York Knicks"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-liaoning",
+      "sport": "basketball",
+      "name_zh": "遼寧",
+      "name_en": "Liaoning",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "遼寧"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "遼寧"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "遼寧"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Liaoning"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Liaoning"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-guangdong",
+      "sport": "basketball",
+      "name_zh": "廣東",
+      "name_en": "Guangdong",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "廣東"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "廣東"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "廣東"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Guangdong"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Guangdong"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-beijing",
+      "sport": "basketball",
+      "name_zh": "北京首鋼",
+      "name_en": "Beijing",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "北京首鋼"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "北京首鋼"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "北京首鋼"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Beijing"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Beijing"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-xinjiang",
+      "sport": "basketball",
+      "name_zh": "新疆",
+      "name_en": "Xinjiang",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "新疆"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "新疆"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "新疆"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Xinjiang"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Xinjiang"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-rm",
+      "sport": "basketball",
+      "name_zh": "皇家馬德里籃球",
+      "name_en": "Real Madrid",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "皇家馬德里籃球"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "皇家馬德里籃球"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "皇家馬德里籃球"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Real Madrid"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Real Madrid"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-pao",
+      "sport": "basketball",
+      "name_zh": "帕納辛奈科斯",
+      "name_en": "Panathinaikos",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "帕納辛奈科斯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "帕納辛奈科斯"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "帕納辛奈科斯"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Panathinaikos"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Panathinaikos"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-barca",
+      "sport": "basketball",
+      "name_zh": "巴塞隆拿籃球",
+      "name_en": "Barcelona",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "巴塞隆拿籃球"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "巴塞隆拿籃球"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "巴塞隆拿籃球"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Barcelona"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Barcelona"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-baskonia",
+      "sport": "basketball",
+      "name_zh": "巴斯干尼亞",
+      "name_en": "Baskonia",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "巴斯干尼亞"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "巴斯干尼亞"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "巴斯干尼亞"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Baskonia"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Baskonia"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-olympiacos",
+      "sport": "basketball",
+      "name_zh": "奧林比亞高斯",
+      "name_en": "Olympiacos",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "奧林比亞高斯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "奧林比亞高斯"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "奧林比亞高斯"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Olympiacos"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Olympiacos"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-fener",
+      "sport": "basketball",
+      "name_zh": "費倫巴治",
+      "name_en": "Fenerbahce",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "費倫巴治"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "費倫巴治"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "費倫巴治"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Fenerbahce"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Fenerbahce"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-bayern",
+      "sport": "basketball",
+      "name_zh": "拜仁慕尼黑籃球",
+      "name_en": "Bayern Munich",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "拜仁慕尼黑籃球"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "拜仁慕尼黑籃球"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "拜仁慕尼黑籃球"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Bayern Munich"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Bayern Munich"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-alba",
+      "sport": "basketball",
+      "name_zh": "阿爾巴柏林",
+      "name_en": "ALBA Berlin",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "阿爾巴柏林"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "阿爾巴柏林"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "阿爾巴柏林"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "ALBA Berlin"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "ALBA Berlin"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-sydney",
+      "sport": "basketball",
+      "name_zh": "雪梨國王",
+      "name_en": "Sydney Kings",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "雪梨國王"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "雪梨國王"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "雪梨國王"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Sydney Kings"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Sydney Kings"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "bb-melbourne",
+      "sport": "basketball",
+      "name_zh": "墨爾本聯隊",
+      "name_en": "Melbourne United",
+      "status": "confirmed",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "墨爾本聯隊"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "墨爾本聯隊"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "墨爾本聯隊"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Melbourne United"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Melbourne United"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "entity": "competition",
+      "competition_id": "fb-eredivisie",
+      "sport": "football",
+      "name_zh": "荷蘭甲組聯賽",
+      "name_en": "Eredivisie",
+      "short_zh": "荷甲",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "Eredivisie"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Dutch Eredivisie"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "荷蘭甲級聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "荷甲"
+        }
+      ]
+    },
+    {
+      "entity": "competition",
+      "competition_id": "bb-bbl",
+      "sport": "basketball",
+      "name_zh": "德國籃球甲級聯賽",
+      "name_en": "Basketball Bundesliga",
+      "short_zh": "德籃甲",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "BBL"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "German BBL"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "德國甲級籃球聯賽"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "德籃甲"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-benfica",
+      "sport": "football",
+      "name_zh": "賓菲加",
+      "name_en": "Benfica",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "Benfica"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "SL Benfica"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-porto",
+      "sport": "football",
+      "name_zh": "波爾圖",
+      "name_en": "Porto",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "betexplorer",
+          "name_en": "FC Porto"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Porto"
+        }
+      ]
+    },
+    {
+      "entity": "team",
+      "team_id": "fb-manutd",
+      "sport": "football",
+      "name_zh": "曼聯",
+      "name_en": "Manchester United",
+      "status": "pending",
+      "source": "auto",
+      "aliases": [
+        {
+          "source_id": "macau_lottery",
+          "name_zh": "曼聯",
+          "name_en": "Man Utd"
+        },
+        {
+          "source_id": "betexplorer",
+          "name_en": "Manchester United"
+        },
+        {
+          "source_id": "scoresway",
+          "name_en": "Man Utd"
+        },
+        {
+          "source_id": "aiscore",
+          "name_zh": "曼徹斯特聯"
+        },
+        {
+          "source_id": "leisu",
+          "name_zh": "曼聯"
+        }
+      ]
+    }
+  ]
+}

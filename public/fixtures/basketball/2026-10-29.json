@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-10-29",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261029-nba-lal-bos",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "洛杉磯湖人",
+      "away_name": "波士頓塞爾特人",
+      "home_team_id": "bb-lakers",
+      "away_team_id": "bb-celtics",
+      "kickoff_at": "2026-10-29T10:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Los Angeles Lakers",
+          "away_name": "Boston Celtics"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "洛杉磯湖人",
+          "away_name": "波士頓塞爾特人"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.9,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261029-cba-ln-gd",
+      "sport": "basketball",
+      "competition_id": "bb-cba",
+      "league_name": "中職籃",
+      "home_name": "遼寧",
+      "away_name": "廣東",
+      "home_team_id": "bb-liaoning",
+      "away_team_id": "bb-guangdong",
+      "kickoff_at": "2026-10-29T19:35:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T19:35:00+08:00",
+          "league_name": "CBA",
+          "home_name": "Liaoning",
+          "away_name": "Guangdong"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "遼寧",
+          "away_name": "廣東"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T19:35:00+08:00",
+          "league_name": "中職籃",
+          "home_name": "遼寧",
+          "away_name": "廣東"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.77,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

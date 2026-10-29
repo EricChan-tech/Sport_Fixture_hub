@@ -1,0 +1,164 @@
+﻿entity_id,sport,kind,canonical_name_zh,canonical_name_en,continent,category,status,source
+macau-basketball-competition-1,basketball,competition,阿根廷籃球超級錦標賽,Copa Islas Malvinas,,,confirmed,import
+macau-basketball-competition-2,basketball,competition,阿根廷籃球聯賽,Argentina National Basketball League,,,confirmed,import
+macau-basketball-competition-3,basketball,competition,阿根廷超級盃,Supercopa,,,confirmed,import
+macau-basketball-competition-4,basketball,competition,阿根廷超級盃籃球賽,Argentina Copa Super 20,,,confirmed,import
+macau-basketball-competition-5,basketball,competition,澳洲籃球季前賽,Australia NBL Preseason,,,confirmed,import
+macau-basketball-competition-7,basketball,competition,澳洲籃球聯賽,Australia National Basketball League,,,confirmed,import
+macau-basketball-competition-8,basketball,competition,澳洲甲組籃球聯賽,Australia NBL1,,,confirmed,import
+macau-basketball-competition-9,basketball,competition,澳洲女子籃球聯賽,Australia Women National Basketball League,,,confirmed,import
+macau-basketball-competition-10,basketball,competition,巴西超級8籃球盃,Brazil Copa Super 8,,,confirmed,import
+macau-basketball-competition-11,basketball,competition,巴西籃球聯賽,Brazil Basketball League,,,confirmed,import
+macau-basketball-competition-12,basketball,competition,智利籃球聯賽,Chile National Basketball League,,,confirmed,import
+macau-basketball-competition-13,basketball,competition,中國男子籃球夏季聯賽,CBA Summer League,,,confirmed,import
+macau-basketball-competition-14,basketball,competition,中國全運會女子籃球,National Games of China Women's Basketball,,,confirmed,import
+macau-basketball-competition-15,basketball,competition,中國全運會男子籃球,National Games of China Men's Basketball,,,confirmed,import
+macau-basketball-competition-16,basketball,competition,中國男子籃球職業季前賽,CBA Preseason,,,confirmed,import
+macau-basketball-competition-17,basketball,competition,中國全國男子籃球聯賽,China National Basketball League,,,confirmed,import
+macau-basketball-competition-18,basketball,competition,中國全國男子籃球季前賽,China NBL Preseason,,,confirmed,import
+macau-basketball-competition-19,basketball,competition,中國全國女子籃球錦標賽,China WNBL,,,confirmed,import
+macau-basketball-competition-20,basketball,competition,中國男子籃球職業聯賽,China Basketball Association,,,confirmed,import
+macau-basketball-competition-21,basketball,competition,中國男子籃球職業聯賽全明星賽,CBA All Star Game,,,confirmed,import
+macau-basketball-competition-22,basketball,competition,中國男子籃球球會盃,China CBA Club Cup,,,confirmed,import
+macau-basketball-competition-23,basketball,competition,中國女子籃球聯賽,Women China Basketball Association,,,confirmed,import
+macau-basketball-competition-24,basketball,competition,多米尼加籃球聯賽,Dominican Republic LNB,,,confirmed,import
+macau-basketball-competition-25,basketball,competition,菲律賓馬哈利卡籃球聯賽,Philippines Maharlika Basketball League,,,confirmed,import
+macau-basketball-competition-26,basketball,competition,菲律賓專員盃籃球賽,PBA Commissioners Cup,,,confirmed,import
+macau-basketball-competition-27,basketball,competition,菲律賓總督盃籃球賽,PBA Governors Cup,,,confirmed,import
+macau-basketball-competition-28,basketball,competition,菲律賓籃球季前賽,PBA Preseason,,,confirmed,import
+macau-basketball-competition-29,basketball,competition,菲律賓盃籃球賽,PBA Philippine Cup,,,confirmed,import
+macau-basketball-competition-30,basketball,competition,西班牙盃籃球賽,Spain Basketball Cup,,,confirmed,import
+macau-basketball-competition-31,basketball,competition,西班牙甲組籃球聯賽,Spain Liga ACB,,,confirmed,import
+macau-basketball-competition-32,basketball,competition,西班牙超級盃籃球賽,Spain Basketball Supercopa,,,confirmed,import
+macau-basketball-competition-33,basketball,competition,印尼籃球盃,Indonesia IBL All Indonesian,,,confirmed,import
+macau-basketball-competition-34,basketball,competition,印尼籃球聯賽,Indonesia Basketball League,,,confirmed,import
+macau-basketball-competition-35,basketball,competition,以色列超級籃球聯賽,Israel Basketball Super League,,,confirmed,import
+macau-basketball-competition-36,basketball,competition,日本職業籃球聯賽明星賽,Japanese B League All Star Game,,,confirmed,import
+macau-basketball-competition-37,basketball,competition,日本女子籃球聯賽,Women Japan Basketball League,,,confirmed,import
+macau-basketball-competition-38,basketball,competition,日本女子籃球聯賽盃,Japan W League United Cup,,,confirmed,import
+macau-basketball-competition-39,basketball,competition,日本籃球天皇盃,Japan Emperor Cup Basketball,,,confirmed,import
+macau-basketball-competition-40,basketball,competition,日本籃球皇后盃,Japan Empress's Cup Basketball,,,confirmed,import
+macau-basketball-competition-41,basketball,competition,日本職業籃球季前賽,Japanese B League Preseason,,,confirmed,import
+macau-basketball-competition-42,basketball,competition,日本次世代職業籃球聯賽,Japan B League Next,,,confirmed,import
+macau-basketball-competition-43,basketball,competition,日本超級職業籃球聯賽,Japan B League Premier,,,confirmed,import
+macau-basketball-competition-44,basketball,competition,日本一級職業籃球聯賽,Japan B League One,,,confirmed,import
+macau-basketball-competition-48,basketball,competition,加拿大精英籃球聯賽,Canada CEBL,,,confirmed,import
+macau-basketball-competition-49,basketball,competition,韓國大學籃球聯賽,Korea University Basketball League,,,confirmed,import
+macau-basketball-competition-50,basketball,competition,韓國籃球聯賽明星賽,KBL All Star Game,,,confirmed,import
+macau-basketball-competition-51,basketball,competition,韓國大學女子籃球聯賽,Korea University Basketball League Women,,,confirmed,import
+macau-basketball-competition-52,basketball,competition,韓國女子籃球盃,Korea Women Basketball Cup,,,confirmed,import
+macau-basketball-competition-53,basketball,competition,韓國籃球聯賽,Korea Basketball League,,,confirmed,import
+macau-basketball-competition-54,basketball,competition,韓國籃球聯賽盃,Korea Basketball League Cup,,,confirmed,import
+macau-basketball-competition-56,basketball,competition,韓國女子籃球聯賽,Women Korea Basketball League,,,confirmed,import
+macau-basketball-competition-57,basketball,competition,墨西哥國家籃球聯賽,Mexico LNBP,,,confirmed,import
+macau-basketball-competition-58,basketball,competition,紐西蘭籃球季前賽,New Zealand NBL Preseason,,,confirmed,import
+macau-basketball-competition-59,basketball,competition,紐西蘭籃球聯賽,New Zealand National Basketball League,,,confirmed,import
+macau-basketball-competition-60,basketball,competition,紐西蘭女子籃球聯賽,New Zealand Women Basketball League,,,confirmed,import
+macau-basketball-competition-61,basketball,competition,波多黎各女子籃球聯賽,Puerto Rico BSN Femenino,,,confirmed,import
+macau-basketball-competition-62,basketball,competition,波多黎各籃球聯賽,Puerto Rico BSN,,,confirmed,import
+macau-basketball-competition-63,basketball,competition,俄羅斯超級籃球聯賽,Russia Basketball Super League,,,confirmed,import
+macau-basketball-competition-64,basketball,competition,土耳其女子籃球聯賽,Turkiye Women KBSL,,,confirmed,import
+macau-basketball-competition-65,basketball,competition,土耳其甲組籃球聯賽,Turkiye Basketbol Ligi,,,confirmed,import
+macau-basketball-competition-66,basketball,competition,土耳其超級籃球聯賽,Turkiye Basketbol Super Ligi,,,confirmed,import
+macau-basketball-competition-67,basketball,competition,台灣T1籃球聯賽,Taiwan T1 League,,,confirmed,import
+macau-basketball-competition-68,basketball,competition,威廉瓊斯盃國際女子籃球邀請賽,Women William Jones Cup,,,confirmed,import
+macau-basketball-competition-69,basketball,competition,威廉瓊斯盃國際籃球邀請賽,William Jones Cup,,,confirmed,import
+macau-basketball-competition-70,basketball,competition,台灣PLG籃球聯賽,Taiwan PLG League,,,confirmed,import
+macau-basketball-competition-71,basketball,competition,台灣女子超級籃球聯賽,Taiwan Women Super Basketball League,,,confirmed,import
+macau-basketball-competition-72,basketball,competition,台灣超級籃球聯賽,Taiwan Super Basketball League,,,confirmed,import
+macau-basketball-competition-73,basketball,competition,泰國籃球聯賽,Thailand Basketball League,,,confirmed,import
+macau-basketball-competition-74,basketball,competition,美國職業籃球盃,NBA Cup,,,confirmed,import
+macau-basketball-competition-75,basketball,competition,美國職業籃球新秀挑戰賽,NBA Rising Stars Challenge,,,confirmed,import
+macau-basketball-competition-76,basketball,competition,美國職業籃球熱身賽,NBA Restart Scrimmages,,,confirmed,import
+macau-basketball-competition-77,basketball,competition,全美大學體育協會男子籃球賽-College Basketball Crown,NCAA-College Basketball Crown,,,confirmed,import
+macau-basketball-competition-78,basketball,competition,全美大學體育協會男子籃球賽-National Invitation Tournament,NCAA-National Invitation Tournament,,,confirmed,import
+macau-basketball-competition-79,basketball,competition,美國職業籃球聯賽,NBA,,,confirmed,import
+macau-basketball-competition-80,basketball,competition,美國職業籃球明星賽,NBA All Star Game,,,confirmed,import
+macau-basketball-competition-81,basketball,competition,美國職業籃球夏季聯賽-加州經典賽,NBA Summer League-California Classic,,,confirmed,import
+macau-basketball-competition-82,basketball,competition,美國職業籃球夏季聯賽-拉斯維加斯,NBA Summer League-Las Vegas,,,confirmed,import
+macau-basketball-competition-83,basketball,competition,美國職業籃球夏季聯賽,NBA Summer League,,,confirmed,import
+macau-basketball-competition-84,basketball,competition,美國職業籃球季前賽,NBA Preseason,,,confirmed,import
+macau-basketball-competition-85,basketball,competition,美國職業籃球夏季聯賽-鹽湖城,NBA Summer League-Salt Lake City,,,confirmed,import
+macau-basketball-competition-86,basketball,competition,全美大學體育協會男子籃球賽,NCAA,,,confirmed,import
+macau-basketball-competition-87,basketball,competition,美國女子職業籃球聯賽,WNBA,,,confirmed,import
+macau-basketball-competition-88,basketball,competition,美國女子職業籃球明星賽,WNBA All Star,,,confirmed,import
+macau-basketball-competition-89,basketball,competition,美國女子職業籃球專員盃,WNBA Commissioner's Cup,,,confirmed,import
+macau-basketball-competition-90,basketball,competition,美國女子職業籃球季前賽,WNBA Preseason,,,confirmed,import
+macau-basketball-competition-91,basketball,competition,越南職業籃球聯賽,Vietnam Pro Basketball League,,,confirmed,import
+macau-basketball-competition-92,basketball,competition,奧運男子籃球熱身賽,Pre Olympic Games Tournament for Men,,,confirmed,import
+macau-basketball-competition-93,basketball,competition,世界大學籃球系列賽,World University Basketball Series,,,confirmed,import
+macau-basketball-competition-94,basketball,competition,FIBA美洲女子籃球聯賽,FIBA Women's Basketball League Americas,,,confirmed,import
+macau-basketball-competition-95,basketball,competition,美洲盃籃球賽,FIBA AmeriCup,,,confirmed,import
+macau-basketball-competition-96,basketball,competition,美洲盃女子籃球賽,FIBA Women's AmeriCup,,,confirmed,import
+macau-basketball-competition-97,basketball,competition,美洲盃籃球外圍賽,FIBA AmeriCup Qualifiers,,,confirmed,import
+macau-basketball-competition-98,basketball,competition,美洲籃球冠軍聯賽,Basketball Champions League Americas,,,confirmed,import
+macau-basketball-competition-99,basketball,competition,球會友誼賽,Club Friendly Matches,,,confirmed,import
+macau-basketball-competition-100,basketball,competition,女子球會友誼賽,Club Friendly,,,confirmed,import
+macau-basketball-competition-101,basketball,competition,籃球國際友誼賽-DBB Supercup,Basketball International Friendly Matches-DBB Supercup,,,confirmed,import
+macau-basketball-competition-102,basketball,competition,籃球國際友誼賽,Basketball International Friendly Matches,,,confirmed,import
+macau-basketball-competition-103,basketball,competition,籃球國際友誼賽-女子,Basketball International Friendly Matches-Women,,,confirmed,import
+macau-basketball-competition-104,basketball,competition,FIBA洲際盃,FIBA Intercontinental Cup,,,confirmed,import
+macau-basketball-competition-107,basketball,competition,奧運男子籃球賽,Olympic Games Men's Basketball,,,confirmed,import
+macau-basketball-competition-108,basketball,competition,奧運女子籃球賽,Olympic Games Women's Basketball,,,confirmed,import
+macau-basketball-competition-109,basketball,competition,奧運女子籃球外圍賽-外圍賽資格賽,FIBA Women Olympic Basketball Qualifiers-pre-qualify,,,confirmed,import
+macau-basketball-competition-111,basketball,competition,奧運男子籃球外圍賽,Men Olympic Basketball Qualifiers,,,confirmed,import
+macau-basketball-competition-112,basketball,competition,奧運女子籃球外圍賽,FIBA Women Olympic Basketball Qualifiers,,,confirmed,import
+macau-basketball-competition-116,basketball,competition,斯坦科維奇盃洲際籃球賽,Stankovic Continental Cup,,,confirmed,import
+macau-basketball-competition-117,basketball,competition,U19男籃世界盃,FIBA U19 Basketball World Cup,,,confirmed,import
+macau-basketball-competition-118,basketball,competition,U19女籃世界盃,FIBA U19 Women's Basketball World Cup,,,confirmed,import
+macau-basketball-competition-119,basketball,competition,世界大學生運動會男子籃球,FISU World University Games Men Basketball,,,confirmed,import
+macau-basketball-competition-120,basketball,competition,世界大學生運動會女子籃球,FISU World University Games Women Basketball,,,confirmed,import
+macau-basketball-competition-121,basketball,competition,男籃世界盃,FIBA Basketball World Cup,,,confirmed,import
+macau-basketball-competition-122,basketball,competition,女籃世界盃,FIBA Women's Basketball World Cup,,,confirmed,import
+macau-basketball-competition-123,basketball,competition,女籃世界盃外圍賽-外圍賽,FIBA Women's Basketball World Cup Qualifiers-Qualifiers,,,confirmed,import
+macau-basketball-competition-124,basketball,competition,女籃世界盃外圍賽,FIBA Women's Basketball World Cup Qualifiers,,,confirmed,import
+macau-basketball-competition-125,basketball,competition,歐洲盃籃球賽,EuroCup,,,confirmed,import
+macau-basketball-competition-126,basketball,competition,FIBA籃球冠軍聯賽,FIBA Basketball Champions League,,,confirmed,import
+macau-basketball-competition-127,basketball,competition,FIBA籃球冠軍聯賽-外圍賽,FIBA Basketball Champions League-Qualification,,,confirmed,import
+macau-basketball-competition-128,basketball,competition,歐洲籃球國家盃,Eurobasket,,,confirmed,import
+macau-basketball-competition-129,basketball,competition,歐洲女子籃球國家盃,Eurobasket Women,,,confirmed,import
+macau-basketball-competition-130,basketball,competition,歐洲籃球國家盃外圍賽,Eurobasket Qualifiers,,,confirmed,import
+macau-basketball-competition-131,basketball,competition,歐洲女子籃球國家盃外圍賽,Eurobasket Women's Qualifiers,,,confirmed,import
+macau-basketball-competition-132,basketball,competition,女子歐洲盃籃球賽,EuroCup Women,,,confirmed,import
+macau-basketball-competition-133,basketball,competition,女子歐洲籃球聯賽,EuroLeague Women,,,confirmed,import
+macau-basketball-competition-134,basketball,competition,女子歐洲籃球聯賽-外圍賽,EuroLeague Women-Qualifiers,,,confirmed,import
+macau-basketball-competition-136,basketball,competition,FIBA歐洲盃籃球賽,FIBA Europe Cup,,,confirmed,import
+macau-basketball-competition-137,basketball,competition,FIBA歐洲盃籃球賽-外圍賽,FIBA Europe Cup-Qualifiers,,,confirmed,import
+macau-basketball-competition-138,basketball,competition,歐洲籃球冠軍聯賽,EuroLeague,,,confirmed,import
+macau-basketball-competition-139,basketball,competition,U20歐洲籃球國家盃,FIBA U20 EuroBasket,,,confirmed,import
+macau-basketball-competition-140,basketball,competition,U20歐洲女子籃球國家盃,FIBA U20 Women's EuroBasket,,,confirmed,import
+macau-basketball-competition-141,basketball,competition,U20歐洲籃球乙組國家盃,FIBA U20 EuroBasket Division B,,,confirmed,import
+macau-basketball-competition-142,basketball,competition,U20歐洲女子籃球乙組國家盃,FIBA U20 Women's EuroBasket Division B,,,confirmed,import
+macau-basketball-competition-143,basketball,competition,VTB籃球聯賽,VTB United League,,,confirmed,import
+macau-basketball-competition-144,basketball,competition,VTB超級盃籃球賽,VTB United League Super Cup,,,confirmed,import
+macau-basketball-competition-145,basketball,competition,男籃世界盃歐洲區外圍賽,FIBA Basketball World Cup European Qualifiers,,,confirmed,import
+macau-basketball-competition-146,basketball,competition,亞洲大學籃球聯賽,Asian University Basketball League,,,confirmed,import
+macau-basketball-competition-147,basketball,competition,FIBA亞洲女子籃球聯賽-禁,FIBA Women's Basketball League Asia,,,confirmed,import
+macau-basketball-competition-148,basketball,competition,亞洲籃球巡迴賽,The Asian Tournament,,,confirmed,import
+macau-basketball-competition-149,basketball,competition,亞洲挑戰盃籃球賽,FIBA Asia Challenge,,,confirmed,import
+macau-basketball-competition-150,basketball,competition,東亞籃球錦標賽,East Asia Basketball Championship,,,confirmed,import
+macau-basketball-competition-151,basketball,competition,亞洲籃球冠軍聯賽,Basketball Champions League Asia,,,confirmed,import
+macau-basketball-competition-152,basketball,competition,亞洲盃男子籃球賽,FIBA Asia Cup,,,confirmed,import
+macau-basketball-competition-153,basketball,competition,亞洲盃女子籃球賽,FIBA Women Asia Cup,,,confirmed,import
+macau-basketball-competition-154,basketball,competition,亞洲盃女子乙組籃球賽,FIBA Women Asia Cup Division B,,,confirmed,import
+macau-basketball-competition-155,basketball,competition,亞洲盃籃球外圍賽,FIBA Asia Cup Qualifiers,,,confirmed,import
+macau-basketball-competition-156,basketball,competition,亞運男子籃球賽,Asian Games Men Basketball,,,confirmed,import
+macau-basketball-competition-157,basketball,competition,亞運女子籃球賽,Asian Games Women Basketball,,,confirmed,import
+macau-basketball-competition-158,basketball,competition,亞洲籃球冠軍聯賽-外圍賽,Basketball Champions League Asia-Qualification,,,confirmed,import
+macau-basketball-competition-159,basketball,competition,東亞超級籃球聯賽,East Asia Super League,,,confirmed,import
+macau-basketball-competition-160,basketball,competition,東南亞運動會男子籃球,Southeast Asian Games Men Basketball,,,confirmed,import
+macau-basketball-competition-161,basketball,competition,東南亞運動會女子籃球,Southeast Asian Games Women Basketball,,,confirmed,import
+macau-basketball-competition-162,basketball,competition,?洲超?8??,The Super 8,,,confirmed,import
+macau-basketball-competition-163,basketball,competition,西亞超級籃球聯賽,West Asia Super League,,,confirmed,import
+macau-basketball-competition-164,basketball,competition,FIBA亞洲女子籃球聯賽,FIBA Women's Basketball League Asia,,,confirmed,import
+macau-basketball-competition-165,basketball,competition,男籃世界盃亞洲區外圍賽,FIBA Basketball World Cup Asian Qualifiers,,,confirmed,import
+macau-basketball-competition-167,basketball,competition,非洲籃球錦標賽,FIBA AfroBasket,,,confirmed,import
+macau-basketball-competition-168,basketball,competition,非洲女子籃球錦標賽,FIBA Women's AfroBasket,,,confirmed,import
+macau-basketball-competition-169,basketball,competition,非洲男子錦標賽外圍賽,AfroBasket Qualifiers,,,confirmed,import
+macau-basketball-competition-170,basketball,competition,非洲籃球國家盃,FIBA AfroCan,,,confirmed,import
+macau-basketball-competition-172,basketball,competition,男籃世界盃非洲區外圍賽,FIBA Basketball World Cup African Qualifiers,,,confirmed,import
+macau-basketball-competition-173,basketball,competition,南美籃球錦標賽,South American Championship,,,confirmed,import
+macau-basketball-competition-174,basketball,competition,南美女子籃球錦標賽,South American Women's Championship,,,confirmed,import
+macau-basketball-competition-177,basketball,competition,泛美運動會男子籃球,Pan American Games Men Basketball,,,confirmed,import
+macau-basketball-competition-178,basketball,competition,泛美運動會女子籃球,Pan American Games Women Basketball,,,confirmed,import
+macau-basketball-competition-179,basketball,competition,男籃世界盃美洲區外圍賽,FIBA Basketball World Cup Americas Qualifiers,,,confirmed,import

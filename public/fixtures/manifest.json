@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "demo": true,
+  "demo_notice": "Phase 1 示範賽程，只供介面與產品規則。正式賽程 JSON 放物件儲存，不進 Git。",
+  "timezone": "Asia/Macau",
+  "generated_at": "2026-10-30T06:00:00+08:00",
+  "manual_update_window_days": 3,
+  "cron": {
+    "time": "06:00",
+    "timezone": "Asia/Macau"
+  },
+  "sports": [
+    {
+      "sport": "football",
+      "days": [
+        {
+          "date": "2026-10-28",
+          "path": "/fixtures/football/2026-10-28.json",
+          "match_count": 1
+        },
+        {
+          "date": "2026-10-29",
+          "path": "/fixtures/football/2026-10-29.json",
+          "match_count": 3
+        },
+        {
+          "date": "2026-10-30",
+          "path": "/fixtures/football/2026-10-30.json",
+          "match_count": 14
+        },
+        {
+          "date": "2026-10-31",
+          "path": "/fixtures/football/2026-10-31.json",
+          "match_count": 4
+        },
+        {
+          "date": "2026-11-01",
+          "path": "/fixtures/football/2026-11-01.json",
+          "match_count": 2
+        },
+        {
+          "date": "2026-11-02",
+          "path": "/fixtures/football/2026-11-02.json",
+          "match_count": 1
+        }
+      ]
+    },
+    {
+      "sport": "basketball",
+      "days": [
+        {
+          "date": "2026-10-28",
+          "path": "/fixtures/basketball/2026-10-28.json",
+          "match_count": 1
+        },
+        {
+          "date": "2026-10-29",
+          "path": "/fixtures/basketball/2026-10-29.json",
+          "match_count": 2
+        },
+        {
+          "date": "2026-10-30",
+          "path": "/fixtures/basketball/2026-10-30.json",
+          "match_count": 8
+        },
+        {
+          "date": "2026-10-31",
+          "path": "/fixtures/basketball/2026-10-31.json",
+          "match_count": 2
+        },
+        {
+          "date": "2026-11-01",
+          "path": "/fixtures/basketball/2026-11-01.json",
+          "match_count": 2
+        },
+        {
+          "date": "2026-11-02",
+          "path": "/fixtures/basketball/2026-11-02.json",
+          "match_count": 2
+        }
+      ]
+    }
+  ],
+  "source_health": {
+    "macau_lottery": {
+      "status": "ok",
+      "last_success_at": "2026-10-30T06:00:12+08:00"
+    },
+    "betexplorer": {
+      "status": "ok",
+      "last_success_at": "2026-10-30T06:00:18+08:00"
+    },
+    "scoresway": {
+      "status": "degraded",
+      "last_success_at": "2026-10-29T06:01:02+08:00",
+      "message": "上游逾時，部分賽格降級為缺。"
+    },
+    "aiscore": {
+      "status": "ok",
+      "last_success_at": "2026-10-30T06:00:21+08:00"
+    },
+    "leisu": {
+      "status": "ok",
+      "last_success_at": "2026-10-30T06:00:16+08:00"
+    }
+  }
+}

@@ -1,0 +1,747 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-10-30",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261030-laliga-atm-sev",
+      "sport": "football",
+      "competition_id": "fb-laliga",
+      "league_name": "西甲",
+      "home_name": "馬德里體育會",
+      "away_name": "西維爾",
+      "home_team_id": "fb-atletico",
+      "away_team_id": "fb-sevilla",
+      "kickoff_at": "2026-10-30T01:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "馬德里體育會",
+          "away_name": "西維爾"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:00:00+08:00",
+          "league_name": "La Liga",
+          "home_name": "Atletico Madrid",
+          "away_name": "Sevilla"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "馬德里體育會",
+          "away_name": "西維爾"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "馬德里體育會",
+          "away_name": "西維爾"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.93,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-bund-bvb-rbl",
+      "sport": "football",
+      "competition_id": "fb-bundesliga",
+      "league_name": "德甲",
+      "home_name": "多蒙特",
+      "away_name": "萊比錫紅牛",
+      "home_team_id": "fb-dortmund",
+      "away_team_id": "fb-leipzig",
+      "kickoff_at": "2026-10-30T01:30:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "多蒙特",
+          "away_name": "萊比錫紅牛"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-29T23:30:00+08:00",
+          "league_name": "Bundesliga",
+          "home_name": "Borussia Dortmund",
+          "away_name": "RB Leipzig",
+          "delta_minutes": -120
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:30:00+08:00",
+          "league_name": "Bundesliga",
+          "home_name": "Borussia Dortmund",
+          "away_name": "RB Leipzig"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "多蒙特",
+          "away_name": "萊比錫紅牛"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T01:30:00+08:00",
+          "league_name": "德甲",
+          "home_name": "多蒙特",
+          "away_name": "萊比錫紅牛"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.68,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-seriea-nap-mil",
+      "sport": "football",
+      "competition_id": "fb-seriea",
+      "league_name": "意甲",
+      "home_name": "拿坡里",
+      "away_name": "AC米蘭",
+      "home_team_id": "fb-napoli",
+      "away_team_id": "fb-milan",
+      "kickoff_at": "2026-10-30T02:45:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "拿坡里",
+          "away_name": "AC米蘭"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "Serie A",
+          "home_name": "Napoli",
+          "away_name": "AC Milan"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "Serie A",
+          "home_name": "Napoli",
+          "away_name": "AC Milan"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "拿坡里",
+          "away_name": "AC米蘭"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T02:45:00+08:00",
+          "league_name": "意甲",
+          "home_name": "拿坡里",
+          "away_name": "AC米蘭"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.95,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-ucl-bay-int",
+      "sport": "football",
+      "competition_id": "fb-ucl",
+      "league_name": "歐冠",
+      "home_name": "拜仁慕尼黑",
+      "away_name": "國際米蘭",
+      "home_team_id": "fb-bayern",
+      "away_team_id": "fb-inter",
+      "kickoff_at": "2026-10-30T03:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "國際米蘭"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:00:00+08:00",
+          "league_name": "UEFA Champions League",
+          "home_name": "Bayern Munich",
+          "away_name": "Inter"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "國際米蘭"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:00:00+08:00",
+          "league_name": "歐冠",
+          "home_name": "拜仁慕尼黑",
+          "away_name": "國際米蘭"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.84,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-ligue1-psg-om",
+      "sport": "football",
+      "competition_id": "fb-ligue1",
+      "league_name": "法甲",
+      "home_name": "巴黎聖日耳曼",
+      "away_name": "馬賽",
+      "home_team_id": "fb-psg",
+      "away_team_id": "fb-marseille",
+      "kickoff_at": "2026-10-30T03:45:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:45:00+08:00",
+          "league_name": "Ligue 1",
+          "home_name": "Paris Saint-Germain",
+          "away_name": "Marseille"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:45:00+08:00",
+          "league_name": "Ligue 1",
+          "home_name": "Paris Saint-Germain",
+          "away_name": "Marseille"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:45:00+08:00",
+          "league_name": "法甲",
+          "home_name": "巴黎聖日耳曼",
+          "away_name": "馬賽"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T03:45:00+08:00",
+          "league_name": "法甲",
+          "home_name": "巴黎聖日耳曼",
+          "away_name": "馬賽"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.81,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-primeira-ben-por",
+      "sport": "football",
+      "competition_id": "fb-primeira",
+      "league_name": "Primeira Liga",
+      "home_name": "Benfica",
+      "away_name": "FC Porto",
+      "home_team_id": "fb-benfica",
+      "away_team_id": "fb-porto",
+      "kickoff_at": "2026-10-30T04:15:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:15:00+08:00",
+          "league_name": "Primeira Liga",
+          "home_name": "Benfica",
+          "away_name": "FC Porto"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T04:15:00+08:00",
+          "league_name": "Liga Portugal",
+          "home_name": "SL Benfica",
+          "away_name": "Porto"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "missing"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "missing"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.52,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-j1-kaw-yok",
+      "sport": "football",
+      "competition_id": "fb-j1",
+      "league_name": "日職",
+      "home_name": "川崎前鋒",
+      "away_name": "橫濱水手",
+      "home_team_id": "fb-kawasaki",
+      "away_team_id": "fb-marinos",
+      "kickoff_at": "2026-10-30T18:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T18:00:00+08:00",
+          "league_name": "J1 League",
+          "home_name": "Kawasaki Frontale",
+          "away_name": "Yokohama F. Marinos"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-30T18:15:00+08:00",
+          "league_name": "日職",
+          "home_name": "川崎前鋒隊",
+          "away_name": "橫濱水手",
+          "delta_minutes": 15
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T18:00:00+08:00",
+          "league_name": "日職",
+          "home_name": "川崎前鋒",
+          "away_name": "橫濱水手"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.64,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-csl-shp-sdt",
+      "sport": "football",
+      "competition_id": "fb-csl",
+      "league_name": "中超",
+      "home_name": "上海海港",
+      "away_name": "山東泰山",
+      "home_team_id": "fb-shport",
+      "away_team_id": "fb-shandong",
+      "kickoff_at": "2026-10-30T19:35:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "Chinese Super League",
+          "home_name": "Shanghai Port",
+          "away_name": "Shandong Taishan"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "中超",
+          "home_name": "上海海港",
+          "away_name": "山東泰山"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T19:35:00+08:00",
+          "league_name": "中超",
+          "home_name": "上海海港",
+          "away_name": "山東泰山"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.78,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-epl-mun-liv",
+      "sport": "football",
+      "competition_id": "fb-epl",
+      "league_name": "英超",
+      "home_name": "曼聯",
+      "away_name": "利物浦",
+      "home_team_id": "fb-manutd",
+      "away_team_id": "fb-liverpool",
+      "kickoff_at": "2026-10-30T20:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼聯",
+          "away_name": "利物浦"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-30T19:30:00+08:00",
+          "league_name": "Premier League",
+          "home_name": "Liverpool",
+          "away_name": "Manchester United",
+          "sides_swapped": true,
+          "delta_minutes": -60
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼徹斯特聯",
+          "away_name": "利物浦"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "曼聯",
+          "away_name": "利物浦"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.66,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-ere-aja-psv",
+      "sport": "football",
+      "competition_id": "fb-eredivisie",
+      "league_name": "荷甲",
+      "home_name": "阿積士",
+      "away_name": "燕豪芬",
+      "home_team_id": "fb-ajax",
+      "away_team_id": "fb-psv",
+      "kickoff_at": "2026-10-30T21:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:00:00+08:00",
+          "league_name": "Eredivisie",
+          "home_name": "Ajax",
+          "away_name": "PSV Eindhoven"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:00:00+08:00",
+          "league_name": "Dutch Eredivisie",
+          "home_name": "Ajax",
+          "away_name": "PSV Eindhoven"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:00:00+08:00",
+          "league_name": "荷蘭甲級聯賽",
+          "home_name": "阿積士",
+          "away_name": "燕豪芬"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:00:00+08:00",
+          "league_name": "荷甲",
+          "home_name": "阿積士",
+          "away_name": "燕豪芬"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.58,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-facup-mci-tot",
+      "sport": "football",
+      "competition_id": "fb-facup",
+      "league_name": "足總盃",
+      "home_name": "曼城",
+      "away_name": "熱刺",
+      "home_team_id": "fb-mancity",
+      "away_team_id": "fb-spurs",
+      "kickoff_at": "2026-10-30T21:45:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:45:00+08:00",
+          "league_name": "足總盃",
+          "home_name": "曼城",
+          "away_name": "熱刺"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:45:00+08:00",
+          "league_name": "FA Cup",
+          "home_name": "Manchester City",
+          "away_name": "Tottenham Hotspur"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:45:00+08:00",
+          "league_name": "足總盃",
+          "home_name": "曼城",
+          "away_name": "熱刺"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T21:45:00+08:00",
+          "league_name": "足總盃",
+          "home_name": "曼城",
+          "away_name": "熱刺"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.9,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-laliga-rma-bar",
+      "sport": "football",
+      "competition_id": "fb-laliga",
+      "league_name": "西甲",
+      "home_name": "皇家馬德里",
+      "away_name": "巴塞隆拿",
+      "home_team_id": "fb-realmadrid",
+      "away_team_id": "fb-barcelona",
+      "kickoff_at": "2026-10-30T22:15:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T22:15:00+08:00",
+          "league_name": "西甲",
+          "home_name": "皇家馬德里",
+          "away_name": "巴塞隆拿"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T22:15:00+08:00",
+          "league_name": "La Liga",
+          "home_name": "Real Madrid",
+          "away_name": "Barcelona"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T22:15:00+08:00",
+          "league_name": "La Liga",
+          "home_name": "Real Madrid",
+          "away_name": "Barcelona"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T22:15:00+08:00",
+          "league_name": "西甲",
+          "home_name": "皇家馬德里",
+          "away_name": "巴塞隆拿"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T22:15:00+08:00",
+          "league_name": "西甲",
+          "home_name": "皇家馬德里",
+          "away_name": "巴塞隆拿"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.97,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-champ-lee-bor",
+      "sport": "football",
+      "competition_id": "fb-championship",
+      "league_name": "英冠",
+      "home_name": "列斯聯",
+      "away_name": "米德爾斯堡",
+      "home_team_id": "fb-leeds",
+      "away_team_id": "fb-boro",
+      "kickoff_at": "2026-10-30T23:00:00+08:00",
+      "status": "postponed",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:00:00+08:00",
+          "league_name": "Championship",
+          "home_name": "Leeds United",
+          "away_name": "Middlesbrough"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:00:00+08:00",
+          "league_name": "英冠",
+          "home_name": "列斯聯",
+          "away_name": "米德爾斯堡"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:00:00+08:00",
+          "league_name": "英冠",
+          "home_name": "列斯聯",
+          "away_name": "米德爾斯堡"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.6,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261030-epl-ars-che",
+      "sport": "football",
+      "competition_id": "fb-epl",
+      "league_name": "英超",
+      "home_name": "阿仙奴",
+      "away_name": "車路士",
+      "home_team_id": "fb-arsenal",
+      "away_team_id": "fb-chelsea",
+      "kickoff_at": "2026-10-30T23:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "阿仙奴",
+          "away_name": "車路士"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:30:00+08:00",
+          "league_name": "Premier League",
+          "home_name": "Arsenal",
+          "away_name": "Chelsea"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-30T23:45:00+08:00",
+          "league_name": "英超",
+          "home_name": "阿仙奴",
+          "away_name": "車路士",
+          "delta_minutes": 15
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-30T23:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "阿仙奴",
+          "away_name": "車路士"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.73,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

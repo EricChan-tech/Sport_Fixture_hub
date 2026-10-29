@@ -1,0 +1,363 @@
+{
+  "version": "aliases_v1",
+  "competitions": {
+    "fb-epl": [
+      "英超",
+      "英格蘭超級聯賽",
+      "Premier League"
+    ],
+    "fb-laliga": [
+      "西甲",
+      "西班牙甲組聯賽",
+      "La Liga"
+    ],
+    "fb-ucl": [
+      "歐冠",
+      "歐洲冠軍聯賽",
+      "UEFA Champions League"
+    ],
+    "fb-bundesliga": [
+      "德甲",
+      "德國甲組聯賽",
+      "Bundesliga"
+    ],
+    "fb-seriea": [
+      "意甲",
+      "意大利甲組聯賽",
+      "Serie A"
+    ],
+    "fb-ligue1": [
+      "法甲",
+      "法國甲組聯賽",
+      "Ligue 1"
+    ],
+    "fb-primeira": [
+      "葡超",
+      "葡萄牙超級聯賽",
+      "Primeira Liga"
+    ],
+    "fb-j1": [
+      "日職",
+      "日本職業足球聯賽",
+      "J1 League"
+    ],
+    "fb-championship": [
+      "英冠",
+      "英格蘭冠軍聯賽",
+      "Championship"
+    ],
+    "fb-eredivisie": [
+      "荷甲",
+      "荷蘭甲組聯賽",
+      "Eredivisie",
+      "Dutch Eredivisie"
+    ],
+    "fb-csl": [
+      "中超",
+      "中國超級聯賽",
+      "Chinese Super League"
+    ],
+    "fb-facup": [
+      "足總盃",
+      "英格蘭足總盃",
+      "FA Cup"
+    ],
+    "bb-nba": [
+      "NBA",
+      "美國職業籃球聯賽"
+    ],
+    "bb-cba": [
+      "中職籃",
+      "中國男子籃球職業聯賽",
+      "CBA"
+    ],
+    "bb-euroleague": [
+      "歐籃",
+      "歐洲籃球聯賽",
+      "EuroLeague"
+    ],
+    "bb-acb": [
+      "西籃甲",
+      "西班牙籃球甲級聯賽",
+      "Liga ACB"
+    ],
+    "bb-bbl": [
+      "德籃甲",
+      "德國籃球甲級聯賽",
+      "Basketball Bundesliga"
+    ],
+    "bb-nbl": [
+      "澳職籃",
+      "澳洲國家籃球聯賽",
+      "NBL"
+    ]
+  },
+  "teams": {
+    "fb-atletico": [
+      "馬德里體育會",
+      "Atletico Madrid"
+    ],
+    "fb-sevilla": [
+      "西維爾",
+      "Sevilla"
+    ],
+    "fb-dortmund": [
+      "多蒙特",
+      "Borussia Dortmund"
+    ],
+    "fb-leipzig": [
+      "萊比錫紅牛",
+      "RB Leipzig"
+    ],
+    "fb-napoli": [
+      "拿坡里",
+      "Napoli"
+    ],
+    "fb-milan": [
+      "AC米蘭",
+      "AC Milan"
+    ],
+    "fb-bayern": [
+      "拜仁慕尼黑",
+      "Bayern Munich"
+    ],
+    "fb-inter": [
+      "國際米蘭",
+      "Inter"
+    ],
+    "fb-psg": [
+      "巴黎聖日耳曼",
+      "Paris Saint-Germain"
+    ],
+    "fb-marseille": [
+      "馬賽",
+      "Marseille"
+    ],
+    "fb-benfica": [
+      "賓菲加",
+      "Benfica"
+    ],
+    "fb-porto": [
+      "波爾圖",
+      "Porto"
+    ],
+    "fb-kawasaki": [
+      "川崎前鋒",
+      "Kawasaki Frontale"
+    ],
+    "fb-marinos": [
+      "橫濱水手",
+      "Yokohama F. Marinos"
+    ],
+    "fb-shport": [
+      "上海海港",
+      "Shanghai Port"
+    ],
+    "fb-shandong": [
+      "山東泰山",
+      "Shandong Taishan"
+    ],
+    "fb-manutd": [
+      "曼聯",
+      "Manchester United",
+      "曼徹斯特聯",
+      "紅魔"
+    ],
+    "fb-liverpool": [
+      "利物浦",
+      "Liverpool"
+    ],
+    "fb-ajax": [
+      "阿積士",
+      "Ajax"
+    ],
+    "fb-psv": [
+      "燕豪芬",
+      "PSV Eindhoven"
+    ],
+    "fb-realmadrid": [
+      "皇家馬德里",
+      "Real Madrid"
+    ],
+    "fb-barcelona": [
+      "巴塞隆拿",
+      "Barcelona"
+    ],
+    "fb-leeds": [
+      "列斯聯",
+      "Leeds United"
+    ],
+    "fb-boro": [
+      "米德爾斯堡",
+      "Middlesbrough"
+    ],
+    "fb-arsenal": [
+      "阿仙奴",
+      "Arsenal"
+    ],
+    "fb-chelsea": [
+      "車路士",
+      "Chelsea"
+    ],
+    "fb-juve": [
+      "祖雲達斯",
+      "Juventus"
+    ],
+    "fb-roma": [
+      "羅馬",
+      "Roma"
+    ],
+    "fb-spurs": [
+      "熱刺",
+      "Tottenham Hotspur"
+    ],
+    "fb-newcastle": [
+      "紐卡素",
+      "Newcastle United"
+    ],
+    "fb-villarreal": [
+      "維拉利爾",
+      "Villarreal"
+    ],
+    "fb-sociedad": [
+      "皇家社會",
+      "Real Sociedad"
+    ],
+    "fb-lyon": [
+      "里昂",
+      "Lyon"
+    ],
+    "fb-lille": [
+      "里爾",
+      "Lille"
+    ],
+    "fb-leverkusen": [
+      "利華古遜",
+      "Bayer Leverkusen"
+    ],
+    "fb-mancity": [
+      "曼城",
+      "Manchester City"
+    ],
+    "fb-sporting": [
+      "士砵亭",
+      "Sporting CP"
+    ],
+    "fb-braga": [
+      "布拉加",
+      "Braga"
+    ],
+    "fb-urawa": [
+      "浦和紅鑽",
+      "Urawa Reds"
+    ],
+    "fb-kashima": [
+      "鹿島鹿角",
+      "Kashima Antlers"
+    ],
+    "fb-brighton": [
+      "白禮頓",
+      "Brighton"
+    ],
+    "fb-girona": [
+      "赫羅納",
+      "Girona"
+    ],
+    "bb-lakers": [
+      "洛杉磯湖人",
+      "Los Angeles Lakers"
+    ],
+    "bb-celtics": [
+      "波士頓塞爾特人",
+      "Boston Celtics"
+    ],
+    "bb-warriors": [
+      "金州勇士",
+      "Golden State Warriors"
+    ],
+    "bb-nuggets": [
+      "丹佛金塊",
+      "Denver Nuggets"
+    ],
+    "bb-bucks": [
+      "密爾沃基公鹿",
+      "Milwaukee Bucks"
+    ],
+    "bb-sixers": [
+      "費城七六人",
+      "Philadelphia 76ers"
+    ],
+    "bb-mavs": [
+      "達拉斯獨行俠",
+      "Dallas Mavericks"
+    ],
+    "bb-suns": [
+      "鳳凰城太陽",
+      "Phoenix Suns"
+    ],
+    "bb-heat": [
+      "邁阿密熱火",
+      "Miami Heat"
+    ],
+    "bb-knicks": [
+      "紐約尼克",
+      "New York Knicks"
+    ],
+    "bb-liaoning": [
+      "遼寧",
+      "Liaoning"
+    ],
+    "bb-guangdong": [
+      "廣東",
+      "Guangdong"
+    ],
+    "bb-beijing": [
+      "北京首鋼",
+      "Beijing"
+    ],
+    "bb-xinjiang": [
+      "新疆",
+      "Xinjiang"
+    ],
+    "bb-rm": [
+      "皇家馬德里籃球",
+      "Real Madrid"
+    ],
+    "bb-pao": [
+      "帕納辛奈科斯",
+      "Panathinaikos"
+    ],
+    "bb-barca": [
+      "巴塞隆拿籃球",
+      "Barcelona"
+    ],
+    "bb-baskonia": [
+      "巴斯干尼亞",
+      "Baskonia"
+    ],
+    "bb-olympiacos": [
+      "奧林比亞高斯",
+      "Olympiacos"
+    ],
+    "bb-fener": [
+      "費倫巴治",
+      "Fenerbahce"
+    ],
+    "bb-bayern": [
+      "拜仁慕尼黑籃球",
+      "Bayern Munich"
+    ],
+    "bb-alba": [
+      "阿爾巴柏林",
+      "ALBA Berlin"
+    ],
+    "bb-sydney": [
+      "雪梨國王",
+      "Sydney Kings"
+    ],
+    "bb-melbourne": [
+      "墨爾本聯隊",
+      "Melbourne United"
+    ]
+  }
+}

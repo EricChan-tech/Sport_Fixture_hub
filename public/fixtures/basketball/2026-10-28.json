@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-10-28",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261028-nba-dal-phx",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "達拉斯獨行俠",
+      "away_name": "鳳凰城太陽",
+      "home_team_id": "bb-mavs",
+      "away_team_id": "bb-suns",
+      "kickoff_at": "2026-10-28T11:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "達拉斯獨行俠",
+          "away_name": "鳳凰城太陽"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Dallas Mavericks",
+          "away_name": "Phoenix Suns"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "達拉斯獨行俠",
+          "away_name": "鳳凰城太陽"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-28T11:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "達拉斯獨行俠",
+          "away_name": "鳳凰城太陽"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.91,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

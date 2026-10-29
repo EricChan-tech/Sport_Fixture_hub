@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-11-02",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261102-nba-gsw-phx",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "金州勇士",
+      "away_name": "鳳凰城太陽",
+      "home_team_id": "bb-warriors",
+      "away_team_id": "bb-suns",
+      "kickoff_at": "2026-11-02T10:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "鳳凰城太陽"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Golden State Warriors",
+          "away_name": "Phoenix Suns"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Golden State Warriors",
+          "away_name": "Phoenix Suns"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "鳳凰城太陽"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T10:00:00+08:00",
+          "league_name": "NBA",
+          "home_name": "金州勇士",
+          "away_name": "鳳凰城太陽"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.89,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261102-nbl-syd-mel",
+      "sport": "basketball",
+      "competition_id": "bb-nbl",
+      "league_name": "澳職籃",
+      "home_name": "雪梨國王",
+      "away_name": "墨爾本聯隊",
+      "home_team_id": "bb-sydney",
+      "away_team_id": "bb-melbourne",
+      "kickoff_at": "2026-11-02T17:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T17:00:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T17:00:00+08:00",
+          "league_name": "NBL",
+          "home_name": "Sydney Kings",
+          "away_name": "Melbourne United"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T17:00:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-02T17:00:00+08:00",
+          "league_name": "澳職籃",
+          "home_name": "雪梨國王",
+          "away_name": "墨爾本聯隊"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.86,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

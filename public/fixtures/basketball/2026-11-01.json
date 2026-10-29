@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "basketball",
+  "date": "2026-11-01",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "bb-20261101-euro-oly-fen",
+      "sport": "basketball",
+      "competition_id": "bb-euroleague",
+      "league_name": "歐籃",
+      "home_name": "奧林比亞高斯",
+      "away_name": "費倫巴治",
+      "home_team_id": "bb-olympiacos",
+      "away_team_id": "bb-fener",
+      "kickoff_at": "2026-11-01T03:00:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-11-01T03:30:00+08:00",
+          "league_name": "EuroLeague",
+          "home_name": "Olympiacos",
+          "away_name": "Fenerbahce",
+          "delta_minutes": 30
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T03:00:00+08:00",
+          "league_name": "歐籃",
+          "home_name": "奧林比亞高斯",
+          "away_name": "費倫巴治"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T03:00:00+08:00",
+          "league_name": "歐籃",
+          "home_name": "奧林比亞高斯",
+          "away_name": "費倫巴治"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.66,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "bb-20261101-nba-mil-phi",
+      "sport": "basketball",
+      "competition_id": "bb-nba",
+      "league_name": "NBA",
+      "home_name": "密爾沃基公鹿",
+      "away_name": "費城七六人",
+      "home_team_id": "bb-bucks",
+      "away_team_id": "bb-sixers",
+      "kickoff_at": "2026-11-01T09:30:00+08:00",
+      "status": "scheduled",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T09:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T09:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "Milwaukee Bucks",
+          "away_name": "Philadelphia 76ers"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T09:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-11-01T09:30:00+08:00",
+          "league_name": "NBA",
+          "home_name": "密爾沃基公鹿",
+          "away_name": "費城七六人"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.9,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

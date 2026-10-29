@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "sport": "football",
+  "date": "2026-10-29",
+  "timezone": "Asia/Macau",
+  "matches": [
+    {
+      "match_id": "fb-20261029-ligue1-lyo-lil",
+      "sport": "football",
+      "competition_id": "fb-ligue1",
+      "league_name": "法甲",
+      "home_name": "里昂",
+      "away_name": "里爾",
+      "home_team_id": "fb-lyon",
+      "away_team_id": "fb-lille",
+      "kickoff_at": "2026-10-29T04:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "missing"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T04:00:00+08:00",
+          "league_name": "Ligue 1",
+          "home_name": "Lyon",
+          "away_name": "Lille"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T04:00:00+08:00",
+          "league_name": "Ligue 1",
+          "home_name": "Lyon",
+          "away_name": "Lille"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T04:00:00+08:00",
+          "league_name": "法甲",
+          "home_name": "里昂",
+          "away_name": "里爾"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T04:00:00+08:00",
+          "league_name": "法甲",
+          "home_name": "里昂",
+          "away_name": "里爾"
+        }
+      ],
+      "has_macau": false,
+      "confidence": 0.8,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261029-epl-tot-new",
+      "sport": "football",
+      "competition_id": "fb-epl",
+      "league_name": "英超",
+      "home_name": "熱刺",
+      "away_name": "紐卡素",
+      "home_team_id": "fb-spurs",
+      "away_team_id": "fb-newcastle",
+      "kickoff_at": "2026-10-29T20:30:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "熱刺",
+          "away_name": "紐卡素"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "mismatch",
+          "kickoff_at": "2026-10-29T19:45:00+08:00",
+          "league_name": "Premier League",
+          "home_name": "Tottenham Hotspur",
+          "away_name": "Newcastle United",
+          "delta_minutes": -45
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "熱刺",
+          "away_name": "紐卡素"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T20:30:00+08:00",
+          "league_name": "英超",
+          "home_name": "熱刺",
+          "away_name": "紐卡素"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.7,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    },
+    {
+      "match_id": "fb-20261029-laliga-vil-rso",
+      "sport": "football",
+      "competition_id": "fb-laliga",
+      "league_name": "西甲",
+      "home_name": "維拉利爾",
+      "away_name": "皇家社會",
+      "home_team_id": "fb-villarreal",
+      "away_team_id": "fb-sociedad",
+      "kickoff_at": "2026-10-29T23:00:00+08:00",
+      "status": "finished",
+      "sources": [
+        {
+          "source_id": "macau_lottery",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T23:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "維拉利爾",
+          "away_name": "皇家社會"
+        },
+        {
+          "source_id": "betexplorer",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T23:00:00+08:00",
+          "league_name": "La Liga",
+          "home_name": "Villarreal",
+          "away_name": "Real Sociedad"
+        },
+        {
+          "source_id": "scoresway",
+          "cell": "missing"
+        },
+        {
+          "source_id": "aiscore",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T23:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "維拉利爾",
+          "away_name": "皇家社會"
+        },
+        {
+          "source_id": "leisu",
+          "cell": "ok",
+          "kickoff_at": "2026-10-29T23:00:00+08:00",
+          "league_name": "西甲",
+          "home_name": "維拉利爾",
+          "away_name": "皇家社會"
+        }
+      ],
+      "has_macau": true,
+      "confidence": 0.92,
+      "updated_at": "2026-10-30T06:00:00+08:00"
+    }
+  ]
+}

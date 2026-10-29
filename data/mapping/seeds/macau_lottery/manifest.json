@@ -1,0 +1,37 @@
+{
+  "version": "macau_lottery_name_import_v1",
+  "source_id": "macau_lottery",
+  "status": "confirmed",
+  "source": "import",
+  "note": "Git 種子。日常確認與拒絕不經 Git commit，運行時儲存留待物件儲存。",
+  "files": [
+    {
+      "file": "football_teams.json",
+      "csv": "football_teams.csv",
+      "sport": "football",
+      "kind": "team",
+      "count": 7745
+    },
+    {
+      "file": "basketball_teams.json",
+      "csv": "basketball_teams.csv",
+      "sport": "basketball",
+      "kind": "team",
+      "count": 2832
+    },
+    {
+      "file": "football_competitions.json",
+      "csv": "football_competitions.csv",
+      "sport": "football",
+      "kind": "competition",
+      "count": 350
+    },
+    {
+      "file": "basketball_competitions.json",
+      "csv": "basketball_competitions.csv",
+      "sport": "basketball",
+      "kind": "competition",
+      "count": 163
+    }
+  ]
+}

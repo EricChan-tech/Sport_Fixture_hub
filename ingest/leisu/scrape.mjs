@@ -1,6 +1,43 @@
 import { openBrowser } from '../browser.mjs'
-import { fetchText, shortMessage } from '../http.mjs'
-import { parseLeisuHomeHtml, parseLeisuScheduleHtml } from './parse.mjs'
+import { shortMessage } from '../http.mjs'
+import { fixturesFromLeisuMatches, parseLeisuScheduleHtml } from './parse.mjs'
+
+/** Reads the schedule page's own match list, including rows the list has not painted yet. */
+export function leisuMatchesExpr(marker) {
+  return `(() => {
+  const el = document.querySelector('.${marker}')
+  let node = el && el.__vue__
+  let list = []
+  while (node) {
+    const data = node.$data || {}
+    if (Array.isArray(data.matches) && data.matches[0] && data.matches[0].home) { list = data.matches; break }
+    if (Array.isArray(data.match_notStart) && data.match_notStart[0] && data.match_notStart[0].home) { list = data.match_notStart; break }
+    node = node.$parent
+  }
+  if (!list.length) {
+    const root = document.querySelector('#__nuxt')
+    const vm = root && root.__vue__
+    function walk(current, depth) {
+      if (!current || depth > 10) return
+      const data = current.$data || {}
+      for (const key of ['matches', 'match_notStart']) {
+        const candidate = data[key]
+        if (Array.isArray(candidate) && candidate.length > list.length && candidate[0] && candidate[0].home && candidate[0].away) list = candidate
+      }
+      for (const child of current.$children || []) walk(child, depth + 1)
+    }
+    if (vm) walk(vm, 0)
+  }
+  return JSON.stringify(list.map((match) => ({
+    id: match.id,
+    match_time: match.match_time,
+    status: match.status,
+    comp: (match.com_info && (match.com_info.name || match.com_info.short_name)) || '',
+    home: match.home && (match.home.name || ''),
+    away: match.away && (match.away.name || ''),
+  })))
+})()`
+}
 
 const PAGE_GAP_MS = 1000
 
@@ -14,9 +51,8 @@ function compactDate(isoDate) {
 }
 
 export function leisuPages(sports, dates) {
-  const base = (process.env.LEISU_BASE || 'https://www.leisu.com').replace(/\/$/, '')
   const mobile = (process.env.LEISU_MOBILE_BASE || 'https://m.leisu.com').replace(/\/$/, '')
-  const pages = [{ kind: 'home', sport: null, url: `${base}/`, date: null }]
+  const pages = []
   for (const sport of sports || []) {
     const prefix = sport === 'basketball' ? '/live/lanqiu/saicheng' : '/live/saicheng'
     for (const date of dates || []) {
@@ -43,16 +79,45 @@ function dedupe(rows) {
   return fixtures
 }
 
+async function readSchedulePage(page, browser, options) {
+  if (options.readMatches) {
+    const value = await options.readMatches(page)
+    if (value?.[0]?.kickoff_at) return value
+    return fixturesFromLeisuMatches(value, page.sport)
+  }
+  const marker = page.sport === 'basketball' ? 'bkt-lier-base' : 'ftb-lier-base'
+  const html = await browser.render(page.url, {
+    timeoutMs: options.timeoutMs ?? 25000,
+    readyExpression: `document.querySelectorAll('.${marker}').length > 0`,
+  })
+  if (browser.evaluate) {
+    const raw = await browser.evaluate(leisuMatchesExpr(marker))
+    try {
+      const matches = JSON.parse(raw || '[]')
+      const parsed = fixturesFromLeisuMatches(matches, page.sport)
+      if (parsed.length > 0) return parsed
+    } catch {
+      // fall through to the painted rows
+    }
+  }
+  return parseLeisuScheduleHtml(html, page.sport, page.date)
+}
+
 async function renderSchedule(pages, options) {
   const render = options.renderPage
-  if (render === false) return []
+  if (render === false && !options.readMatches) return []
   const schedulePages = pages.filter((page) => page.kind === 'schedule')
   if (schedulePages.length === 0) return []
   const rows = []
+  if (options.readMatches && !render) {
+    for (const page of schedulePages) rows.push(...await readSchedulePage(page, null, options))
+    return rows
+  }
   if (render) {
     for (const page of schedulePages) {
       const html = await render(page.url, { sport: page.sport, date: page.date })
-      rows.push(...parseLeisuScheduleHtml(html, page.sport, page.date))
+      const raw = options.readMatches ? await options.readMatches(page) : null
+      rows.push(...(raw ? fixturesFromLeisuMatches(raw, page.sport) : parseLeisuScheduleHtml(html, page.sport, page.date)))
     }
     return rows
   }
@@ -62,16 +127,14 @@ async function renderSchedule(pages, options) {
     for (let index = 0; index < schedulePages.length; index += 1) {
       const page = schedulePages[index]
       if (stalled.has(page.sport)) continue
-      if (index > 0) await sleep(options.gapMs ?? PAGE_GAP_MS)
-      const marker = page.sport === 'basketball' ? 'bkt-lier-base' : 'ftb-lier-base'
-      const html = await browser.render(page.url, {
-        timeoutMs: options.timeoutMs ?? 10000,
-        readyExpression: `document.body && document.body.innerHTML.includes('${marker}')`,
-      })
-      const parsed = parseLeisuScheduleHtml(html, page.sport, page.date)
+      if (rows.length > 0) await sleep(options.gapMs ?? PAGE_GAP_MS)
+      let parsed = await readSchedulePage(page, browser, options)
+      if (parsed.length === 0) {
+        await sleep(2000)
+        parsed = await readSchedulePage(page, browser, options)
+      }
       rows.push(...parsed)
-      const stillLoading = html.includes('oly-match-list') && !html.includes(marker)
-      if (parsed.length === 0 && (stillLoading || /Access Denied|Just a moment/i.test(html))) stalled.add(page.sport)
+      if (parsed.length === 0) stalled.add(page.sport)
     }
   } finally {
     browser.close()
@@ -83,16 +146,6 @@ export async function scrapeLeisu(options = {}) {
   const sports = (options.sports || ['football', 'basketball']).filter((sport) => sport === 'football' || sport === 'basketball')
   const dates = options.dates || []
   const pages = leisuPages(sports, dates)
-  const load = options.fetchText || fetchText
-  let homeRows = []
-  let homeError = ''
-  const home = pages.find((page) => page.kind === 'home')
-  try {
-    const response = await load(home.url)
-    homeRows = parseLeisuHomeHtml(response.text ?? response)
-  } catch (error) {
-    homeError = shortMessage(error, '雷速首頁抓取失敗。')
-  }
   let scheduleRows = []
   let scheduleError = ''
   try {
@@ -104,12 +157,10 @@ export async function scrapeLeisu(options = {}) {
   const bySport = {}
   for (const sport of sports) {
     const scheduled = dedupe(scheduleRows.filter((row) => row.sport === sport && (dates.length === 0 || dates.includes(row.date))))
-    const featured = dedupe(homeRows.filter((row) => row.sport === sport && (dates.length === 0 || dates.includes(row.date))))
-    const chosen = scheduled.length > 0 ? scheduled : featured
-    fixtures.push(...chosen)
-    bySport[sport] = chosen.length > 0
-      ? { ok: true, count: chosen.length, message: `${scheduled.length > 0 ? '賽程頁' : '首頁賽程'} ${chosen.length} 場。` }
-      : { ok: false, count: 0, message: scheduleError || homeError || '雷速賽程頁沒有解析到場次。' }
+    fixtures.push(...scheduled)
+    bySport[sport] = scheduled.length > 0
+      ? { ok: true, count: scheduled.length, message: `m.leisu.com 賽程 ${scheduled.length} 場` }
+      : { ok: false, count: 0, message: scheduleError || '雷速賽程頁沒有解析到場次。' }
   }
   const unique = dedupe(fixtures)
   const failed = sports.filter((sport) => !bySport[sport]?.ok)

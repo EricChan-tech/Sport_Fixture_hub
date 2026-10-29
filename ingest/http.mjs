@@ -16,6 +16,7 @@ export async function fetchText(url, options = {}) {
       'accept-language': 'zh-HK,zh;q=0.9,en;q=0.8',
       'user-agent': options.userAgent || BROWSER_UA,
       ...(options.referer ? { referer: options.referer } : {}),
+      ...(options.cookie ? { cookie: options.cookie } : {}),
     },
   })
   const text = await response.text()

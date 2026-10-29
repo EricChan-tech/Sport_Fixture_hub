@@ -1,4 +1,4 @@
-import { macauWallTime } from '../clock.mjs'
+import { macauStamp, macauWallTime } from '../clock.mjs'
 
 function decode(value) {
   return String(value || '')
@@ -78,6 +78,42 @@ export function parseLeisuHomeHtml(html) {
         external_id: externalId,
       })
     }
+  }
+  return fixtures
+}
+
+function statusFrom(code) {
+  const value = Number(code)
+  if (value === 1) return 'scheduled'
+  if (value === 8) return 'finished'
+  if (value === 9 || value === 13) return 'postponed'
+  if (value === 12) return 'cancelled'
+  if (value > 1 && value < 8) return 'live'
+  return 'scheduled'
+}
+
+/** Full day list kept by the mobile schedule page, including rows it has not painted. */
+export function fixturesFromLeisuMatches(matches, sport) {
+  const fixtures = []
+  const seen = new Set()
+  for (const match of matches || []) {
+    const when = Number(match.match_time || match.matchTime)
+    if (!when) continue
+    const stamp = macauStamp(new Date(when * 1000))
+    const home = String(match.home || match.home_name || '').trim()
+    const away = String(match.away || match.away_name || '').trim()
+    if (!home || !away) continue
+    pushRow(fixtures, seen, {
+      source_id: 'leisu',
+      sport,
+      date: stamp.date,
+      kickoff_at: stamp.kickoff_at,
+      league_name: String(match.comp || match.league_name || '').trim(),
+      home_name: home,
+      away_name: away,
+      status: statusFrom(match.status),
+      external_id: String(match.id || ''),
+    })
   }
   return fixtures
 }

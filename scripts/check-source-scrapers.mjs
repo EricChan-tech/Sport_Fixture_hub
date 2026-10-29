@@ -8,8 +8,10 @@ import { parseLeisuHomeHtml, parseLeisuScheduleHtml } from '../ingest/leisu/pars
 import { scrapeLeisu } from '../ingest/leisu/scrape.mjs'
 import { daysFromFixtures } from '../ingest/publish.mjs'
 import { SOURCE_SCRAPERS } from '../ingest/scrapers.mjs'
+import { chromeWebSocket } from '../ingest/browser.mjs'
 import { parseScoreswayHtml } from '../ingest/scoresway/parse.mjs'
 import { scrapeScoresway } from '../ingest/scoresway/scrape.mjs'
+import { WebSocketServer } from 'ws'
 import { SOURCE_IDS } from '../pipeline/constants.mjs'
 import { objectKey } from '../pipeline/storage.mjs'
 import { runScheduleJob } from '../pipeline/run-job.mjs'
@@ -21,6 +23,41 @@ function assert(condition, message) {
 }
 
 assert(SOURCE_IDS.every((sourceId) => typeof SOURCE_SCRAPERS[sourceId] === 'function'), 'every source has a scraper')
+
+const savedWebSocket = globalThis.WebSocket
+try {
+  globalThis.WebSocket = undefined
+  const Socket = chromeWebSocket()
+  assert(typeof Socket === 'function', 'cdp client exists when global WebSocket is missing')
+  const server = new WebSocketServer({ port: 0, host: '127.0.0.1' })
+  await new Promise((resolve) => server.on('listening', resolve))
+  const address = server.address()
+  server.on('connection', (socket) => {
+    socket.on('message', (data) => {
+      const message = JSON.parse(String(data))
+      socket.send(JSON.stringify({ id: message.id, result: { ok: true } }))
+    })
+  })
+  const socket = new Socket(`ws://127.0.0.1:${address.port}`)
+  await new Promise((resolve, reject) => {
+    socket.once('open', resolve)
+    socket.once('error', reject)
+  })
+  const reply = await new Promise((resolve, reject) => {
+    socket.on('message', (data) => resolve(JSON.parse(String(data))))
+    socket.send(JSON.stringify({ id: 1, method: 'Runtime.evaluate' }), (error) => {
+      if (error) reject(error)
+    })
+  })
+  assert(reply.result?.ok === true, 'cdp client can exchange a frame without global WebSocket')
+  socket.close()
+  await new Promise((resolve) => server.close(resolve))
+} catch (error) {
+  failures.push(`node websocket fallback: ${error instanceof Error ? error.message : error}`)
+} finally {
+  if (savedWebSocket === undefined) delete globalThis.WebSocket
+  else globalThis.WebSocket = savedWebSocket
+}
 
 const footballHtml = `
 <li class="table-main__tournamentNavLi js-tournament" data-ttid="1">
@@ -141,11 +178,13 @@ const leisuScraped = await scrapeLeisu({
   sports: ['football', 'basketball'],
   dates: ['2026-10-30'],
   gapMs: 0,
-  renderPage: false,
-  fetchText: async () => ({ text: leisuHome }),
+  readMatches: async (page) => (page.sport === 'football'
+    ? [{ id: 4553730, match_time: 1793296800, status: 1, comp: '丹麦超', home: '哥本哈根', away: '中日德兰' }]
+    : [{ id: 88, match_time: 1793320200, status: 1, comp: 'NBA', home: '湖人', away: '塞爾特人' }]),
 })
-assert(leisuScraped.ok && leisuScraped.fixtures.length === 2, 'leisu homepage fallback')
-assert(leisuScraped.sports.football.ok && leisuScraped.sports.basketball.ok, 'leisu both sports')
+assert(leisuScraped.ok && leisuScraped.fixtures.length === 2, 'leisu schedule list')
+assert(leisuScraped.sports.football.count === 1 && leisuScraped.sports.basketball.count === 1, 'leisu both sports')
+assert(leisuScraped.fixtures.some((fixture) => fixture.external_id === '4553730' && fixture.league_name === '丹麦超'), 'leisu schedule names')
 
 const denied = await scrapeScoresway({
   sports: ['football'],

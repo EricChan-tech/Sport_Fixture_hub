@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, SOURCE_IDS } from '../pipeline/constants.mjs'
 import { objectKey } from '../pipeline/storage.mjs'
 import { runScheduleJob } from '../pipeline/run-job.mjs'
+import { handleMappingRequest } from '../pipeline/mapping-http.mjs'
 import { confirmEntry, ensureWorkspace, putSeedOverride, readSeedOverrides, readWorkspace } from '../pipeline/mapping-store.mjs'
 import { queryCatalog } from '../pipeline/mapping-catalog.mjs'
 
@@ -47,6 +48,30 @@ const liv = catalogRow(liverpool, 'macau-football-team-5458')
 assert(liv?.canonical_name_zh === '利物浦', 'liverpool row')
 assert(liv?.source_names?.betexplorer === 'Liverpool' && liv?.source_names?.leisu === '利物浦', 'confirmed source columns')
 assert(liv?.source_names?.scoresway === 'Liverpool' && liv?.source_names?.aiscore === '利物浦', 'scoresway and aiscore columns')
+assert(liv?.source_columns?.betexplorer?.editable === false && liv?.source_columns?.betexplorer?.source === 'auto', 'auto betexplorer is locked')
+assert(liv?.source_columns?.betexplorer?.status === 'confirmed' && liv?.source_columns?.leisu?.editable === false, 'auto columns are confirmed and locked')
+let livBlocked = false
+try {
+  await putSeedOverride({
+    entity_id: 'macau-football-team-5458',
+    canonical_name_zh: '利物浦',
+    canonical_name_en: liv.canonical_name_en,
+    source_names: { scoresway: 'Liverpool FC' },
+  })
+} catch (error) {
+  livBlocked = error?.code === 'BAD_REQUEST' && String(error.message).includes('不能修改')
+}
+assert(livBlocked, 'seed auto alias is rejected')
+const livSame = await putSeedOverride({
+  entity_id: 'macau-football-team-5458',
+  canonical_name_zh: '利物浦',
+  canonical_name_en: liv.canonical_name_en,
+  source_names: { scoresway: 'Liverpool' },
+})
+assert(!livSame.source_names?.scoresway, 'identical auto name is not stored as manual')
+const livAfterSame = catalogRow(await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5458', page: 1, pageSize: 5 }), 'macau-football-team-5458')
+assert(livAfterSame?.source_columns?.scoresway?.source === 'auto' && livAfterSame?.source_columns?.scoresway?.editable === false, 'auto column stays auto')
+assert(livAfterSame?.canonical_name_zh === '利物浦' && livAfterSame?.source === 'manual', 'macau name save still marks the row manual')
 const hiddenAlias = await queryCatalog({ sport: 'football', kind: 'team', q: '曼徹斯特聯', page: 1, pageSize: 5 })
 assert(hiddenAlias.total === 0, 'pending alias is not searchable yet')
 const manutdBefore = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5468', page: 1, pageSize: 5 })
@@ -62,7 +87,16 @@ const benficaRow = benficaPage.items.find((item) => item.canonical_name_zh === '
 assert(benficaRow?.source_names?.scoresway === 'SL Benfica', 'manual confirm shows scoresway')
 assert(benficaRow?.source_names?.betexplorer === 'Benfica', 'manual confirm shows betexplorer')
 assert(!benficaRow?.source_names?.leisu, 'empty source stays empty')
+assert(benficaRow?.source_columns?.scoresway?.editable === true && benficaRow?.source_columns?.scoresway?.source === 'manual', 'manual confirm alias stays editable')
+assert(benficaRow?.source_columns?.leisu?.editable === true && benficaRow?.source_columns?.leisu?.name === '', 'empty source column is editable')
 assert((await readWorkspace()).teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'confirm persisted in workspace')
+const benficaSaved = await putSeedOverride({
+  entity_id: benficaRow.entity_id,
+  canonical_name_zh: benficaRow.canonical_name_zh,
+  canonical_name_en: benficaRow.canonical_name_en,
+  source_names: { leisu: '賓菲加雷速' },
+})
+assert(benficaSaved.source_names?.leisu === '賓菲加雷速', 'manual source alias stored')
 
 const published = await runScheduleJob({
   trigger: 'manual',
@@ -93,6 +127,38 @@ const manutd = revealed.items.find((item) => item.entity_id === 'macau-football-
 assert(manutd?.source_names?.aiscore === '曼徹斯特聯', 'auto confirm shows aiscore')
 assert(manutd?.source_names?.betexplorer === 'Manchester United', 'auto confirm shows betexplorer')
 assert(manutd?.source_names?.scoresway === 'Man Utd', 'auto confirm shows scoresway')
+assert(manutd?.source_columns?.aiscore?.editable === false && manutd?.source_columns?.aiscore?.source === 'auto', 'auto confirm locks aiscore')
+assert(manutd?.source_columns?.betexplorer?.editable === false, 'auto confirm locks betexplorer')
+const benficaAfter = await queryCatalog({ sport: 'football', kind: 'team', q: '賓菲加雷速', page: 1, pageSize: 10 })
+const benficaKept = benficaAfter.items.find((item) => item.entity_id === benficaRow.entity_id)
+assert(benficaKept?.source_names?.leisu === '賓菲加雷速', 'manual source alias survives the job')
+assert(benficaKept?.source_columns?.leisu?.editable === true && benficaKept?.source_columns?.leisu?.source === 'manual', 'manual alias stays editable after the job')
+assert(benficaKept?.source_names?.scoresway === 'SL Benfica', 'linked manual alias still shows')
+let blocked = false
+try {
+  await putSeedOverride({
+    entity_id: manutd.entity_id,
+    canonical_name_zh: manutd.canonical_name_zh,
+    canonical_name_en: manutd.canonical_name_en,
+    source_names: { aiscore: '人手曼聯' },
+  })
+} catch (error) {
+  blocked = error?.code === 'BAD_REQUEST' && String(error.message).includes('不能修改')
+}
+assert(blocked, 'auto alias write is rejected')
+const manutdStill = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5468', page: 1, pageSize: 5 })
+assert(catalogRow(manutdStill, 'macau-football-team-5468')?.source_names?.aiscore === '曼徹斯特聯', 'rejected write keeps auto alias')
+const denied = await handleMappingRequest(new Request('http://local/api/mapping/overrides', {
+  method: 'PUT',
+  headers: { 'content-type': 'application/json' },
+  body: JSON.stringify({
+    entity_id: 'macau-football-team-5468',
+    canonical_name_zh: manutd.canonical_name_zh,
+    canonical_name_en: manutd.canonical_name_en,
+    source_names: { betexplorer: 'Not United' },
+  }),
+}))
+assert(denied.status === 400, 'api rejects auto alias edit')
 const dutch = await queryCatalog({ sport: 'football', kind: 'competition', q: '荷甲', page: 1, pageSize: 10 })
 const eredivisie = dutch.items.find((item) => item.entity_id === 'macau-football-competition-83')
 assert(eredivisie?.source_names?.leisu === '荷甲', 'auto confirm shows competition alias')
@@ -135,6 +201,63 @@ const editedComp = await putSeedOverride({
 assert(editedComp.short_name_zh === '亞盃簡', 'short name override stored')
 const renamed = await queryCatalog({ sport: 'football', kind: 'competition', q: '亞盃簡', page: 1, pageSize: 40 })
 assert(renamed.total === 1 && renamed.items[0].short_name_zh === '亞盃簡', 'catalog search sees short override')
+
+const withSource = await putSeedOverride({
+  entity_id: 'macau-football-team-1',
+  canonical_name_zh: '測試隊',
+  canonical_name_en: 'Test FC',
+  source_names: { betexplorer: 'Boroughmuir Manual', aiscore: '博洛人手' },
+})
+assert(withSource.source_names.betexplorer === 'Boroughmuir Manual' && withSource.short_name_zh === undefined, 'source names stored on override')
+const seen = await queryCatalog({ sport: 'football', kind: 'team', q: 'Boroughmuir Manual', page: 1, pageSize: 5 })
+assert(seen.total === 1 && seen.items[0].entity_id === 'macau-football-team-1', 'manual source name is searchable')
+assert(seen.items[0].source_columns.betexplorer.source === 'manual' && seen.items[0].source_columns.betexplorer.editable === true, 'manual source column is editable')
+assert(seen.items[0].source_columns.leisu.editable === true && seen.items[0].source_columns.leisu.name === '', 'untouched source stays empty')
+const kept = await putSeedOverride({
+  entity_id: 'macau-football-team-1',
+  canonical_name_zh: '測試隊',
+  canonical_name_en: 'Test FC',
+})
+assert(kept.source_names.betexplorer === 'Boroughmuir Manual' && kept.canonical_name_en === 'Test FC', 'macau save keeps source names')
+const cleared = await putSeedOverride({
+  entity_id: 'macau-football-team-1',
+  canonical_name_zh: '測試隊',
+  canonical_name_en: 'Test FC',
+  source_names: { betexplorer: '   ' },
+})
+assert(cleared.source_names.betexplorer === '' && cleared.source_names.aiscore === '博洛人手', 'blank source name clears one column')
+const afterClear = await queryCatalog({ sport: 'football', kind: 'team', q: '博洛人手', page: 1, pageSize: 5 })
+assert(afterClear.items[0].source_names.aiscore === '博洛人手' && !afterClear.items[0].source_names.betexplorer, 'cleared column drops from source_names')
+assert(afterClear.items[0].source_columns.betexplorer.name === '' && afterClear.items[0].source_columns.betexplorer.editable === true, 'cleared column is editable dash')
+assert(afterClear.items[0].source_columns.betexplorer.source === 'manual', 'explicit clear stays manual')
+let invalid = false
+try {
+  await putSeedOverride({
+    entity_id: 'macau-football-team-1',
+    canonical_name_zh: '測試隊',
+    canonical_name_en: 'Test FC',
+    source_names: { macau_lottery: '澳彩別名' },
+  })
+} catch (error) {
+  invalid = error?.code === 'BAD_REQUEST'
+}
+assert(invalid, 'macau source column is not a catalog alias edit')
+const stillAiscore = await readSeedOverrides()
+assert(stillAiscore.items['macau-football-team-1'].source_names.aiscore === '博洛人手', 'rejected source id does not wipe aliases')
+const filled = await handleMappingRequest(new Request('http://local/api/mapping/overrides', {
+  method: 'PUT',
+  headers: { 'content-type': 'application/json' },
+  body: JSON.stringify({
+    entity_id: 'macau-football-team-2',
+    canonical_name_zh: '帕里克瑪',
+    canonical_name_en: 'Parikrma',
+    source_names: { leisu: '帕里克瑪雷速' },
+  }),
+}))
+assert(filled.status === 200, 'api accepts an empty source alias')
+const parikrma = catalogRow(await queryCatalog({ sport: 'football', kind: 'team', q: '帕里克瑪雷速', page: 1, pageSize: 5 }), 'macau-football-team-2')
+assert(parikrma?.source_names?.leisu === '帕里克瑪雷速' && parikrma?.canonical_name_zh === '帕里克瑪', 'filled dash is stored and macau name stays')
+assert(parikrma?.source_columns?.betexplorer?.editable === true && parikrma?.source_columns?.betexplorer?.name === '', 'other empty sources stay editable')
 
 const limited = await runScheduleJob({ trigger: 'manual', baseDate: '2026-10-30', now, paceMs: 0 })
 assert(limited.accepted === false && limited.job.reason.includes('5 分鐘'), 'rate limit')

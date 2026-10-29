@@ -22,7 +22,7 @@ node pipeline/run-job.mjs --trigger manual --base-date 2026-10-30
 
 ## 對照
 
-種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。
+種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`，包含澳彩中文、英文、簡稱，以及其他來源欄（BetExplorer、Scoresway、AiScore、雷速）。空白、待確認、人手或匯入的來源名稱可以改；已確認且來源為自動的別名會在目錄標成自動，寫入時拒絕覆蓋。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。
 
 ## 對齊
 

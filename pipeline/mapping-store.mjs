@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { createStore } from './storage.mjs'
+import { repoRoot } from './paths.mjs'
 
 const OVERRIDES_KEY = 'mapping/overrides.json'
 const WORKSPACE_KEY = 'mapping/workspace.json'
-const seedPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../src/config/mapping.seed.json')
+const seedPath = path.join(repoRoot(), 'src/config/mapping.seed.json')
 
 function emptyOverrides() {
   return { version: 'mapping_overrides_v1', items: {} }

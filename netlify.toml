@@ -7,7 +7,18 @@
 
 [functions]
   directory = "netlify/functions"
-  included_files = ["public/fixtures/**", "pipeline/sources.config.json", "src/config/mapping.seed.json", "src/lib/productRules.mjs", "src/lib/sources.mjs", "data/mapping/seeds/macau_lottery/*.json"]
+  # esbuild emits the function as ESM when the handler is an ES module.
+  # CommonJS output rejects the top-level await in pipeline/run-job.mjs.
+  node_bundler = "esbuild"
+  included_files = [
+    "public/fixtures/**",
+    "pipeline/**",
+    "pipeline/sources.config.json",
+    "src/config/mapping.seed.json",
+    "src/lib/productRules.mjs",
+    "src/lib/sources.mjs",
+    "data/mapping/seeds/macau_lottery/*.json",
+  ]
 
 [[redirects]]
   from = "/api/mapping/*"

@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { readSeedOverrides } from './mapping-store.mjs'
+import { repoRoot } from './paths.mjs'
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const root = repoRoot()
 const cache = new Map()
 
 function fileName(sport, kind) {

@@ -6,6 +6,13 @@ import type { SourceId, Sport } from '../types/schema'
 
 const catalogSources = SOURCE_IDS.filter((id) => id !== 'macau_lottery')
 
+interface SourceColumn {
+  name: string
+  status?: 'confirmed' | 'pending'
+  source?: 'auto' | 'manual' | 'import'
+  editable: boolean
+}
+
 interface CatalogRow {
   entity_id: string
   sport: Sport
@@ -14,6 +21,7 @@ interface CatalogRow {
   canonical_name_en: string
   short_name_zh: string
   source_names?: Partial<Record<SourceId, string>>
+  source_columns?: Partial<Record<SourceId, SourceColumn>>
   status: 'confirmed' | 'pending'
   source: 'auto' | 'manual' | 'import'
   continent: string
@@ -33,6 +41,9 @@ const editingId = ref('')
 const draftZh = ref('')
 const draftEn = ref('')
 const draftShort = ref('')
+const draftSources = ref<Partial<Record<SourceId, string>>>({})
+const focusSource = ref<SourceId | ''>('')
+const saving = ref(false)
 const saveMessage = ref('')
 const { revision } = useMapping()
 const scroller = ref<HTMLElement | null>(null)
@@ -117,44 +128,87 @@ onUnmounted(() => {
   resizeObserver?.disconnect()
 })
 
-function sourceName(row: CatalogRow, sourceId: SourceId): string {
-  return row.source_names?.[sourceId]?.trim() || ''
+function column(row: CatalogRow, sourceId: SourceId): SourceColumn {
+  return row.source_columns?.[sourceId] ?? {
+    name: row.source_names?.[sourceId]?.trim() || '',
+    editable: true,
+  }
 }
 
-function beginEdit(row: CatalogRow): void {
+function columnTitle(row: CatalogRow, sourceId: SourceId): string {
+  const cell = column(row, sourceId)
+  if (!cell.editable) return '已確認 · 自動，不能修改'
+  if (!cell.name) return `填寫${SOURCE_META[sourceId].zh}名稱`
+  if (!cell.source) return ''
+  const status = cell.status === 'pending' ? '待確認' : '已確認'
+  return `${status} · ${sourceLabel(cell.source)}`
+}
+
+async function beginEdit(row: CatalogRow, sourceId?: SourceId): Promise<void> {
   editingId.value = row.entity_id
   draftZh.value = row.canonical_name_zh
   draftEn.value = row.canonical_name_en
   draftShort.value = row.short_name_zh
+  const next: Partial<Record<SourceId, string>> = {}
+  for (const id of catalogSources) {
+    if (!column(row, id).editable) continue
+    next[id] = column(row, id).name
+  }
+  draftSources.value = next
+  focusSource.value = sourceId && column(row, sourceId).editable ? sourceId : ''
   saveMessage.value = ''
+  if (!focusSource.value) return
+  await nextTick()
+  document.querySelector<HTMLInputElement>(`[data-testid="catalog-source-input-${focusSource.value}"]`)?.focus()
+}
+
+function cancelEdit(): void {
+  editingId.value = ''
+  focusSource.value = ''
 }
 
 async function save(row: CatalogRow): Promise<void> {
+  if (saving.value) return
   saveMessage.value = ''
+  saving.value = true
+  const sourceNames: Partial<Record<SourceId, string>> = {}
+  for (const sourceId of catalogSources) {
+    if (!column(row, sourceId).editable) continue
+    const next = (draftSources.value[sourceId] ?? '').trim()
+    if (next === column(row, sourceId).name.trim()) continue
+    sourceNames[sourceId] = next
+  }
   const payload: {
     entity_id: string
     canonical_name_zh: string
     canonical_name_en: string
     short_name_zh?: string
+    source_names?: Partial<Record<SourceId, string>>
   } = {
     entity_id: row.entity_id,
     canonical_name_zh: draftZh.value,
     canonical_name_en: draftEn.value,
   }
   if (row.kind === 'competition') payload.short_name_zh = draftShort.value
-  const response = await fetch('/api/mapping/overrides', {
-    method: 'PUT',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  const body = await response.json()
-  if (!response.ok) {
-    saveMessage.value = body.reason || '儲存失敗。'
-    return
+  if (Object.keys(sourceNames).length > 0) payload.source_names = sourceNames
+  try {
+    const response = await fetch('/api/mapping/overrides', {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    const body = await response.json()
+    if (!response.ok) {
+      saveMessage.value = body.reason || '儲存失敗。'
+      return
+    }
+    editingId.value = ''
+    focusSource.value = ''
+    saveMessage.value = '已寫入本機對照儲存。'
+    await load()
+  } finally {
+    saving.value = false
   }
-  editingId.value = ''
-  saveMessage.value = '已寫入本機對照儲存。'
-  await load()
 }
 
 function sourceLabel(source: CatalogRow['source']): string {
@@ -170,7 +224,7 @@ function sourceLabel(source: CatalogRow['source']): string {
       <div>
         <h2 class="font-serif text-xl">完整對照表</h2>
         <p class="mt-1 max-w-3xl text-xs leading-relaxed text-muted">
-          澳彩種子全量可查。中文、英文是澳彩名稱，賽事列另有繁體簡稱。其餘四欄是其他來源的隊名或賽事名，沒有已確認別名時顯示 —。每日更新會把高置信度對照寫進本機對照儲存；待確認要按「確認」後才出現。修改中文、簡稱或英文後寫入本機儲存，重新整理仍會讀回，不必提交 Git。
+          澳彩種子全量可查。中文、英文是澳彩名稱，賽事列另有繁體簡稱，這三欄維持可改。其餘四欄是其他來源的隊名或賽事名：沒有名稱時顯示 —，點 — 或「修改」就能填。已確認而且來源是自動的名稱會標成自動，不能改寫。待確認、人手、匯入或空白都可以改。儲存後寫入本機對照儲存，重新整理仍會讀回，不必提交 Git。每日更新仍只會把高置信度對照寫進工作區；待確認要按「確認」後才出現在這些欄。
         </p>
       </div>
       <p class="font-mono text-xs text-muted" data-testid="catalog-range">{{ rangeLabel }}</p>
@@ -250,12 +304,31 @@ function sourceLabel(source: CatalogRow['source']): string {
               :key="sourceId"
               class="overflow-hidden border-t border-line px-1.5 py-1"
               :data-testid="`catalog-source-${sourceId}`"
+              :data-editable="column(row, sourceId).editable ? 'true' : 'false'"
+              :data-origin="column(row, sourceId).source || 'empty'"
+              :title="columnTitle(row, sourceId)"
             >
-              <span
-                class="block truncate"
-                :class="sourceName(row, sourceId) ? '' : 'text-muted'"
-                :title="sourceName(row, sourceId) || undefined"
-              >{{ sourceName(row, sourceId) || '—' }}</span>
+              <input
+                v-if="editingId === row.entity_id && column(row, sourceId).editable"
+                v-model="draftSources[sourceId]"
+                :data-testid="`catalog-source-input-${sourceId}`"
+                class="catalog-input"
+              />
+              <div v-else-if="column(row, sourceId).editable" class="flex min-w-0 items-center gap-1">
+                <button
+                  type="button"
+                  class="min-w-0 truncate text-left hover:text-gold"
+                  :data-testid="column(row, sourceId).name ? `catalog-source-edit-${sourceId}` : `catalog-fill-${sourceId}`"
+                  @click="beginEdit(row, sourceId)"
+                >
+                  <span :class="column(row, sourceId).name ? '' : 'text-muted'">{{ column(row, sourceId).name || '—' }}</span>
+                </button>
+                <span v-if="column(row, sourceId).source" class="shrink-0 text-[10px] text-muted">{{ sourceLabel(column(row, sourceId).source!) }}</span>
+              </div>
+              <div v-else class="flex min-w-0 items-center gap-1">
+                <span class="min-w-0 truncate">{{ column(row, sourceId).name }}</span>
+                <span class="shrink-0 text-[10px] tracking-wider text-gold">自動</span>
+              </div>
             </td>
             <td class="catalog-pin catalog-pin-sport whitespace-nowrap border-t border-line px-1 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
             <td class="catalog-pin catalog-pin-kind whitespace-nowrap border-t border-line px-1 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>
@@ -264,7 +337,10 @@ function sourceLabel(source: CatalogRow['source']): string {
             </td>
             <td class="catalog-pin catalog-pin-action whitespace-nowrap border-t border-line px-1 py-1 text-right">
               <button v-if="editingId !== row.entity_id" type="button" data-testid="catalog-edit" class="rounded border border-line px-1.5 py-1 text-xs" @click="beginEdit(row)">修改</button>
-              <button v-else type="button" data-testid="catalog-save" class="rounded bg-gold px-1.5 py-1 text-xs font-semibold text-ink" @click="save(row)">儲存</button>
+              <div v-else class="inline-flex flex-col items-stretch gap-1">
+                <button type="button" data-testid="catalog-save" class="rounded bg-gold px-1.5 py-1 text-xs font-semibold text-ink disabled:opacity-40" :disabled="saving" @click="save(row)">儲存</button>
+                <button type="button" data-testid="catalog-cancel" class="rounded border border-line px-1.5 py-1 text-xs" @click="cancelEdit">取消</button>
+              </div>
             </td>
           </tr>
         </tbody>

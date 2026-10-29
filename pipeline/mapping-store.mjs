@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { CATALOG_SOURCE_IDS } from './alias-names.mjs'
 import { createStore } from './storage.mjs'
 import { repoRoot } from './paths.mjs'
 
@@ -23,6 +24,28 @@ export async function readSeedOverrides() {
   return emptyOverrides()
 }
 
+function badRequest(message) {
+  const error = new Error(message)
+  error.code = 'BAD_REQUEST'
+  return error
+}
+
+function mergeSourceNames(previous, input, lockedNames) {
+  if (!Object.prototype.hasOwnProperty.call(input, 'source_names')) return previous?.source_names
+  const raw = input.source_names
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw badRequest('來源名稱格式不正確。')
+  const next = { ...(previous?.source_names || {}) }
+  for (const [sourceId, value] of Object.entries(raw)) {
+    if (!CATALOG_SOURCE_IDS.includes(sourceId)) {
+      throw badRequest('只能修改 BetExplorer、Scoresway、AiScore、雷速的名稱。')
+    }
+    if (value != null && typeof value !== 'string') throw badRequest('來源名稱必須是文字。')
+    if (lockedNames[sourceId]) continue
+    next[sourceId] = String(value ?? '').trim()
+  }
+  return next
+}
+
 export async function putSeedOverride(input) {
   const entityId = String(input?.entity_id || '')
   const nameZh = String(input?.canonical_name_zh || '').trim()
@@ -30,16 +53,16 @@ export async function putSeedOverride(input) {
   const hasShort = Boolean(input) && Object.prototype.hasOwnProperty.call(input, 'short_name_zh')
   const shortName = hasShort ? String(input.short_name_zh || '').trim() : ''
   if (!/^macau-(football|basketball)-(team|competition)-\d+$/.test(entityId)) {
-    const error = new Error('對照 id 不在澳彩種子範圍。')
-    error.code = 'BAD_REQUEST'
-    throw error
+    throw badRequest('對照 id 不在澳彩種子範圍。')
   }
-  if (!nameZh || !nameEn) {
-    const error = new Error('中文名和英文名都要填。')
-    error.code = 'BAD_REQUEST'
-    throw error
-  }
+  if (!nameZh || !nameEn) throw badRequest('中文名和英文名都要填。')
   const current = await readSeedOverrides()
+  const previous = current.items[entityId] || {}
+  let lockedNames = {}
+  if (input && Object.prototype.hasOwnProperty.call(input, 'source_names')) {
+    const { lockedNamesForEdit } = await import('./mapping-catalog.mjs')
+    lockedNames = await lockedNamesForEdit(entityId, input.source_names, nameZh)
+  }
   const item = {
     canonical_name_zh: nameZh,
     canonical_name_en: nameEn,
@@ -48,6 +71,9 @@ export async function putSeedOverride(input) {
     updated_at: new Date().toISOString(),
   }
   if (hasShort) item.short_name_zh = shortName
+  else if (Object.prototype.hasOwnProperty.call(previous, 'short_name_zh')) item.short_name_zh = previous.short_name_zh
+  const sourceNames = mergeSourceNames(previous, input || {}, lockedNames)
+  if (sourceNames && Object.keys(sourceNames).length > 0) item.source_names = sourceNames
   current.items[entityId] = item
   await createStore().put(OVERRIDES_KEY, `${JSON.stringify(current)}\n`)
   return item

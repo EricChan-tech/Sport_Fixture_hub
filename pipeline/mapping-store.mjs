@@ -118,6 +118,7 @@ export async function confirmEntry(entity, id) {
   }
   item.status = 'confirmed'
   item.source = 'manual'
+  // Aliases stay on the entity. The catalog shows them once status is confirmed.
   return writeWorkspace(store)
 }
 

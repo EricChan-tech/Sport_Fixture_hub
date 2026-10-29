@@ -12,7 +12,12 @@ import {
 } from '../services/mappingRepo'
 
 const store = ref<MappingStore>(loadMappingStore())
+const revision = ref(0)
 let dirty = false
+
+function touch(): void {
+  revision.value += 1
+}
 
 void (async () => {
   try {
@@ -53,6 +58,7 @@ export function useMapping() {
       const body = (await response.json()) as { store?: MappingStore }
       if (response.ok && body.store) {
         store.value = adoptMappingStore(body.store)
+        touch()
         return
       }
     } catch {
@@ -60,6 +66,7 @@ export function useMapping() {
     }
     store.value = confirmEntity(store.value, entity)
     await pushWorkspace(store.value)
+    touch()
   }
 
   async function reject(entity: MappingEntity): Promise<void> {
@@ -74,6 +81,7 @@ export function useMapping() {
       const body = (await response.json()) as { store?: MappingStore }
       if (response.ok && body.store) {
         store.value = adoptMappingStore(body.store)
+        touch()
         return
       }
     } catch {
@@ -81,6 +89,7 @@ export function useMapping() {
     }
     store.value = rejectEntity(store.value, entity)
     await pushWorkspace(store.value)
+    touch()
   }
 
   async function reset(): Promise<void> {
@@ -91,6 +100,7 @@ export function useMapping() {
     } catch {
       /* 本機示範已還原。 */
     }
+    touch()
   }
 
   function addImports(items: readonly ParsedImport[]): string | null {
@@ -99,8 +109,9 @@ export function useMapping() {
     if (result.error) return result.error
     store.value = result.store
     void pushWorkspace(result.store)
+    touch()
     return null
   }
 
-  return { store, pendingCount, confirm, reject, reset, addImports, entityKey }
+  return { store, pendingCount, revision, confirm, reject, reset, addImports, entityKey }
 }

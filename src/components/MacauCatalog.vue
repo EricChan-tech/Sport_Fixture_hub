@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed, onUnmounted, ref, watch } from 'vue'
-import type { Sport } from '../types/schema'
+import { useMapping } from '../composables/useMapping'
+import { SOURCE_IDS, SOURCE_META } from '../lib/sources.mjs'
+import type { SourceId, Sport } from '../types/schema'
+
+const catalogSources = SOURCE_IDS.filter((id) => id !== 'macau_lottery')
 
 interface CatalogRow {
   entity_id: string
@@ -9,6 +13,7 @@ interface CatalogRow {
   canonical_name_zh: string
   canonical_name_en: string
   short_name_zh: string
+  source_names?: Partial<Record<SourceId, string>>
   status: 'confirmed' | 'pending'
   source: 'auto' | 'manual' | 'import'
   continent: string
@@ -29,7 +34,9 @@ const draftZh = ref('')
 const draftEn = ref('')
 const draftShort = ref('')
 const saveMessage = ref('')
+const { revision } = useMapping()
 let timer = 0
+let requestId = 0
 
 const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)))
 const rangeLabel = computed(() => {
@@ -40,6 +47,7 @@ const rangeLabel = computed(() => {
 })
 
 async function load(): Promise<void> {
+  const id = ++requestId
   loading.value = true
   error.value = ''
   const params = new URLSearchParams({
@@ -52,15 +60,17 @@ async function load(): Promise<void> {
   try {
     const response = await fetch(`/api/mapping/catalog?${params}`)
     const body = await response.json()
+    if (id !== requestId) return
     if (!response.ok) throw new Error(body.reason || '對照表讀取失敗。')
     rows.value = body.items
     total.value = body.total
   } catch (cause) {
+    if (id !== requestId) return
     rows.value = []
     total.value = 0
     error.value = cause instanceof Error ? cause.message : '對照表讀取失敗。'
   } finally {
-    loading.value = false
+    if (id === requestId) loading.value = false
   }
 }
 
@@ -78,9 +88,14 @@ watch(query, () => {
 })
 
 watch(page, () => void load())
+watch(revision, () => void load())
 
 void load()
 onUnmounted(() => window.clearTimeout(timer))
+
+function sourceName(row: CatalogRow, sourceId: SourceId): string {
+  return row.source_names?.[sourceId]?.trim() || ''
+}
 
 function beginEdit(row: CatalogRow): void {
   editingId.value = row.entity_id
@@ -130,8 +145,8 @@ function sourceLabel(source: CatalogRow['source']): string {
     <div class="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
       <div>
         <h2 class="font-serif text-xl">完整對照表</h2>
-        <p class="mt-1 max-w-2xl text-xs leading-relaxed text-muted">
-          澳彩種子全量可查。每次只畫一頁。賽事列有繁體簡稱。修改中文、簡稱或英文後寫入本機儲存，重新整理仍會讀回，不必提交 Git。
+        <p class="mt-1 max-w-3xl text-xs leading-relaxed text-muted">
+          澳彩種子全量可查。中文、英文是澳彩名稱，賽事列另有繁體簡稱。其餘四欄是其他來源的隊名或賽事名，沒有已確認別名時顯示 —。每日更新會把高置信度對照寫進本機對照儲存；待確認要按「確認」後才出現。修改中文、簡稱或英文後寫入本機儲存，重新整理仍會讀回，不必提交 Git。
         </p>
       </div>
       <p class="font-mono text-xs text-muted" data-testid="catalog-range">{{ rangeLabel }}</p>
@@ -149,7 +164,7 @@ function sourceLabel(source: CatalogRow['source']): string {
         v-model="query"
         data-testid="catalog-search"
         type="search"
-        placeholder="搜尋中文、簡稱、英文或 id"
+        placeholder="搜尋中文、簡稱、英文、其他來源名稱或 id"
         class="w-full rounded-md border border-line bg-ink px-3 py-1.5 text-sm sm:max-w-xs"
       />
     </div>
@@ -157,13 +172,16 @@ function sourceLabel(source: CatalogRow['source']): string {
     <p v-if="error" class="mt-2 text-xs text-miss">{{ error }}</p>
     <p v-if="saveMessage" class="mt-2 text-xs text-gold">{{ saveMessage }}</p>
     <div class="mt-2 overflow-x-auto">
-      <table data-testid="catalog-table" class="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
+      <table data-testid="catalog-table" class="w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
         <thead class="text-[11px] uppercase tracking-wider text-muted">
           <tr>
             <th class="px-2 py-1.5">id</th>
             <th class="px-2 py-1.5">中文</th>
             <th v-if="kind === 'competition'" class="px-2 py-1.5">簡稱</th>
             <th class="px-2 py-1.5">英文</th>
+            <th v-for="sourceId in catalogSources" :key="sourceId" class="px-2 py-1.5 normal-case" :data-testid="`catalog-head-${sourceId}`">
+              {{ SOURCE_META[sourceId].zh }}
+            </th>
             <th class="px-2 py-1.5">運動</th>
             <th class="px-2 py-1.5">類型</th>
             <th class="px-2 py-1.5">狀態</th>
@@ -184,6 +202,14 @@ function sourceLabel(source: CatalogRow['source']): string {
             <td class="border-t border-line px-2 py-1">
               <input v-if="editingId === row.entity_id" v-model="draftEn" data-testid="catalog-en" class="w-full rounded border border-line bg-ink px-2 py-1" />
               <span v-else>{{ row.canonical_name_en }}</span>
+            </td>
+            <td
+              v-for="sourceId in catalogSources"
+              :key="sourceId"
+              class="whitespace-nowrap border-t border-line px-2 py-1"
+              :data-testid="`catalog-source-${sourceId}`"
+            >
+              <span :class="sourceName(row, sourceId) ? '' : 'text-muted'">{{ sourceName(row, sourceId) || '—' }}</span>
             </td>
             <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.sport === 'football' ? '足球' : '籃球' }}</td>
             <td class="whitespace-nowrap border-t border-line px-2 py-1">{{ row.kind === 'team' ? '球隊' : '賽事' }}</td>

@@ -1,19 +1,35 @@
 # 賽程管線
 
-日更與手動更新共用 `run-job.mjs`。它把賽程發佈到儲存層，並寫下 `manifest.json` 與 `source_health`。澳彩會打開公開賽程頁；其餘四個來源仍未抓取，標成降級。單源失敗不會讓整次工作失敗。
+日更與手動更新共用 `run-job.mjs`。它把五個來源的公開賽程頁抓下來，對齊後寫進儲存層，並寫下 `manifest.json` 與 `source_health`。單源失敗只把該來源降級為缺格，整次工作仍成功。抓取失敗或頁面沒有場次時，該運動沿用示範賽程。
 
 ## 本機
 
+有 Chrome 或 Edge 時，五個來源一起跑：
+
 ```bash
-node pipeline/run-job.mjs --trigger manual --base-date 2026-10-30
-node pipeline/run-job.mjs --trigger manual --sources macau_lottery --base-date 2026-10-30
+node pipeline/run-job.mjs --trigger manual --sources macau_lottery,betexplorer,scoresway,aiscore,leisu --base-date 2026-10-30
 ```
 
-只跑澳彩時，足球讀 `https://www.macauslot.com/cn/soccer/fixture.html?lang=cn`，籃球讀 `https://www.macauslot.com/cn/basketball/fixture.html?lang=cn`。這兩頁的 `lang=cn` 是繁體（zh-HK）。頁面由瀏覽器畫出賽程，純 HTTP 客戶端多半只收到驗證頁。抓取器在找到 `google-chrome`、`chromium` 或 `MACAU_CHROME` 時，用一般 headless Chrome 打開這兩個公開網址，再解析畫面上的日期、時間、聯賽與主客隊。沒有自訂指紋、沒有代理密鑰。兩頁之間相隔 2 秒。
+只跑其餘四個，或只跑一個：
 
-開賽時間按頁面上的鐘點，時區是 Asia/Macau（GMT+8）。賽程頁一次列出多日；手動更新只寫 `--base-date` 那天，日更才寫今天 ±3 日。賽事簡稱會對上 `data/mapping/seeds/macau_lottery/` 的種子；對不上的聯賽用穩定 id，仍然因為 `has_macau` 而鎖定白名單。其餘四源的格子維持缺。
+```bash
+node pipeline/run-job.mjs --trigger manual --sources betexplorer,scoresway,aiscore,leisu --base-date 2026-10-30
+node pipeline/run-job.mjs --trigger manual --sources betexplorer --base-date 2026-10-30
+```
 
-抓不到、沒有 Chrome，或頁面結構對不上時，`source_health.macau_lottery` 為 `down` 或 `degraded`，澳彩格改為缺，工作本身仍成功。賽程頁通常由今天往後列，更早的已完場日期可能是空陣列，不是示範資料。機房 IP 若被驗證頁擋住，把 `RUNNER_EGRESS` 改成 self-hosted；不要在程式裡解驗證腳本。
+然後 `npm run dev`，打開賽程頁，按「更新此日」。開發伺服器讀的是同一個 `.schedule-store/`。手動窗口仍是澳門今天 ±3 日。
+
+| 來源 | 公開頁 | 怎麼拿 |
+| --- | --- | --- |
+| 澳彩 | `macauslot.com` 足球／籃球賽程，`lang=cn` 是繁體 | 頁面要瀏覽器才畫得出來。`google-chrome`、`chromium` 或 `MACAU_CHROME` |
+| BetExplorer | `betexplorer.com` 當日足球，`/basketball/next/` 籃球 | 純 HTTP。匿名頁的鐘點是 Europe/Prague；有 `data-ts` 時用那個絕對時間，再寫成 Asia/Macau |
+| Scoresway | `scoresway.com/en_GB/soccer` 與 `/en_GB/basketball` | 先取 HTML。賽程若要等 Opta 元件畫出，才開一般 headless Chrome |
+| AiScore | `aiscore.com` 與 `/basketball` | 頁面自帶的 `__NUXT__` 賽程。驗證頁就停，不解驗證 |
+| 雷速 | `leisu.com` 首頁賽程卡，以及 `m.leisu.com/live/saicheng-YYYYMMDD`（籃球加 `/lanqiu`） | 首頁是 HTTP。完整賽程頁要瀏覽器；畫不出場次就用首頁卡 |
+
+澳彩開賽鐘點按頁面原文，時區視為 Asia/Macau。其餘來源先還原成絕對時間，再寫成 `+08:00`。名稱用該頁顯示的聯賽與主客隊，不翻譯。手動更新只寫 `--base-date` 那天，日更才寫今天 ±3 日。高信心對齊仍寫進 `.schedule-store/mapping/`，不進 Git。
+
+抓不到、沒有 Chrome，或機房 IP 被拒時，該來源的 `source_health` 為 `down` 或 `degraded`，格子改缺，工作本身仍成功。不要在程式裡解驗證腳本或改指紋。Netlify Functions 與 GitHub Actions 預設沒有 Chrome，機房 IP 也常被 Scoresway、AiScore 擋住，這時會降級。
 
 預設 `SCHEDULE_STORE=local`，目錄是 `.schedule-store/`。物件鍵為 `manifest.json` 與 `{sport}/days/{YYYY-MM-DD}.json`。這個目錄已在 `.gitignore`。
 
@@ -21,7 +37,11 @@ node pipeline/run-job.mjs --trigger manual --sources macau_lottery --base-date 2
 
 ## 環境變數
 
-伺服器端：`SCHEDULE_STORE`、`SCHEDULE_STORE_DIR`、`SCHEDULE_JOB_TOKEN`、`RUNNER_EGRESS`、`MACAU_CHROME`。
+伺服器端：`SCHEDULE_STORE`、`SCHEDULE_STORE_DIR`、`SCHEDULE_JOB_TOKEN`、`RUNNER_EGRESS`、`MACAU_CHROME`、`SCHEDULE_CHROME`。
+
+瀏覽器：澳彩讀 `MACAU_CHROME`。其餘需要瀏覽器的來源先讀 `SCHEDULE_CHROME`，沒有再讀 `MACAU_CHROME`，最後才找 `google-chrome`、`chromium` 或 `msedge`。本機只有 Edge 時，把 `MACAU_CHROME` 設成 `msedge.exe` 的完整路徑，五個來源都能用。
+
+網址覆寫（可空）：`BETEXPLORER_BASE`、`SCOREWAY_BASE`、`AISCORE_BASE`、`LEISU_BASE`、`LEISU_MOBILE_BASE`。
 
 物件儲存預留：`S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`、`NETLIFY_BLOBS_SITE_ID`、`NETLIFY_AUTH_TOKEN`。未填時不要把 `SCHEDULE_STORE` 改離 `local`。
 

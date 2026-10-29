@@ -39,3 +39,4 @@ jobs:
           echo "This job writes to the runner disk only. Set SCHEDULE_STORE to s3, r2, or netlify-blobs to persist."
           echo "If the source network blocks hosted IP addresses, switch RUNNER_EGRESS to self-hosted or a residential egress path. Do not commit the store."
           echo "Macau fixture pages are rendered in a normal browser. Install google-chrome or chromium on the runner; a plain HTTP client only receives the verification page and the source degrades."
+          echo "BetExplorer is fetched as HTML. Scoresway, AiScore and Leisu use the public page, and Chrome when that page is only drawn in a browser. A hosted IP that is refused degrades that source only."

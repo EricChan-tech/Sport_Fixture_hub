@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, SOURCE_IDS } from '../pipeline/constants.mjs'
 import { objectKey } from '../pipeline/storage.mjs'
 import { runScheduleJob } from '../pipeline/run-job.mjs'
-import { putSeedOverride, readSeedOverrides } from '../pipeline/mapping-store.mjs'
+import { confirmEntry, ensureWorkspace, putSeedOverride, readSeedOverrides, readWorkspace } from '../pipeline/mapping-store.mjs'
 import { queryCatalog } from '../pipeline/mapping-catalog.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -38,6 +38,32 @@ const now = '2026-10-30T08:00:00+08:00'
 const outside = await runScheduleJob({ trigger: 'manual', baseDate: '2020-01-01', now, paceMs: 0 })
 assert(outside.accepted === false && outside.job.state === 'fail', 'outside window fails')
 
+function catalogRow(page, id) {
+  return page.items.find((item) => item.entity_id === id)
+}
+
+const liverpool = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5458', page: 1, pageSize: 5 })
+const liv = catalogRow(liverpool, 'macau-football-team-5458')
+assert(liv?.canonical_name_zh === '利物浦', 'liverpool row')
+assert(liv?.source_names?.betexplorer === 'Liverpool' && liv?.source_names?.leisu === '利物浦', 'confirmed source columns')
+assert(liv?.source_names?.scoresway === 'Liverpool' && liv?.source_names?.aiscore === '利物浦', 'scoresway and aiscore columns')
+const hiddenAlias = await queryCatalog({ sport: 'football', kind: 'team', q: '曼徹斯特聯', page: 1, pageSize: 5 })
+assert(hiddenAlias.total === 0, 'pending alias is not searchable yet')
+const manutdBefore = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5468', page: 1, pageSize: 5 })
+assert(!catalogRow(manutdBefore, 'macau-football-team-5468')?.source_names?.aiscore, 'pending manutd column empty')
+const macauPorto = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5413', page: 1, pageSize: 5 })
+assert(catalogRow(macauPorto, 'macau-football-team-5413')?.canonical_name_zh === '波圖', '波圖 row')
+assert(!catalogRow(macauPorto, 'macau-football-team-5413')?.source_names?.betexplorer, '波圖 does not take 波爾圖 aliases')
+
+const competitionIdsBefore = (await ensureWorkspace()).competitions.map((item) => item.competition_id).sort().join('|')
+await confirmEntry('team', 'fb-benfica')
+const benficaPage = await queryCatalog({ sport: 'football', kind: 'team', q: 'SL Benfica', page: 1, pageSize: 10 })
+const benficaRow = benficaPage.items.find((item) => item.canonical_name_zh === '賓菲加')
+assert(benficaRow?.source_names?.scoresway === 'SL Benfica', 'manual confirm shows scoresway')
+assert(benficaRow?.source_names?.betexplorer === 'Benfica', 'manual confirm shows betexplorer')
+assert(!benficaRow?.source_names?.leisu, 'empty source stays empty')
+assert((await readWorkspace()).teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'confirm persisted in workspace')
+
 const published = await runScheduleJob({
   trigger: 'manual',
   baseDate: '2026-10-30',
@@ -57,6 +83,20 @@ assert(typeof manifest.pending_mapping_count === 'number', 'pending count')
 assert(manifest.runner, 'runner')
 assert(manifest.source_health.aiscore.status === 'down', 'failed source health')
 assert(manifest.source_health.leisu.status === 'degraded', 'unwired source degrades')
+const mappingAfter = await readWorkspace()
+assert(mappingAfter.competitions.map((item) => item.competition_id).sort().join('|') === competitionIdsBefore, 'job keeps competitions')
+assert(mappingAfter.teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'manual confirm survives the job')
+const manutdEntity = mappingAfter.teams.find((item) => item.team_id === 'fb-manutd')
+assert(manutdEntity?.status === 'confirmed' && manutdEntity.source === 'auto', 'job auto-confirms manutd')
+const revealed = await queryCatalog({ sport: 'football', kind: 'team', q: '曼徹斯特聯', page: 1, pageSize: 10 })
+const manutd = revealed.items.find((item) => item.entity_id === 'macau-football-team-5468')
+assert(manutd?.source_names?.aiscore === '曼徹斯特聯', 'auto confirm shows aiscore')
+assert(manutd?.source_names?.betexplorer === 'Manchester United', 'auto confirm shows betexplorer')
+assert(manutd?.source_names?.scoresway === 'Man Utd', 'auto confirm shows scoresway')
+const dutch = await queryCatalog({ sport: 'football', kind: 'competition', q: '荷甲', page: 1, pageSize: 10 })
+const eredivisie = dutch.items.find((item) => item.entity_id === 'macau-football-competition-83')
+assert(eredivisie?.source_names?.leisu === '荷甲', 'auto confirm shows competition alias')
+assert(eredivisie?.source_names?.scoresway === 'Dutch Eredivisie', 'scoresway competition alias')
 const day = JSON.parse(await readFile(path.join(dir, objectKey('football', '2026-10-30')), 'utf8'))
 const swapped = day.matches.find((match) => match.match_id === 'fb-20261030-epl-mun-liv')
 const betexplorer = swapped.sources.find((cell) => cell.source_id === 'betexplorer')
@@ -76,6 +116,7 @@ const page = await queryCatalog({ sport: 'football', kind: 'team', q: 'Test FC',
 assert(page.total === 1 && page.items[0].entity_id === 'macau-football-team-1', 'catalog search sees override')
 const full = await queryCatalog({ sport: 'football', kind: 'team', q: '', page: 1, pageSize: 40 })
 assert(full.total === 7745 && full.items.length === 40, 'team catalog is paged')
+assert(full.items.every((item) => item.source_names && typeof item.source_names === 'object'), 'catalog rows include source_names')
 assert(page.items[0].short_name_zh === '', 'team catalog short name is blank')
 
 const byShort = await queryCatalog({ sport: 'football', kind: 'competition', q: '英亞盃', page: 1, pageSize: 40 })

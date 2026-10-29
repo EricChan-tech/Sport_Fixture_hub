@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { MANUAL_RATE_LIMIT_MS, MANUAL_WINDOW_DAYS, SOURCE_IDS, SPORTS } from './constants.mjs'
+import { syncScheduleMappings } from './mapping-sync.mjs'
 import { pipelineFile, repoRoot } from './paths.mjs'
 import { createStore, objectKey } from './storage.mjs'
 import { addCalendarDays, todayInMacau } from './time.mjs'
@@ -8,7 +9,6 @@ import { withinManualWindow } from '../src/lib/productRules.mjs'
 
 const root = repoRoot()
 const fixtureRoot = path.join(root, 'public/fixtures')
-const mappingSeedPath = path.join(root, 'src/config/mapping.seed.json')
 
 function sleep(ms) {
   if (!ms) return Promise.resolve()
@@ -50,12 +50,6 @@ function normalizeList(value, allowed) {
     if (!unique.includes(item)) unique.push(item)
   }
   return unique
-}
-
-async function pendingMappingCount() {
-  const seed = JSON.parse(await readFile(mappingSeedPath, 'utf8'))
-  const pending = Array.isArray(seed.pending) ? seed.pending.length : 0
-  return pending
 }
 
 function blankHealth(sourceId, status, message, successRate) {
@@ -204,6 +198,7 @@ export async function runScheduleJob(options = {}) {
         ? Array.from({ length: MANUAL_WINDOW_DAYS * 2 + 1 }, (_, index) => addCalendarDays(today, index - MANUAL_WINDOW_DAYS))
         : [baseDate]
       const published = []
+      const scheduleDays = []
       const health = {}
       for (const sourceId of SOURCE_IDS) {
         if (failSources.has(sourceId)) {
@@ -220,9 +215,11 @@ export async function runScheduleJob(options = {}) {
         for (const date of dates) {
           const day = rewriteSources(await loadCatalogDay(sport, date), new Set(selected), failSources)
           await store.put(objectKey(sport, date), `${JSON.stringify(day, null, 2)}\n`)
+          scheduleDays.push(day)
           published.push({ sport, date, match_count: day.matches.length })
         }
       }
+      const mappingStore = await syncScheduleMappings(scheduleDays)
       const previousRaw = await store.get('manifest.json')
       const previous = previousRaw ? JSON.parse(previousRaw) : null
       const finishedAt = new Date().toISOString()
@@ -243,7 +240,7 @@ export async function runScheduleJob(options = {}) {
         cron: { time: '06:00', timezone: 'Asia/Macau' },
         runner: process.env.RUNNER_EGRESS || 'local',
         sources_enabled: selected,
-        pending_mapping_count: await pendingMappingCount(),
+        pending_mapping_count: mappingStore.pending.length,
         sports: mergeSports(previous, published),
         source_health: health,
       }

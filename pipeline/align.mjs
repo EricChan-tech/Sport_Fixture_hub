@@ -79,10 +79,16 @@ export function alignObservations(observations, mapping = {}) {
   const teamIndex = buildIndex(teams)
   const competitionIndex = buildIndex(competitions)
   const suggestions = []
+  const aliasWrites = []
   const seenSuggestions = new Set()
 
-  function suggest(kind, hit, observedName) {
+  function sameSport(hit, obs) {
+    return !(hit.entity?.sport && obs?.sport && hit.entity.sport !== obs.sport)
+  }
+
+  function suggest(kind, hit, observedName, obs) {
     if (!hit.id || hit.score < PENDING_THRESHOLD) return
+    if (!sameSport(hit, obs)) return
     if (hit.status === 'confirmed' && hit.score >= CONFIRM_THRESHOLD) return
     const status = hit.score >= CONFIRM_THRESHOLD ? 'confirmed' : 'pending'
     const key = `${kind}:${hit.id}:${status}`
@@ -98,13 +104,31 @@ export function alignObservations(observations, mapping = {}) {
     })
   }
 
+  function rememberAlias(kind, hit, observedName, obs) {
+    if (!hit?.id || hit.score < CONFIRM_THRESHOLD) return
+    if (!sameSport(hit, obs)) return
+    const name = String(observedName || '').trim()
+    if (!name || !SOURCE_IDS.includes(obs?.source_id)) return
+    aliasWrites.push({
+      kind,
+      id: hit.id,
+      source_id: obs.source_id,
+      name,
+      score: hit.score,
+    })
+  }
+
   const resolved = observations.map((obs) => {
     const home = scoreName(obs.home_name, teamIndex)
     const away = scoreName(obs.away_name, teamIndex)
     const competition = scoreName(obs.competition_name || obs.league_name, competitionIndex)
-    suggest('team', home, obs.home_name)
-    suggest('team', away, obs.away_name)
-    suggest('competition', competition, obs.competition_name || obs.league_name)
+    suggest('team', home, obs.home_name, obs)
+    suggest('team', away, obs.away_name, obs)
+    const competitionName = obs.competition_name || obs.league_name
+    suggest('competition', competition, competitionName, obs)
+    rememberAlias('team', home, obs.home_name, obs)
+    rememberAlias('team', away, obs.away_name, obs)
+    rememberAlias('competition', competition, competitionName, obs)
     const confidence = confidenceOf(home.score, away.score)
     return {
       obs,
@@ -174,7 +198,61 @@ export function alignObservations(observations, mapping = {}) {
     }
   })
 
-  return { matches, suggestions }
+  return { matches, suggestions, aliasWrites }
+}
+
+function aliasField(name) {
+  return /[\u3400-\u9fff]/.test(name) ? 'name_zh' : 'name_en'
+}
+
+/**
+ * High-confidence observations fill an empty source alias.
+ * Existing text stays. Manual rows are left untouched.
+ */
+export function applyObservedAliases(workspace, writes) {
+  const next = structuredClone(workspace)
+  for (const write of writes || []) {
+    if (!write?.id || !(write.score >= CONFIRM_THRESHOLD)) continue
+    if (!SOURCE_IDS.includes(write.source_id)) continue
+    const name = String(write.name || '').trim()
+    if (!name) continue
+    const list = write.kind === 'competition' ? next.competitions : next.teams
+    const idField = write.kind === 'competition' ? 'competition_id' : 'team_id'
+    const item = (list || []).find((entry) => entry[idField] === write.id)
+    if (!item || item.source === 'manual') continue
+    if (!Array.isArray(item.aliases)) item.aliases = []
+    let alias = item.aliases.find((entry) => entry.source_id === write.source_id)
+    if (!alias) {
+      alias = { source_id: write.source_id }
+      item.aliases.push(alias)
+    }
+    const field = aliasField(name)
+    if (!String(alias[field] || '').trim()) alias[field] = name
+  }
+  return next
+}
+
+export function observationsFromSchedule(days) {
+  const observations = []
+  for (const day of days || []) {
+    for (const match of day.matches || []) {
+      for (const cell of match.sources || []) {
+        if (!cell || cell.cell === 'missing' || !SOURCE_IDS.includes(cell.source_id)) continue
+        const kickoff = cell.kickoff_at || match.kickoff_at
+        if (!kickoff) continue
+        observations.push({
+          source_id: cell.source_id,
+          sport: match.sport,
+          kickoff_at: kickoff,
+          home_name: cell.home_name || '',
+          away_name: cell.away_name || '',
+          competition_name: cell.league_name || match.league_name || '',
+          league_name: cell.league_name || match.league_name || '',
+        })
+      }
+    }
+  }
+  return observations
 }
 
 export function applyMappingSuggestions(workspace, suggestions) {

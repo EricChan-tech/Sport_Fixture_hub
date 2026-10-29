@@ -7,8 +7,8 @@
 
 [functions]
   directory = "netlify/functions"
-  # esbuild emits the function as ESM when the handler is an ES module.
-  # CommonJS output rejects the top-level await in pipeline/run-job.mjs.
+  # esbuild bundles the functions. The pipeline modules they import stay valid
+  # if that output is CommonJS.
   node_bundler = "esbuild"
   included_files = [
     "public/fixtures/**",

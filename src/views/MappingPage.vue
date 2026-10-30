@@ -105,7 +105,7 @@ function previewItems(): ParsedImportItem[] {
         <p class="text-xs uppercase tracking-[0.22em] text-gold">Mapping</p>
         <h1 class="mt-1 font-serif text-3xl">賽事與球隊對照</h1>
         <p class="mt-2 max-w-2xl text-sm text-muted">
-          完整對照表可搜尋、分頁與修改。澳彩中文、英文、簡稱，以及其他來源名稱都可以改；自動確認的來源名稱除外。修改寫入本機儲存，重新整理後仍在。待確認佇列的確認與拒絕也寫入同一儲存。
+          完整對照表可搜尋、分頁與修改。澳彩中文、英文、簡稱，以及其他來源名稱都可以改；自動確認的來源名稱除外。待確認佇列按「確認」後，對應別名會寫進完整表。修改、確認與拒絕都寫入對照儲存，重新整理後仍在。
         </p>
       </div>
       <div class="flex items-center gap-2">

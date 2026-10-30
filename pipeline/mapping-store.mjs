@@ -144,8 +144,10 @@ export async function confirmEntry(entity, id) {
   }
   item.status = 'confirmed'
   item.source = 'manual'
-  // Aliases stay on the entity. The catalog shows them once status is confirmed.
-  return writeWorkspace(store)
+  const next = await writeWorkspace(store)
+  const { writebackConfirmedAliases } = await import('./mapping-catalog.mjs')
+  await writebackConfirmedAliases(item)
+  return next
 }
 
 export async function rejectEntry(entity, id) {

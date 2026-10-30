@@ -34,7 +34,7 @@ npm run fixtures
 - Node 22
 - SPA fallback 到 `index.html`（已存在的 `/fixtures` 檔案仍照靜態檔提供）
 
-環境變數見 `.env.example`。本機預設把賽程寫進 `.schedule-store/`（不進 Git），開發伺服器用 `/schedule` 讀、用 `/api/schedule-jobs` 觸發。正式環境把 `VITE_SCHEDULE_BASE` 指到 CDN，並把 `SCHEDULE_STORE` 設成 `s3`、`r2` 或 `netlify-blobs`。手動入口要設伺服器環境變數 `SCHEDULE_JOB_TOKEN`，瀏覽器不要內嵌正式密鑰。
+環境變數見 `.env.example`。本機預設把賽程與對照寫進 `.schedule-store/`（不進 Git），開發伺服器用 `/schedule` 讀、用 `/api/schedule-jobs` 觸發。Netlify Functions 未指定驅動時改用 `netlify-blobs`，對照覆寫與待確認工作區才會留下。正式賽程日檔仍可把 `VITE_SCHEDULE_BASE` 指到 CDN。手動入口要設伺服器環境變數 `SCHEDULE_JOB_TOKEN`，瀏覽器不要內嵌正式密鑰。
 
 每日 06:00（`CRON_TZ=Asia/Macau`）與手動更新都執行 `node pipeline/run-job.mjs`。本機要有 Chrome 或 Edge（`MACAU_CHROME` / `SCHEDULE_CHROME`）。先跑管線再按「更新此日」：
 

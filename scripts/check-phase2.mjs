@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, SOURCE_IDS } from '../pipeline/constants.mjs'
-import { objectKey } from '../pipeline/storage.mjs'
+import { objectKey, resolveStoreDriver } from '../pipeline/storage.mjs'
 import { runScheduleJob } from '../pipeline/run-job.mjs'
 import { handleMappingRequest } from '../pipeline/mapping-http.mjs'
 import { confirmEntry, ensureWorkspace, putSeedOverride, readSeedOverrides, readWorkspace } from '../pipeline/mapping-store.mjs'
@@ -19,6 +19,12 @@ function assert(condition, message) {
 
 assert(SOURCE_IDS.join(',') === 'macau_lottery,betexplorer,scoresway,aiscore,leisu', 'source list')
 assert(MANUAL_RATE_LIMIT_MS === 300000, 'manual rate limit is 5 minutes')
+assert(resolveStoreDriver({}) === 'local', 'laptop store is local')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 'local' }) === 'local', 'explicit local store')
+assert(resolveStoreDriver({ NETLIFY: 'true' }) === 'netlify-blobs', 'netlify defaults to blobs')
+assert(resolveStoreDriver({ NETLIFY: 'true', SCHEDULE_STORE: 'local' }) === 'local', 'explicit local wins on netlify')
+assert(resolveStoreDriver({ NETLIFY_DEV: 'true' }) === 'netlify-blobs', 'netlify dev uses blobs')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 's3' }) === 's3', 'explicit s3')
 
 const workflow = await readFile(path.join(root, '.github/workflows/daily-schedule.yml'), 'utf8')
 assert(workflow.includes('cron: "0 6 * * *"'), 'workflow cron')
@@ -84,12 +90,23 @@ const competitionIdsBefore = (await ensureWorkspace()).competitions.map((item) =
 await confirmEntry('team', 'fb-benfica')
 const benficaPage = await queryCatalog({ sport: 'football', kind: 'team', q: 'SL Benfica', page: 1, pageSize: 10 })
 const benficaRow = benficaPage.items.find((item) => item.canonical_name_zh === '賓菲加')
+assert(benficaRow?.entity_id === 'macau-football-team-5414', 'benfica maps onto macau seed id')
 assert(benficaRow?.source_names?.scoresway === 'SL Benfica', 'manual confirm shows scoresway')
 assert(benficaRow?.source_names?.betexplorer === 'Benfica', 'manual confirm shows betexplorer')
 assert(!benficaRow?.source_names?.leisu, 'empty source stays empty')
 assert(benficaRow?.source_columns?.scoresway?.editable === true && benficaRow?.source_columns?.scoresway?.source === 'manual', 'manual confirm alias stays editable')
 assert(benficaRow?.source_columns?.leisu?.editable === true && benficaRow?.source_columns?.leisu?.name === '', 'empty source column is editable')
 assert((await readWorkspace()).teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'confirm persisted in workspace')
+assert((await readSeedOverrides()).items['macau-football-team-5414']?.source_names?.scoresway === 'SL Benfica', 'confirm writes catalog override')
+await confirmEntry('team', 'fb-porto')
+const portoAfter = catalogRow(await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5413', page: 1, pageSize: 5 }), 'macau-football-team-5413')
+assert(portoAfter?.source_names?.betexplorer === 'FC Porto', 'english correspondence fills 波圖')
+assert(portoAfter?.source_names?.scoresway === 'Porto', 'porto scoresway written back')
+assert((await readSeedOverrides()).items['macau-football-team-5413']?.source_names?.betexplorer === 'FC Porto', 'porto confirm stored on catalog id')
+const workspaceApi = await handleMappingRequest(new Request('http://local/api/mapping/workspace'))
+const workspaceBody = await workspaceApi.json()
+assert(workspaceApi.status === 200 && workspaceBody.store?.version === 'mapping_store_v1', 'workspace api returns store')
+assert(workspaceBody.store.teams.some((item) => item.team_id === 'fb-benfica' && item.status === 'confirmed'), 'workspace api includes confirmed review')
 const benficaSaved = await putSeedOverride({
   entity_id: benficaRow.entity_id,
   canonical_name_zh: benficaRow.canonical_name_zh,
@@ -121,6 +138,11 @@ assert(manifest.source_health.leisu.status === 'degraded', 'unwired source degra
 const mappingAfter = await readWorkspace()
 assert(mappingAfter.competitions.map((item) => item.competition_id).sort().join('|') === competitionIdsBefore, 'job keeps competitions')
 assert(mappingAfter.teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'manual confirm survives the job')
+assert(mappingAfter.teams.find((item) => item.team_id === 'fb-porto')?.source === 'manual', 'porto confirm survives the job')
+assert(
+  catalogRow(await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5413', page: 1, pageSize: 5 }), 'macau-football-team-5413')?.source_names?.betexplorer === 'FC Porto',
+  'porto catalog alias survives the job',
+)
 const manutdEntity = mappingAfter.teams.find((item) => item.team_id === 'fb-manutd')
 assert(manutdEntity?.status === 'confirmed' && manutdEntity.source === 'auto', 'job auto-confirms manutd')
 const revealed = await queryCatalog({ sport: 'football', kind: 'team', q: '曼徹斯特聯', page: 1, pageSize: 10 })

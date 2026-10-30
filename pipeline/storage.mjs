@@ -15,9 +15,33 @@ const REMOTE_ENV = {
   'netlify-blobs': ['NETLIFY_BLOBS_SITE_ID', 'NETLIFY_AUTH_TOKEN'],
 }
 
+const BLOBS_STORE = 'schedule-store'
+
 export function missingRemoteEnv(driver) {
   const names = REMOTE_ENV[driver] ?? []
   return names.filter((name) => !process.env[name])
+}
+
+/** Netlify Functions / `netlify dev` provide Blobs credentials without extra env vars. */
+export function onNetlifyPlatform(env = process.env) {
+  return env.NETLIFY === 'true' || env.NETLIFY_DEV === 'true'
+}
+
+/**
+ * Choose the object-store driver.
+ * Unset SCHEDULE_STORE stays local on a laptop. On Netlify it becomes netlify-blobs
+ * so mapping overrides and the workspace survive across function instances.
+ */
+export function resolveStoreDriver(env = process.env) {
+  const explicit = env.SCHEDULE_STORE
+  if (explicit === 's3' || explicit === 'r2' || explicit === 'netlify-blobs' || explicit === 'local') return explicit
+  if (onNetlifyPlatform(env)) return 'netlify-blobs'
+  return 'local'
+}
+
+export function netlifyBlobsConfigured(env = process.env) {
+  if (onNetlifyPlatform(env)) return true
+  return Boolean(env.NETLIFY_BLOBS_SITE_ID && env.NETLIFY_AUTH_TOKEN)
 }
 
 function localStore(root) {
@@ -68,10 +92,52 @@ function remoteStore(driver) {
   }
 }
 
+function blobsOptions(env = process.env) {
+  const options = { name: env.NETLIFY_BLOBS_STORE || BLOBS_STORE, consistency: 'strong' }
+  if (env.NETLIFY_BLOBS_SITE_ID && env.NETLIFY_AUTH_TOKEN) {
+    options.siteID = env.NETLIFY_BLOBS_SITE_ID
+    options.token = env.NETLIFY_AUTH_TOKEN
+  }
+  return options
+}
+
+function netlifyBlobsStore() {
+  let storePromise
+  async function blobs() {
+    if (!storePromise) {
+      storePromise = import('@netlify/blobs').then(({ getStore }) => getStore(blobsOptions()))
+    }
+    return storePromise
+  }
+  return {
+    driver: 'netlify-blobs',
+    root: null,
+    async put(key, value) {
+      await (await blobs()).set(key, String(value ?? ''))
+    },
+    async get(key) {
+      const value = await (await blobs()).get(key)
+      return value == null ? null : String(value)
+    },
+    async delete(key) {
+      await (await blobs()).delete(key)
+    },
+  }
+}
+
 export function createStore() {
-  const driver = process.env.SCHEDULE_STORE || 'local'
+  const driver = resolveStoreDriver()
   if (driver === 'local') return localStore(storeRoot())
-  if (driver === 's3' || driver === 'r2' || driver === 'netlify-blobs') {
+  if (driver === 'netlify-blobs') {
+    if (!netlifyBlobsConfigured()) {
+      const missing = missingRemoteEnv(driver)
+      const error = new Error(`儲存驅動 ${driver} 缺少環境變數：${missing.join(', ')}`)
+      error.code = 'STORE_NOT_CONFIGURED'
+      throw error
+    }
+    return netlifyBlobsStore()
+  }
+  if (driver === 's3' || driver === 'r2') {
     const missing = missingRemoteEnv(driver)
     if (missing.length > 0) {
       const error = new Error(`儲存驅動 ${driver} 缺少環境變數：${missing.join(', ')}`)

@@ -45,13 +45,13 @@ Scoresway 與 AiScore 會用一般 headless Chrome 等頁面畫完。連除錯�
 
 網址覆寫（可空）：`BETEXPLORER_BASE`、`SCOREWAY_BASE`、`AISCORE_BASE`、`LEISU_BASE`、`LEISU_MOBILE_BASE`。
 
-物件儲存預留：`S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`、`NETLIFY_BLOBS_SITE_ID`、`NETLIFY_AUTH_TOKEN`。未填時不要把 `SCHEDULE_STORE` 改離 `local`。
+物件儲存：本機預設 `SCHEDULE_STORE=local`。Netlify Functions 若未指定驅動，會改用 `netlify-blobs`（store 名稱 `schedule-store`），對照覆寫與工作區才跨實例仍在。S3／R2 仍只預留環境變數。離站讀寫 Blobs 才需要 `NETLIFY_BLOBS_SITE_ID` 與 `NETLIFY_AUTH_TOKEN`。
 
 前端只讀 `VITE_SCHEDULE_BASE`。`VITE_SCHEDULE_JOB_TOKEN` 只供本機對齊伺服器 token，不要放正式密鑰。
 
 ## 對照
 
-種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`，包含澳彩中文、英文、簡稱，以及其他來源欄（BetExplorer、Scoresway、AiScore、雷速）。空白、待確認、人手或匯入的來源名稱可以改；已確認且來源為自動的別名會在目錄標成自動，寫入時拒絕覆蓋。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。
+種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`，包含澳彩中文、英文、簡稱，以及其他來源欄（BetExplorer、Scoresway、AiScore、雷速）。空白、待確認、人手或匯入的來源名稱可以改；已確認且來源為自動的別名會在目錄標成自動，寫入時拒絕覆蓋。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。確認時會把來源別名寫回對應的澳彩目錄列：先對中文／簡稱，對不上再對英文，所以「波爾圖／Porto」會填進「波圖／Porto」那一列。
 
 ## 對齊
 

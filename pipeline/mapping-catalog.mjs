@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { aliasSearchText, CATALOG_SOURCE_IDS, normalizeName, sourceNamesFromAliases } from './alias-names.mjs'
-import { ensureWorkspace, readSeedOverrides } from './mapping-store.mjs'
+import { ensureWorkspace, putSeedOverride, readSeedOverrides } from './mapping-store.mjs'
 import { repoRoot } from './paths.mjs'
 
 const root = repoRoot()
@@ -27,9 +27,15 @@ function shortNameOf(item, override) {
   return item.short_name_zh || ''
 }
 
+function addIndexKey(index, key, record) {
+  const norm = normalizeName(key)
+  if (norm && !index.has(norm)) index.set(norm, record)
+}
+
 function confirmedAliasIndex(store, sport, kind) {
   const list = kind === 'competition' ? store?.competitions : store?.teams
   const byZh = new Map()
+  const byEn = new Map()
   for (const entity of list || []) {
     if (entity.sport && entity.sport !== sport) continue
     if (entity.status !== 'confirmed') continue
@@ -40,18 +46,109 @@ function confirmedAliasIndex(store, sport, kind) {
       origin: entity.source,
     }
     const macau = (entity.aliases || []).find((alias) => alias.source_id === 'macau_lottery')
-    for (const key of [entity.name_zh, macau?.name_zh, entity.short_zh]) {
-      const norm = normalizeName(key)
-      if (norm && !byZh.has(norm)) byZh.set(norm, record)
-    }
+    for (const key of [entity.name_zh, macau?.name_zh, entity.short_zh]) addIndexKey(byZh, key, record)
+    for (const key of [entity.name_en, macau?.name_en]) addIndexKey(byEn, key, record)
+    for (const alias of entity.aliases || []) addIndexKey(byEn, alias.name_en, record)
   }
-  return byZh
+  return { byZh, byEn }
 }
 
 function linkedRecord(aliasIndex, item, canonicalNameZh) {
-  return aliasIndex.get(normalizeName(item.canonical_name_zh))
-    || aliasIndex.get(normalizeName(canonicalNameZh))
+  const zh = aliasIndex.byZh
+  const en = aliasIndex.byEn
+  return zh.get(normalizeName(item.canonical_name_zh))
+    || zh.get(normalizeName(canonicalNameZh))
+    || zh.get(normalizeName(item.short_name_zh))
+    || en.get(normalizeName(item.canonical_name_en))
     || null
+}
+
+function catalogMatchKeys(item) {
+  const keys = new Set()
+  for (const value of [item.name_zh, item.short_zh, item.name_en]) {
+    const norm = normalizeName(value)
+    if (norm) keys.add(norm)
+  }
+  for (const alias of item.aliases || []) {
+    if (alias.source_id !== 'macau_lottery') continue
+    for (const value of [alias.name_zh, alias.name_en]) {
+      const norm = normalizeName(value)
+      if (norm) keys.add(norm)
+    }
+  }
+  return keys
+}
+
+function seedMatchKeys(item) {
+  const keys = new Set()
+  for (const value of [item.canonical_name_zh, item.canonical_name_en, item.short_name_zh]) {
+    const norm = normalizeName(value)
+    if (norm) keys.add(norm)
+  }
+  return keys
+}
+
+function sourceNamesForWriteback(item) {
+  const names = sourceNamesFromAliases(item.aliases)
+  const sourceNames = {}
+  for (const sourceId of CATALOG_SOURCE_IDS) {
+    if (names[sourceId]) sourceNames[sourceId] = names[sourceId]
+  }
+  return sourceNames
+}
+
+/**
+ * Copy confirmed review aliases onto matching Macau catalog rows.
+ * Chinese names are preferred; English (波爾圖 / Porto → 波圖 / Porto) fills the gap
+ * when the workspace label is a variant of the seed name.
+ */
+export async function writebackConfirmedAliases(item) {
+  const sourceNames = sourceNamesForWriteback(item)
+  if (Object.keys(sourceNames).length === 0) return []
+  const kind = item.entity === 'competition' ? 'competition' : 'team'
+  const keys = catalogMatchKeys(item)
+  if (keys.size === 0) return []
+  const items = await loadItems(item.sport, kind)
+  const overrides = await readSeedOverrides()
+  const written = []
+  for (const seed of items) {
+    const seedKeys = seedMatchKeys(seed)
+    let hit = false
+    for (const key of seedKeys) {
+      if (keys.has(key)) {
+        hit = true
+        break
+      }
+    }
+    if (!hit) continue
+    const previous = overrides.items[seed.entity_id] || {}
+    const payload = {
+      entity_id: seed.entity_id,
+      canonical_name_zh: previous.canonical_name_zh || seed.canonical_name_zh,
+      canonical_name_en: previous.canonical_name_en || seed.canonical_name_en,
+      source_names: sourceNames,
+    }
+    if (kind === 'competition') {
+      payload.short_name_zh = Object.prototype.hasOwnProperty.call(previous, 'short_name_zh')
+        ? previous.short_name_zh
+        : (seed.short_name_zh || '')
+    }
+    try {
+      const locked = await lockedNamesForEdit(seed.entity_id, sourceNames, payload.canonical_name_zh)
+      const unlocked = {}
+      for (const [sourceId, value] of Object.entries(sourceNames)) {
+        if (!locked[sourceId]) unlocked[sourceId] = value
+      }
+      if (Object.keys(unlocked).length === 0) continue
+      payload.source_names = unlocked
+      await putSeedOverride(payload)
+      written.push(seed.entity_id)
+    } catch (error) {
+      if (error && error.code === 'BAD_REQUEST') continue
+      throw error
+    }
+  }
+  return written
 }
 
 function autoLockedName(linked, sourceId) {

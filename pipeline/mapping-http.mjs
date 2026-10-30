@@ -5,7 +5,6 @@ import {
   ensureWorkspace,
   putSeedOverride,
   readSeedOverrides,
-  readWorkspace,
   rejectEntry,
   writeWorkspace,
 } from './mapping-store.mjs'
@@ -48,12 +47,10 @@ export async function handleMappingRequest(request) {
       return json({ ok: true, item: saved })
     }
     if (url.pathname === '/api/mapping/pending' && request.method === 'GET') {
-      const store = await readWorkspace()
-      const pending = store?.pending ?? (await ensureWorkspace()).pending
-      return json({ pending })
+      return json({ pending: (await ensureWorkspace()).pending })
     }
     if (url.pathname === '/api/mapping/workspace' && request.method === 'GET') {
-      return json({ store: await readWorkspace() })
+      return json({ store: await ensureWorkspace() })
     }
     if (url.pathname === '/api/mapping/workspace' && request.method === 'PUT') {
       return json({ ok: true, store: await writeWorkspace(await request.json()) })

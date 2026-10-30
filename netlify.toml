@@ -4,12 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  SCHEDULE_STORE = "netlify-blobs"
 
 [functions]
   directory = "netlify/functions"
   # esbuild bundles the functions. The pipeline modules they import stay valid
-  # if that output is CommonJS.
+  # if that output is CommonJS. @netlify/blobs must stay external so the
+  # platform can inject Blobs credentials.
   node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs"]
   included_files = [
     "public/fixtures/**",
     "pipeline/**",

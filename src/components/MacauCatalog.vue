@@ -204,7 +204,7 @@ async function save(row: CatalogRow): Promise<void> {
     }
     editingId.value = ''
     focusSource.value = ''
-    saveMessage.value = '已寫入本機對照儲存。'
+    saveMessage.value = '已寫入對照儲存。'
     await load()
   } finally {
     saving.value = false
@@ -224,7 +224,7 @@ function sourceLabel(source: CatalogRow['source']): string {
       <div>
         <h2 class="font-serif text-xl">完整對照表</h2>
         <p class="mt-1 max-w-3xl text-xs leading-relaxed text-muted">
-          澳彩種子全量可查。中文、英文是澳彩名稱，賽事列另有繁體簡稱，這三欄維持可改。其餘四欄是其他來源的隊名或賽事名：沒有名稱時顯示 —，點 — 或「修改」就能填。已確認而且來源是自動的名稱會標成自動，不能改寫。待確認、人手、匯入或空白都可以改。儲存後寫入本機對照儲存，重新整理仍會讀回，不必提交 Git。每日更新仍只會把高置信度對照寫進工作區；待確認要按「確認」後才出現在這些欄。
+          澳彩種子全量可查。中文、英文是澳彩名稱，賽事列另有繁體簡稱，這三欄維持可改。其餘四欄是其他來源的隊名或賽事名：沒有名稱時顯示 —，點 — 或「修改」就能填。已確認而且來源是自動的名稱會標成自動，不能改寫。待確認、人手、匯入或空白都可以改。待確認佇列按「確認」後，對應的來源別名會寫進這些欄；中文對不上時改用英文對應，例如波爾圖對到澳彩的波圖。儲存與確認都寫入對照儲存，重新整理仍會讀回，不必提交 Git。每日更新仍只會把高置信度對照寫進工作區。
         </p>
       </div>
       <p class="font-mono text-xs text-muted" data-testid="catalog-range">{{ rangeLabel }}</p>

@@ -51,7 +51,7 @@ node scripts/check-macau-seeds.mjs
 
 ## 匯入語意
 
-這些列是澳彩名稱的 Git 種子，初始 `status` 為 `confirmed`、`source` 為 `import`。對照頁可分頁查看全表，賽事表有簡稱欄，搜尋會對上簡稱。人手改名（含簡稱，以及其他來源欄）寫入 `.schedule-store/mapping/overrides.json`，並把該筆標成 `source: manual`，不會改這個種子檔，也不用 Git commit。其他來源名稱放在同一筆的 `source_names`。已確認且來源為自動的別名不會被這份覆寫蓋掉。
+這些列是澳彩名稱的 Git 種子，初始 `status` 為 `confirmed`、`source` 為 `import`。對照頁可分頁查看全表，賽事表有簡稱欄，搜尋會對上簡稱。人手改名（含簡稱，以及其他來源欄）寫入 `mapping/overrides.json`，並把該筆標成 `source: manual`，不會改這個種子檔，也不用 Git commit。其他來源名稱放在同一筆的 `source_names`。待確認佇列按確認後，來源別名會寫進對應列。已確認且來源為自動的別名不會被這份覆寫蓋掉。
 
 ## 和儲存層的關係
 

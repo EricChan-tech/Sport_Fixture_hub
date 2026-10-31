@@ -8,8 +8,10 @@
 [functions]
   directory = "netlify/functions"
   # esbuild bundles the functions. The pipeline modules they import stay valid
-  # if that output is CommonJS.
+  # if that output is CommonJS. Blobs stays external so it can read the
+  # function runtime's NETLIFY_BLOBS_CONTEXT instead of a bundled empty env.
   node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs"]
   included_files = [
     "public/fixtures/**",
     "pipeline/**",

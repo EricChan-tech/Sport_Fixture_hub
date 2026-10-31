@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { CATALOG_SOURCE_IDS } from './alias-names.mjs'
+import { CATALOG_SOURCE_IDS, sourceNamesFromAliases } from './alias-names.mjs'
 import { createStore } from './storage.mjs'
 import { repoRoot } from './paths.mjs'
 
@@ -134,6 +134,57 @@ function findEntry(store, entity, id) {
   return undefined
 }
 
+function confirmedAliasColumns(entity) {
+  const names = sourceNamesFromAliases(entity?.aliases)
+  const columns = {}
+  for (const sourceId of CATALOG_SOURCE_IDS) {
+    const text = String(names[sourceId] || '').trim()
+    if (text) columns[sourceId] = text
+  }
+  return columns
+}
+
+/**
+ * Copy a confirmed workspace entity's source aliases onto the matching Macau
+ * seed row. The full catalog reads these from overrides, so the columns stay
+ * filled even if the workspace link is later rebuilt from the pending seed.
+ * Existing manual columns, including an explicit blank, are left as written.
+ */
+export async function writeConfirmedAliases(entity) {
+  const incoming = confirmedAliasColumns(entity)
+  if (Object.keys(incoming).length === 0) return []
+  const { macauTargetsForEntity } = await import('./mapping-catalog.mjs')
+  const targets = await macauTargetsForEntity(entity)
+  if (targets.length === 0) return []
+  const current = await readSeedOverrides()
+  const updated = []
+  for (const target of targets) {
+    const previous = current.items[target.entity_id] || {}
+    const sourceNames = { ...(previous.source_names || {}) }
+    let changed = false
+    for (const [sourceId, value] of Object.entries(incoming)) {
+      if (Object.prototype.hasOwnProperty.call(sourceNames, sourceId)) continue
+      sourceNames[sourceId] = value
+      changed = true
+    }
+    if (!changed) continue
+    const item = {
+      canonical_name_zh: previous.canonical_name_zh || target.canonical_name_zh,
+      canonical_name_en: previous.canonical_name_en || target.canonical_name_en,
+      status: previous.status || 'confirmed',
+      source: previous.source || 'manual',
+      updated_at: new Date().toISOString(),
+    }
+    if (Object.prototype.hasOwnProperty.call(previous, 'short_name_zh')) item.short_name_zh = previous.short_name_zh
+    item.source_names = sourceNames
+    current.items[target.entity_id] = item
+    updated.push(target.entity_id)
+  }
+  if (updated.length === 0) return []
+  await createStore().put(OVERRIDES_KEY, `${JSON.stringify(current)}\n`)
+  return updated
+}
+
 export async function confirmEntry(entity, id) {
   const store = await ensureWorkspace()
   const item = findEntry(store, entity, id)
@@ -144,7 +195,7 @@ export async function confirmEntry(entity, id) {
   }
   item.status = 'confirmed'
   item.source = 'manual'
-  // Aliases stay on the entity. The catalog shows them once status is confirmed.
+  await writeConfirmedAliases(item)
   return writeWorkspace(store)
 }
 

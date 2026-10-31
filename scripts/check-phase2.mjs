@@ -3,11 +3,11 @@ import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MANUAL_RATE_LIMIT_MS, SOURCE_IDS } from '../pipeline/constants.mjs'
-import { objectKey } from '../pipeline/storage.mjs'
+import { createNetlifyBlobsStore, createStore, objectKey, resolveStoreDriver } from '../pipeline/storage.mjs'
 import { runScheduleJob } from '../pipeline/run-job.mjs'
 import { handleMappingRequest } from '../pipeline/mapping-http.mjs'
-import { confirmEntry, ensureWorkspace, putSeedOverride, readSeedOverrides, readWorkspace } from '../pipeline/mapping-store.mjs'
-import { queryCatalog } from '../pipeline/mapping-catalog.mjs'
+import { confirmEntry, ensureWorkspace, putSeedOverride, readSeedOverrides, readWorkspace, writeWorkspace } from '../pipeline/mapping-store.mjs'
+import { macauTargetsForEntity, queryCatalog } from '../pipeline/mapping-catalog.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const failures = []
@@ -79,6 +79,10 @@ assert(!catalogRow(manutdBefore, 'macau-football-team-5468')?.source_names?.aisc
 const macauPorto = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5413', page: 1, pageSize: 5 })
 assert(catalogRow(macauPorto, 'macau-football-team-5413')?.canonical_name_zh === '波圖', '波圖 row')
 assert(!catalogRow(macauPorto, 'macau-football-team-5413')?.source_names?.betexplorer, '波圖 does not take 波爾圖 aliases')
+await confirmEntry('team', 'fb-porto')
+const portoConfirmed = await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5413', page: 1, pageSize: 5 })
+assert(!catalogRow(portoConfirmed, 'macau-football-team-5413')?.source_names?.betexplorer, 'confirming 波爾圖 does not fill 波圖')
+assert(!(await readSeedOverrides()).items['macau-football-team-5413']?.source_names, '波圖 override stays empty')
 
 const competitionIdsBefore = (await ensureWorkspace()).competitions.map((item) => item.competition_id).sort().join('|')
 await confirmEntry('team', 'fb-benfica')
@@ -90,6 +94,23 @@ assert(!benficaRow?.source_names?.leisu, 'empty source stays empty')
 assert(benficaRow?.source_columns?.scoresway?.editable === true && benficaRow?.source_columns?.scoresway?.source === 'manual', 'manual confirm alias stays editable')
 assert(benficaRow?.source_columns?.leisu?.editable === true && benficaRow?.source_columns?.leisu?.name === '', 'empty source column is editable')
 assert((await readWorkspace()).teams.find((item) => item.team_id === 'fb-benfica')?.source === 'manual', 'confirm persisted in workspace')
+const benficaOverride = (await readSeedOverrides()).items[benficaRow.entity_id]
+assert(benficaOverride?.source_names?.scoresway === 'SL Benfica', 'confirm writes scoresway onto the macau row')
+assert(benficaOverride?.source_names?.betexplorer === 'Benfica', 'confirm writes betexplorer onto the macau row')
+assert(!benficaOverride?.source_names?.leisu, 'confirm does not invent an empty source')
+const benficaWorkspace = await readWorkspace()
+const benficaTeam = benficaWorkspace.teams.find((item) => item.team_id === 'fb-benfica')
+benficaTeam.status = 'pending'
+await writeWorkspace(benficaWorkspace)
+const detachedBenfica = catalogRow(
+  await queryCatalog({ sport: 'football', kind: 'team', q: benficaRow.entity_id, page: 1, pageSize: 5 }),
+  benficaRow.entity_id,
+)
+assert(detachedBenfica?.source_names?.scoresway === 'SL Benfica', 'confirm alias remains after the workspace link drops')
+assert(detachedBenfica?.source_names?.betexplorer === 'Benfica', 'confirm betexplorer remains on the macau row')
+benficaTeam.status = 'confirmed'
+benficaTeam.source = 'manual'
+await writeWorkspace(benficaWorkspace)
 const benficaSaved = await putSeedOverride({
   entity_id: benficaRow.entity_id,
   canonical_name_zh: benficaRow.canonical_name_zh,
@@ -259,6 +280,130 @@ assert(filled.status === 200, 'api accepts an empty source alias')
 const parikrma = catalogRow(await queryCatalog({ sport: 'football', kind: 'team', q: '帕里克瑪雷速', page: 1, pageSize: 5 }), 'macau-football-team-2')
 assert(parikrma?.source_names?.leisu === '帕里克瑪雷速' && parikrma?.canonical_name_zh === '帕里克瑪', 'filled dash is stored and macau name stays')
 assert(parikrma?.source_columns?.betexplorer?.editable === true && parikrma?.source_columns?.betexplorer?.name === '', 'other empty sources stay editable')
+
+await confirmEntry('team', 'fb-manutd')
+let manutdRow = catalogRow(
+  await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5468', page: 1, pageSize: 5 }),
+  'macau-football-team-5468',
+)
+assert(manutdRow?.source_names?.betexplorer === 'Manchester United', 'confirm fills man utd betexplorer')
+assert(manutdRow?.source_names?.scoresway === 'Man Utd', 'confirm fills man utd scoresway')
+assert(manutdRow?.source_names?.aiscore === '曼徹斯特聯', 'confirm fills man utd aiscore')
+assert(manutdRow?.source_names?.leisu === '曼聯', 'confirm fills man utd leisu')
+assert(manutdRow?.source_columns?.betexplorer?.source === 'manual' && manutdRow?.source_columns?.leisu?.editable === true, 'confirmed man utd aliases are manual')
+await putSeedOverride({
+  entity_id: 'macau-football-team-5468',
+  canonical_name_zh: '曼聯',
+  canonical_name_en: 'Manchester Utd',
+  source_names: { aiscore: '人手曼聯欄' },
+})
+await confirmEntry('team', 'fb-manutd')
+const manutdKept = (await readSeedOverrides()).items['macau-football-team-5468']
+assert(manutdKept?.source_names?.aiscore === '人手曼聯欄', 'confirm does not replace a manual column')
+assert(manutdKept?.source_names?.betexplorer === 'Manchester United', 'confirm keeps the other man utd aliases')
+const manutdWorkspace = await readWorkspace()
+const manutdTeam = manutdWorkspace.teams.find((item) => item.team_id === 'fb-manutd')
+manutdTeam.status = 'pending'
+await writeWorkspace(manutdWorkspace)
+manutdRow = catalogRow(
+  await queryCatalog({ sport: 'football', kind: 'team', q: 'macau-football-team-5468', page: 1, pageSize: 5 }),
+  'macau-football-team-5468',
+)
+assert(manutdRow?.source_names?.leisu === '曼聯', 'man utd aliases stay on the macau row without the workspace link')
+assert(manutdRow?.source_names?.aiscore === '人手曼聯欄', 'manual man utd edit stays after the link drops')
+assert(manutdRow?.canonical_name_zh === '曼聯' && manutdRow?.canonical_name_en === 'Manchester Utd', 'confirm does not rename the macau row')
+
+const duplicateRows = await macauTargetsForEntity({
+  entity: 'team',
+  sport: 'football',
+  name_zh: '西部APIA',
+  name_en: 'Wests APIA',
+})
+assert(duplicateRows.length === 2, 'identical duplicate rows both receive the alias')
+const pickedRow = await macauTargetsForEntity({
+  entity: 'team',
+  sport: 'football',
+  name_zh: '利尼史特朗女足',
+  name_en: 'LSK Kvinner W',
+})
+assert(pickedRow.length === 1 && pickedRow[0].entity_id === 'macau-football-team-3718', 'english name picks one of two')
+const ambiguousRow = await macauTargetsForEntity({
+  entity: 'team',
+  sport: 'football',
+  name_zh: '利尼史特朗女足',
+  name_en: 'Not A Club',
+})
+assert(ambiguousRow.length === 0, 'ambiguous chinese name is not attached')
+const manutdTarget = await macauTargetsForEntity({
+  entity: 'team',
+  sport: 'football',
+  name_zh: '曼聯',
+  name_en: 'Manchester United',
+  aliases: [{ source_id: 'macau_lottery', name_zh: '曼聯', name_en: 'Man Utd' }],
+})
+assert(manutdTarget.length === 1 && manutdTarget[0].entity_id === 'macau-football-team-5468', 'man utd maps to 5468')
+
+assert(resolveStoreDriver({ SCHEDULE_STORE: 'local' }) === 'local', 'local store stays on disk')
+assert(resolveStoreDriver({}) === 'local', 'unset store stays on disk')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 'local', AWS_LAMBDA_FUNCTION_NAME: 'mapping' }) === 'netlify-blobs', 'netlify function does not use the ephemeral disk')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 'local', NETLIFY_BLOBS_CONTEXT: 'e30=' }) === 'netlify-blobs', 'blobs context upgrades local')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 'netlify-blobs' }) === 'netlify-blobs', 'explicit blobs driver')
+assert(resolveStoreDriver({ SCHEDULE_STORE: 's3' }) === 's3', 'explicit s3 stays')
+assert(createStore().driver === 'local', 'check script keeps the local store')
+const memory = new Map()
+const blobs = createNetlifyBlobsStore({
+  async set(key, value) {
+    memory.set(key, value)
+  },
+  async get(key) {
+    return memory.has(key) ? memory.get(key) : null
+  },
+  async delete(key) {
+    memory.delete(key)
+  },
+})
+await blobs.put('mapping/overrides.json', '{"ok":true}\n')
+assert((await blobs.get('mapping/overrides.json')) === '{"ok":true}\n', 'blobs adapter reads back the same key')
+await blobs.put('mapping/workspace.json', '{"version":"mapping_store_v1"}\n')
+assert((await blobs.get('mapping/workspace.json')) === '{"version":"mapping_store_v1"}\n', 'blobs adapter keeps workspace')
+await blobs.delete('mapping/overrides.json')
+assert((await blobs.get('mapping/overrides.json')) === null, 'blobs adapter deletes')
+const savedDriver = process.env.SCHEDULE_STORE
+const savedContext = process.env.NETLIFY_BLOBS_CONTEXT
+const savedLambda = process.env.AWS_LAMBDA_FUNCTION_NAME
+const savedSite = process.env.NETLIFY_BLOBS_SITE_ID
+const savedToken = process.env.NETLIFY_AUTH_TOKEN
+delete process.env.NETLIFY_BLOBS_CONTEXT
+delete process.env.AWS_LAMBDA_FUNCTION_NAME
+delete process.env.NETLIFY_BLOBS_SITE_ID
+delete process.env.NETLIFY_AUTH_TOKEN
+process.env.SCHEDULE_STORE = 'netlify-blobs'
+let blobsRefused = false
+try {
+  createStore()
+} catch (error) {
+  blobsRefused = error?.code === 'STORE_NOT_CONFIGURED'
+}
+assert(blobsRefused, 'blobs outside netlify requires site id and token')
+process.env.SCHEDULE_STORE = 'local'
+process.env.AWS_LAMBDA_FUNCTION_NAME = 'mapping'
+let functionRefused = false
+try {
+  createStore()
+} catch (error) {
+  functionRefused = error?.code === 'STORE_NOT_CONFIGURED' && String(error.message).includes('Netlify Blobs')
+}
+assert(functionRefused, 'function without blobs context fails closed')
+process.env.SCHEDULE_STORE = savedDriver
+if (savedContext === undefined) delete process.env.NETLIFY_BLOBS_CONTEXT
+else process.env.NETLIFY_BLOBS_CONTEXT = savedContext
+if (savedLambda === undefined) delete process.env.AWS_LAMBDA_FUNCTION_NAME
+else process.env.AWS_LAMBDA_FUNCTION_NAME = savedLambda
+if (savedSite === undefined) delete process.env.NETLIFY_BLOBS_SITE_ID
+else process.env.NETLIFY_BLOBS_SITE_ID = savedSite
+if (savedToken === undefined) delete process.env.NETLIFY_AUTH_TOKEN
+else process.env.NETLIFY_AUTH_TOKEN = savedToken
+assert(createStore().driver === 'local', 'local store restored')
 
 const limited = await runScheduleJob({ trigger: 'manual', baseDate: '2026-10-30', now, paceMs: 0, scrape: false })
 assert(limited.accepted === false && limited.job.reason.includes('5 分鐘'), 'rate limit')

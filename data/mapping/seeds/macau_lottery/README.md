@@ -51,8 +51,8 @@ node scripts/check-macau-seeds.mjs
 
 ## 匯入語意
 
-這些列是澳彩名稱的 Git 種子，初始 `status` 為 `confirmed`、`source` 為 `import`。對照頁可分頁查看全表，賽事表有簡稱欄，搜尋會對上簡稱。人手改名（含簡稱，以及其他來源欄）寫入 `.schedule-store/mapping/overrides.json`，並把該筆標成 `source: manual`，不會改這個種子檔，也不用 Git commit。其他來源名稱放在同一筆的 `source_names`。已確認且來源為自動的別名不會被這份覆寫蓋掉。
+這些列是澳彩名稱的 Git 種子，初始 `status` 為 `confirmed`、`source` 為 `import`。對照頁可分頁查看全表，賽事表有簡稱欄，搜尋會對上簡稱。人手改名（含簡稱，以及其他來源欄）寫入對照儲存的 `mapping/overrides.json`，並把該筆標成 `source: manual`，不會改這個種子檔，也不用 Git commit。其他來源名稱放在同一筆的 `source_names`。已確認且來源為自動的別名不會被這份覆寫蓋掉。待確認按「確認」後，該筆來源別名也寫進對上的澳彩列 `source_names`。
 
 ## 和儲存層的關係
 
-種子留在 Git。運行時的改名與待確認工作區在 `.schedule-store/mapping/`。雲端物件儲存仍用同一鍵名，由 `SCHEDULE_STORE` 切換。日常確認、拒絕、改名不要用 Git commit 當寫入路徑。
+種子留在 Git。運行時的改名與待確認工作區在 `mapping/overrides.json` 與 `mapping/workspace.json`。本機目錄是 `.schedule-store/`。Netlify Functions 用同一鍵名寫入 Netlify Blobs。日常確認、拒絕、改名不要用 Git commit 當寫入路徑。

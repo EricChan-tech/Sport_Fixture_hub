@@ -34,7 +34,7 @@ npm run fixtures
 - Node 22
 - SPA fallback 到 `index.html`（已存在的 `/fixtures` 檔案仍照靜態檔提供）
 
-環境變數見 `.env.example`。本機預設把賽程寫進 `.schedule-store/`（不進 Git），開發伺服器用 `/schedule` 讀、用 `/api/schedule-jobs` 觸發。正式環境把 `VITE_SCHEDULE_BASE` 指到 CDN，並把 `SCHEDULE_STORE` 設成 `s3`、`r2` 或 `netlify-blobs`。手動入口要設伺服器環境變數 `SCHEDULE_JOB_TOKEN`，瀏覽器不要內嵌正式密鑰。
+環境變數見 `.env.example`。本機預設把賽程與對照寫進 `.schedule-store/`（不進 Git），開發伺服器用 `/schedule` 讀、用 `/api/schedule-jobs` 觸發。正式賽程頁把 `VITE_SCHEDULE_BASE` 指到 CDN。Netlify Functions 的檔案系統不會留到下一個實例，所以函式裡即使 `SCHEDULE_STORE=local` 也會改把同一批鍵（含 `mapping/overrides.json` 與 `mapping/workspace.json`）寫進 Netlify Blobs。`s3` 與 `r2` 仍只預留環境變數。手動入口要設伺服器環境變數 `SCHEDULE_JOB_TOKEN`，瀏覽器不要內嵌正式密鑰。
 
 每日 06:00（`CRON_TZ=Asia/Macau`）與手動更新都執行 `node pipeline/run-job.mjs`。本機要有 Chrome 或 Edge（`MACAU_CHROME` / `SCHEDULE_CHROME`）。先跑管線再按「更新此日」：
 
@@ -58,7 +58,7 @@ npm run dev
 - 某來源主客與綜合方向相反時，該來源標 `sides_swapped`。賽程表把該場主隊名與客隊名加上紅框，並寫「主客對調」。這不是紅底「缺」。時間不一致的黃格另標 `delta_minutes`。
 - 來源失敗只反映在 `source_health`（正常、降級、中斷）。降級時缺格可以是來源問題，不是賽事取消。不做規避網站防護的事。
 - 對照含賽事、球隊與待確認佇列。狀態只有 `confirmed` 或 `pending`，來源是 `auto`、`manual` 或 `import`。
-- 澳彩中英名稱種子在 `data/mapping/seeds/macau_lottery/`。完整對照表在「對照」頁分頁瀏覽；改名與待確認寫入 `.schedule-store/mapping/`，不是 Git commit。
+- 澳彩中英名稱種子在 `data/mapping/seeds/macau_lottery/`。完整對照表在「對照」頁分頁瀏覽；改名、待確認，以及確認後的來源別名寫入對照儲存的 `mapping/`，不是 Git commit。本機是 `.schedule-store/`，Netlify Functions 是 Blobs。
 - 對齊引擎在 `pipeline/align.mjs`。高信心隊名用 36 小時窗併列後標黃，低信心才收緊。主客相反寫 `sides_swapped`。
 
 ## 目錄

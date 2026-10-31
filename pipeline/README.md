@@ -31,7 +31,7 @@ node pipeline/run-job.mjs --trigger manual --sources betexplorer --base-date 202
 
 抓不到、沒有 Chrome，或機房 IP 被拒時，該來源的 `source_health` 為 `down` 或 `degraded`，格子改缺，工作本身仍成功。不要在程式裡解驗證腳本或改指紋。Netlify Functions 與 GitHub Actions 預設沒有 Chrome，機房 IP 也常被 Scoresway、AiScore 擋住，這時會降級。
 
-預設 `SCHEDULE_STORE=local`，目錄是 `.schedule-store/`。物件鍵為 `manifest.json` 與 `{sport}/days/{YYYY-MM-DD}.json`。這個目錄已在 `.gitignore`。
+預設 `SCHEDULE_STORE=local`，目錄是 `.schedule-store/`。物件鍵為 `manifest.json`、`{sport}/days/{YYYY-MM-DD}.json`、`mapping/overrides.json` 與 `mapping/workspace.json`。這個目錄已在 `.gitignore`。Netlify Functions 會改用站點級 Netlify Blobs 存同一批鍵，因為函式磁碟在實例結束後會清空。
 
 開發伺服器會把同一目錄掛到 `/schedule`，並提供 `POST /api/schedule-jobs`。手動窗口是澳門今天的前後 3 日，兩次手動更新至少相隔 5 分鐘。
 
@@ -45,13 +45,13 @@ Scoresway 與 AiScore 會用一般 headless Chrome 等頁面畫完。連除錯�
 
 網址覆寫（可空）：`BETEXPLORER_BASE`、`SCOREWAY_BASE`、`AISCORE_BASE`、`LEISU_BASE`、`LEISU_MOBILE_BASE`。
 
-物件儲存預留：`S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`、`NETLIFY_BLOBS_SITE_ID`、`NETLIFY_AUTH_TOKEN`。未填時不要把 `SCHEDULE_STORE` 改離 `local`。
+物件儲存：Netlify Functions 使用 Blobs，不必另外填密鑰。在函式外面把 `SCHEDULE_STORE` 設成 `netlify-blobs` 時才要 `NETLIFY_BLOBS_SITE_ID` 與 `NETLIFY_AUTH_TOKEN`。`s3`／`r2` 仍只預留 `S3_ENDPOINT`、`S3_BUCKET`、`S3_REGION`、`S3_ACCESS_KEY_ID`、`S3_SECRET_ACCESS_KEY`，尚未寫入。
 
 前端只讀 `VITE_SCHEDULE_BASE`。`VITE_SCHEDULE_JOB_TOKEN` 只供本機對齊伺服器 token，不要放正式密鑰。
 
 ## 對照
 
-種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`，包含澳彩中文、英文、簡稱，以及其他來源欄（BetExplorer、Scoresway、AiScore、雷速）。空白、待確認、人手或匯入的來源名稱可以改；已確認且來源為自動的別名會在目錄標成自動，寫入時拒絕覆蓋。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。
+種子全表由 `GET /api/mapping/catalog` 分頁。賽事列帶 `short_name_zh`（繁體簡稱，可空），目錄搜尋與對照表簡稱欄會讀它。人手改名在 `mapping/overrides.json`，包含澳彩中文、英文、簡稱，以及其他來源欄（BetExplorer、Scoresway、AiScore、雷速）。空白、待確認、人手或匯入的來源名稱可以改；已確認且來源為自動的別名會在目錄標成自動，寫入時拒絕覆蓋。待確認工作區在 `mapping/workspace.json`。確認與拒絕走 `POST /api/mapping/confirm` 與 `/reject`。確認會把該筆 BetExplorer、Scoresway、AiScore、雷速別名寫進中文名對上的澳彩列 `source_names`；已有人手欄（含刻意留空）不會被蓋掉。中文名對上多列且英文對不上時不寫，避免套到另一支球隊。
 
 ## 對齊
 

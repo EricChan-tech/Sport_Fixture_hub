@@ -115,6 +115,43 @@ async function findSeedItem(entityId) {
  * Reject edits that would replace a high-confidence auto-confirmed alias.
  * Identical text is reported as locked so the caller does not store it as manual.
  */
+function entityKind(entity) {
+  if (entity?.entity === 'team' || entity?.entity === 'competition') return entity.entity
+  if (entity?.competition_id) return 'competition'
+  if (entity?.team_id) return 'team'
+  return ''
+}
+
+/**
+ * Macau seed rows that should receive this workspace entity's source aliases.
+ * A unique Chinese name is enough. Several rows that share both Chinese and
+ * English are real duplicates and all of them are updated. Different English
+ * names are left alone so one confirmation cannot spill onto another club.
+ */
+export async function macauTargetsForEntity(entity) {
+  const sport = entity?.sport
+  const kind = entityKind(entity)
+  if ((sport !== 'football' && sport !== 'basketball') || (kind !== 'team' && kind !== 'competition')) return []
+  const macau = (entity.aliases || []).find((alias) => alias.source_id === 'macau_lottery')
+  const keys = new Set()
+  for (const key of [entity.name_zh, macau?.name_zh, entity.short_zh]) {
+    const norm = normalizeName(key)
+    if (norm) keys.add(norm)
+  }
+  if (keys.size === 0) return []
+  const items = await loadItems(sport, kind)
+  const candidates = items.filter((item) => keys.has(normalizeName(item.canonical_name_zh)))
+  if (candidates.length <= 1) return candidates
+  const english = new Set()
+  for (const key of [entity.name_en, macau?.name_en]) {
+    const norm = normalizeName(key)
+    if (norm) english.add(norm)
+  }
+  const byEnglish = candidates.filter((item) => english.has(normalizeName(item.canonical_name_en)))
+  if (byEnglish.length === 0) return []
+  return byEnglish
+}
+
 export async function lockedNamesForEdit(entityId, sourceNames, canonicalNameZh) {
   if (!sourceNames || typeof sourceNames !== 'object' || Array.isArray(sourceNames)) {
     throw badRequest('來源名稱格式不正確。')

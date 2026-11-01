@@ -33,7 +33,7 @@ function classText(block, className) {
 export function parseScoreswayHtml(html, sport) {
   const text = String(html || '')
   if (isBlockedPage(text)) {
-    const error = new Error('Scoresway 頁面被拒絕，沒有賽程內容。')
+    const error = new Error('Scoresway 頁面被拒絕，沒有賽程內容。站方拒絕這次開啟，不解防護，賽程格降級為缺格。')
     error.code = 'BLOCKED'
     throw error
   }

@@ -56,7 +56,10 @@ function stopProcess(child) {
 /**
  * Ordinary headless Chrome. No proxy and no fingerprint evasion.
  * `dump-dom` returns before some schedule pages finish their own requests,
- * so this waits on the page target until the list is drawn or the site blocks.
+ * so this waits on the page target until the list is drawn.
+ * A hard refusal (Access Denied) is returned as-is. A verification interstitial
+ * is the browser's own page: keep waiting until the schedule appears or the
+ * timeout ends. This does not solve, click, or rewrite that page.
  */
 export async function openBrowser(options = {}) {
   const bin = options.chromePath || await resolveChrome()
@@ -163,9 +166,9 @@ export async function openBrowser(options = {}) {
       while (Date.now() - started < timeoutMs) {
         await delay(500)
         html = await pageHtml()
-        if (/Just a moment|Access Denied|cf-browser-verification|errors\.edgesuite\.net/i.test(html)) return html
         const probe = await send('Runtime.evaluate', { expression: `Boolean(${ready})`, returnByValue: true })
         if (probe.result?.result?.value) return html
+        if (/Access Denied|errors\.edgesuite\.net/i.test(html)) return html
       }
       return html || pageHtml()
     },

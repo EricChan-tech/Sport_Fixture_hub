@@ -23,13 +23,13 @@ node pipeline/run-job.mjs --trigger manual --sources betexplorer --base-date 202
 | --- | --- | --- |
 | 澳彩 | `macauslot.com` 足球／籃球賽程，`lang=cn` 是繁體 | 頁面要瀏覽器才畫得出來。`google-chrome`、`chromium` 或 `MACAU_CHROME` |
 | BetExplorer | `betexplorer.com/?year=&month=&day=` 足球日期頁；籃球未來用 `/basketball/next/?year=`，已過用 `/basketball/results/?year=` | 跟網站日期鍵走，並帶 `my_timezone=+8`。列表若還有下一頁，再讀網站自己的 `homepage-data.php`。有 `data-ts` 時用絕對時間，再寫成 Asia/Macau |
-| Scoresway | `scoresway.com/en_GB/soccer` 與 `/en_GB/basketball` | 先取 HTML。賽程若要等 Opta 元件畫出，才開一般 headless Chrome |
-| AiScore | `aiscore.com` 與 `/basketball` | 頁面自帶的 `__NUXT__` 賽程。驗證頁就停，不解驗證 |
-| 雷速 | `m.leisu.com/live/saicheng-YYYYMMDD`，籃球是 `/live/lanqiu/saicheng-YYYYMMDD` | 手機賽程頁。整日名單在頁面資料裡，畫面上只先畫出一部分 |
+| Scoresway | `scoresway.com/en_GB/soccer` 與 `/en_GB/basketball` | 先取 HTML。賽程若要等 Opta 元件畫出，才開一般 headless Chrome。站方回 Access Denied 就停，該來源降級為缺格 |
+| AiScore | `aiscore.com` 與 `/basketball` | 頁面自帶的 `__NUXT__` 賽程。驗證頁會再等瀏覽器自己畫完；逾時仍停在驗證就停，不解驗證，該來源降級為缺格 |
+| 雷速 | `https://m.leisu.com/` 當日頁 | 讀伺服器寫進頁面的 `data-ssr-matches`，沒有再讀畫面上的賽事卡。舊的 `/live/saicheng-YYYYMMDD` 現在只有殼、名單請求不到場次。當日頁是重要賽事窗口，不是全日每一場；某運動或某日沒有場次就只降級該格 |
 
 澳彩開賽鐘點按頁面原文，時區視為 Asia/Macau。其餘來源先還原成絕對時間，再寫成 `+08:00`。名稱用該頁顯示的聯賽與主客隊，不翻譯。手動更新只寫 `--base-date` 那天，日更才寫今天 ±3 日。高信心對齊仍寫進 `.schedule-store/mapping/`，不進 Git。
 
-抓不到、沒有 Chrome，或機房 IP 被拒時，該來源的 `source_health` 為 `down` 或 `degraded`，格子改缺，工作本身仍成功。不要在程式裡解驗證腳本或改指紋。Netlify Functions 與 GitHub Actions 預設沒有 Chrome，機房 IP 也常被 Scoresway、AiScore 擋住，這時會降級。
+抓不到、沒有 Chrome，或機房 IP 被拒時，該來源的 `source_health` 為 `down` 或 `degraded`，格子改缺，工作本身仍成功。不要在程式裡解驗證腳本或改指紋。本機 Edge 若仍被 Scoresway 拒絕、或 AiScore 驗證頁沒有自行結束，同樣只降級該來源。Netlify Functions 與 GitHub Actions 預設沒有 Chrome，機房 IP 也常被 Scoresway、AiScore 擋住，這時會降級。
 
 預設 `SCHEDULE_STORE=local`，目錄是 `.schedule-store/`。物件鍵為 `manifest.json`、`{sport}/days/{YYYY-MM-DD}.json`、`mapping/overrides.json` 與 `mapping/workspace.json`。這個目錄已在 `.gitignore`。Netlify Functions 會改用站點級 Netlify Blobs 存同一批鍵，因為函式磁碟在實例結束後會清空。
 

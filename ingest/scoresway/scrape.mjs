@@ -46,7 +46,7 @@ async function loadPage(page, options) {
     }
   }
   if (options.renderPage === false) {
-    const error = new Error(isBlockedPage(text) ? 'Scoresway 頁面被拒絕，沒有賽程內容。' : 'Scoresway 頁面沒有賽程內容。')
+    const error = new Error(isBlockedPage(text) ? 'Scoresway 頁面被拒絕，沒有賽程內容。站方拒絕這次開啟，不解防護，賽程格降級為缺格。' : 'Scoresway 頁面沒有賽程內容。')
     error.code = isBlockedPage(text) ? 'BLOCKED' : 'EMPTY'
     throw error
   }

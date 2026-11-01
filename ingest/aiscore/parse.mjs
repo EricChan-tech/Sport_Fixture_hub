@@ -107,7 +107,7 @@ export function readAiscoreState(html) {
 export function parseAiscoreHtml(html, sport) {
   const text = String(html || '')
   if (isChallengePage(text)) {
-    const error = new Error('AiScore 頁面停在驗證，沒有賽程內容。')
+    const error = new Error('AiScore 頁面停在驗證，沒有賽程內容。驗證沒有自行結束，不解驗證，賽程格降級為缺格。')
     error.code = 'BLOCKED'
     throw error
   }

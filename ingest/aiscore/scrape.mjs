@@ -26,7 +26,7 @@ async function readRendered(url, options) {
   const browser = await openBrowser()
   try {
     return await browser.render(url, {
-      timeoutMs: options.timeoutMs ?? 15000,
+      timeoutMs: options.timeoutMs ?? 25000,
       readyExpression: "document.documentElement.outerHTML.includes('matchTime')",
     })
   } finally {
@@ -46,7 +46,7 @@ async function loadPage(page, options) {
     }
   }
   if (options.renderPage === false) {
-    const error = new Error(isChallengePage(text) ? 'AiScore 頁面停在驗證，沒有賽程內容。' : 'AiScore 賽程頁沒有解析到場次。')
+    const error = new Error(isChallengePage(text) ? 'AiScore 頁面停在驗證，沒有賽程內容。驗證沒有自行結束，不解驗證，賽程格降級為缺格。' : 'AiScore 賽程頁沒有解析到場次。')
     error.code = isChallengePage(text) ? 'BLOCKED' : 'EMPTY'
     throw error
   }

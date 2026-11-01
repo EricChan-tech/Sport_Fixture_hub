@@ -4,10 +4,11 @@ import path from 'node:path'
 import { parseAiscoreHtml } from '../ingest/aiscore/parse.mjs'
 import { parseBetexplorerHtml } from '../ingest/betexplorer/parse.mjs'
 import { scrapeBetexplorer } from '../ingest/betexplorer/scrape.mjs'
-import { parseLeisuHomeHtml, parseLeisuScheduleHtml } from '../ingest/leisu/parse.mjs'
+import { isBlockedPage, parseLeisuHomeHtml, parseLeisuScheduleHtml } from '../ingest/leisu/parse.mjs'
 import { scrapeLeisu } from '../ingest/leisu/scrape.mjs'
 import { daysFromFixtures } from '../ingest/publish.mjs'
 import { SOURCE_SCRAPERS } from '../ingest/scrapers.mjs'
+import { macauStamp } from '../ingest/clock.mjs'
 import { chromeWebSocket } from '../ingest/browser.mjs'
 import { parseScoreswayHtml } from '../ingest/scoresway/parse.mjs'
 import { scrapeScoresway } from '../ingest/scoresway/scrape.mjs'
@@ -156,6 +157,38 @@ assert(leisu[0].league_name === '丹麦超' && leisu[0].home_name === '哥本哈
 assert(leisu[0].external_id === '4553730', 'leisu football id')
 assert(leisu[1].sport === 'basketball' && leisu[1].home_name === '湖人' && leisu[1].away_name === '塞爾特人', 'leisu basketball names')
 
+const leisuSsr = `<script src="/js/AliyunCaptchaConfig.js"></script><div data-ssr-matches="[{&quot;id&quot;:&quot;3946190&quot;,&quot;sport_id&quot;:2,&quot;status_id&quot;:10,&quot;match_time&quot;:1793532900,&quot;finished&quot;:true,&quot;title&quot;:&quot;CBA 常规赛&quot;,&quot;home&quot;:{&quot;name&quot;:&quot;浙江&quot;},&quot;away&quot;:{&quot;name&quot;:&quot;江苏&quot;}},{&quot;id&quot;:&quot;4566535&quot;,&quot;sport_id&quot;:1,&quot;status_id&quot;:4,&quot;match_time&quot;:1793536200,&quot;playing&quot;:true,&quot;title&quot;:&quot;德乙&quot;,&quot;home&quot;:{&quot;name&quot;:&quot;菲尔特&quot;},&quot;away&quot;:{&quot;name&quot;:&quot;荷尔斯泰因&quot;}},{&quot;id&quot;:&quot;9&quot;,&quot;sport_id&quot;:3,&quot;match_time&quot;:1793536200,&quot;home&quot;:{&quot;name&quot;:&quot;A&quot;},&quot;away&quot;:{&quot;name&quot;:&quot;B&quot;}}]"></div>`
+const leisuDaily = parseLeisuHomeHtml(leisuSsr)
+const leisuBasket = leisuDaily.find((row) => row.sport === 'basketball')
+const leisuFoot = leisuDaily.find((row) => row.sport === 'football')
+assert(leisuDaily.length === 2, 'leisu daily page skips other sports')
+assert(!isBlockedPage(leisuSsr), 'captcha script on a daily page is not a block')
+assert(isBlockedPage('<html><title>验证</title>驗證碼</html>'), 'leisu captcha wall is blocked')
+assert(leisuBasket?.home_name === '浙江' && leisuBasket?.away_name === '江苏', 'leisu basketball keeps home and away')
+assert(leisuBasket?.kickoff_at === macauStamp(new Date(1793532900 * 1000)).kickoff_at, 'leisu basketball kickoff')
+assert(leisuBasket?.status === 'finished' && leisuBasket?.league_name === 'CBA 常规赛' && leisuBasket?.external_id === '3946190', 'leisu basketball status')
+assert(leisuFoot?.home_name === '菲尔特' && leisuFoot?.away_name === '荷尔斯泰因' && leisuFoot?.status === 'live', 'leisu football daily row')
+
+const leisuCards = parseLeisuHomeHtml(`
+<div class="home-date">11月01日 星期日</div>
+<article class="match-card match-card--football">
+  <time>20:30</time>
+  <span class="match-card__league">德乙</span>
+  <div class="match-team match-team--home"><span>菲爾特</span></div>
+  <div class="match-team match-team--away"><span>荷爾斯泰因</span></div>
+</article>
+<article class="match-card match-card--basketball">
+  <time>19:35</time>
+  <span class="match-card__league">CBA</span>
+  <div class="match-team match-team--home"><span>江蘇</span></div>
+  <div class="match-team match-team--away"><span>浙江</span></div>
+</article>`)
+const cardYear = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Macau', year: 'numeric' }).format(new Date())
+assert(leisuCards.length === 2, 'leisu visible cards')
+assert(leisuCards.find((row) => row.sport === 'football')?.home_name === '菲爾特', 'leisu card football home')
+assert(leisuCards.find((row) => row.sport === 'basketball')?.home_name === '浙江' && leisuCards.find((row) => row.sport === 'basketball')?.away_name === '江蘇', 'leisu card basketball sides')
+assert(leisuCards.every((row) => row.date === `${cardYear}-11-01` && row.kickoff_at.endsWith(':00+08:00')), 'leisu card macau clock')
+
 const leisuSchedule = parseLeisuScheduleHtml(`
 <li class="ftb-lier-base"><a href="/detail-99">
   <div class="com-name">英超</div>
@@ -185,6 +218,29 @@ const leisuScraped = await scrapeLeisu({
 assert(leisuScraped.ok && leisuScraped.fixtures.length === 2, 'leisu schedule list')
 assert(leisuScraped.sports.football.count === 1 && leisuScraped.sports.basketball.count === 1, 'leisu both sports')
 assert(leisuScraped.fixtures.some((fixture) => fixture.external_id === '4553730' && fixture.league_name === '丹麦超'), 'leisu schedule names')
+
+const leisuPage = await scrapeLeisu({
+  sports: ['football', 'basketball'],
+  dates: [leisuFoot.date],
+  renderPage: false,
+  fetchText: async () => ({ text: leisuSsr }),
+})
+assert(leisuPage.ok && leisuPage.fixtures.length === 2, 'leisu daily page scrape')
+assert(leisuPage.sports.football.ok && leisuPage.sports.basketball.ok, 'leisu daily page both sports')
+const leisuMiss = await scrapeLeisu({
+  sports: ['football'],
+  dates: ['2020-01-01'],
+  renderPage: false,
+  fetchText: async () => ({ text: leisuSsr }),
+})
+assert(leisuMiss.ok === false && leisuMiss.sports.football.message.includes('沒有這日的足球'), 'leisu daily page without that date')
+const leisuDenied = await scrapeLeisu({
+  sports: ['football', 'basketball'],
+  dates: ['2026-11-01'],
+  renderPage: false,
+  fetchText: async () => ({ text: '<html>驗證碼</html>' }),
+})
+assert(leisuDenied.ok === false && leisuDenied.sports.football.message.includes('被拒絕'), 'leisu refusal degrades')
 
 const denied = await scrapeScoresway({
   sports: ['football'],
